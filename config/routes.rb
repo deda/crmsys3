@@ -1,58 +1,131 @@
 Crmsys::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
+  root :to => 'contacts#index'
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  resources :accounts
+  resources :attachmends
+  resources :comments
+  resources :contacts do
+    member do
+      get  :quick_info
+      post :update_avatar
+    end
+    collection do
+      get  :imexport
+      get  :export
+      post :import
+      post :mass_destroy
+    end
+  end
+  resources :people
+  resources :companies
+  resources :ware_items
+  resources :sale_items
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :ware_houses do
+    member do
+      get :edit_ware_items
+      put :update_ware_items
+    end
+  end
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :sales do
+    member do
+      get  :cancel
+      post :sip
+      get  :quick_info
+    end
+    collection do 
+      post :mass_destroy
+      post :mass_state
+    end
+  end
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  resources :cases do
+    member do 
+      get  :cancel
+      get  :report
+      get  :print
+      post :sip
+      get  :quick_info
+      post :update_inventory
+    end
+    collection do
+      post :mass_destroy
+      post :mass_state
+    end
+  end
 
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
+  resources :tasks do
+    member do
+      put :accept
+      put :move
+      get :quick_info
+    end
+    collection do
+      post :mass_destroy
+      post :mass_accept
+      get  :mass_new
+    end
+  end
 
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  namespace :settings do
+    resources :account
+    resources :color_schemes
+    resources :sale_states do
+      post :mass_destroy, :on => :collection
+    end
+    resources :case_states do
+      post :mass_destroy, :on => :collection
+    end
+    resources :users do
+      post :mass_destroy, :on => :collection
+    end
+    resources :user_groups do
+      post :mass_destroy, :on => :collection
+    end
+    resources :recent_records do
+      post :mass_destroy, :on => :collection
+    end
+    namespace :tariff_plans do
+      resources :account_tariff_plans do
+	post :mass_destroy, :on => :collection
+      end
+    end
+  end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  namespace :reports do
+    #root :to => 'sales'
+    resources :tasks do
+      collection do
+        get  :punctuality
+	post :punctuality
+        get  :outcoming
+	post :outcoming
+      end
+    end
+    resources :users do
+      collection do
+	get  :activity
+	post :activity
+      end
+    end
+    resources :contacts do
+      collection do
+	get  :problem_clients
+	post :problem_clients
+      end
+    end
+    resources :logs do
+      collection do
+	get  :logs_view
+	post :logs_view
+      end
+    end
+  end
 
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  match 'fuzzy/search' => 'fuzzy#search', :as => :fuzzy_search
+  match 'users/:id/update_avatar' => 'users#update_avatar', :as => :update_avatar_user
+  match 'feedback/create' => 'feedback#create'
+  
 end

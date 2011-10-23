@@ -1,0 +1,27 @@
+<%
+  url, method = get_url_and_method(contact)
+%>
+<% semantic_form_for :bank, contact, :url => url, :html => {:method => method, :target => 'target_frame'} do |form| %>
+  <div class="item_fields_container">
+    <% form.inputs do %>
+      <%= form.input :given_name %>
+      <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :urls} %>
+      <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :phones} %>
+      <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :emails} %>
+      <%= render :partial => 'shared/hideble',
+        :locals => {
+          :title    => t(:additional_info),
+          :visible  => contact.additional_info?,
+          :content  => "
+            #{form.input :family_name, :required => false}
+            #{form.input :bic, :required => false}
+            #{form.input :cs, :required => false}
+            #{form.input :inn, :required => false}
+            #{form.input :kpp, :required => false}
+            #{form.input :ogrn, :required => false}
+            #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/address', :model => contact, :items => :addresses}}
+            #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/tag', :model => contact, :items => :tags, :auto_add => true}}
+            #{form.input :visible, :label => t(:visible), :required => false}"} %>
+    <% end %>
+  </div>
+<% end %>

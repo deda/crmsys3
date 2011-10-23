@@ -1,0 +1,4 @@
+# обновим краткое описание
+page.replace "sale_line_#{@sale.id}",
+  :partial => 'shared/sales/sale',
+  :locals => {:sale => @sale}

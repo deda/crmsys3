@@ -1,0 +1,21 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <% unless current_user.is_admin? %>
+
+  <div class="item_container sheet" id="user_container" style="display:block;">
+    <%= render :partial => 'form', :locals => {:user => current_user} %>
+  </div>
+
+  <% else %>
+
+  <div class="item_container sheet" id="user_container">
+  </div>
+  <div class="sheet" id="users_list_container">
+    <%= render :partial => 'list', :locals => {:users => @users} %>
+  </div>
+
+  <% end %>
+
+</div>

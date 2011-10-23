@@ -1,0 +1,24 @@
+<tr class="item_line" id="<%= "account_line_#{account.id}" %>">
+  <td class="item_opers">
+    <% if account.can_be_edited %>
+    <a class="item_chg_link"
+      href="#"
+      title="<%= t(:edit) %>"
+      onclick="<%= remote_function :url => edit_account_path(account), :method => :get %>">
+    </a>
+    <% end %>
+    <% if account.can_be_deleted %>
+    <a class="item_del_link"
+      href="#"
+      title="<%= t(:delete) %>"
+      onclick="<%= remote_function :url => account_path(account), :method => :delete, :confirm => t(:confirm_delete) %>">
+    </a>
+    <% end %>
+  </td>
+  <td class="info">
+    <%= link_to_remote h(account.name), :url => account_path(account), :method => :get, :html => {:class => :link_class} %><br />
+    <b><%= t(:created) %>: </b><%= I18n.l(account.created_at, :format => "%a, %d %b %Y") %>
+    <b><%= t(:expiry) %>: </b><%= I18n.l(account.end_time, :format => "%a, %d %b %Y") %>
+    <b><%= t(:users) %>: </b><%= account.users.size %>
+  </td>
+</tr>

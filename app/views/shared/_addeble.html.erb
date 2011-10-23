@@ -1,0 +1,45 @@
+<%
+  coll = []
+  name = "#{model.class.name.downcase}[#{items}_attributes][]"
+  coll = model.send(items)
+  coll[0] = model.class.reflections[items].klass.new if coll.size == 0
+  empty_present = false
+  auto_add ||= nil
+  auto_add = auto_add ? ' auto_add' : ''
+  unless defined?(title)
+    title = t(items)
+  end
+%>
+<table class="addeble">
+  <% coll.each_with_index do |item,i| %>
+    <% empty_present = true if item.empty? %>
+  <tr class="item_line<%=' new_line' if item.new_record?%>">
+    <td class="label"><%=h title if (i == 0 and title) %></td>
+    <td class="item_opers"><a class="item_del_link" href="#" title="<%= t(:delete) %>"></a></td>
+    <td class="content"><%= render :partial => view, :locals => {:model => model, :item => item, :name => name} %></td>
+  </tr>
+  <% end %>
+  <tr class="item_line<%= auto_add %>" <%= "style='display:none'" if empty_present %>>
+    <td></td>
+    <td class="item_opers"><a class="item_add_link" href="#" title="<%= t(:add) %>"></a></td>
+    <td></td>
+  </tr>
+</table>
+<%#
+  Добавляемые элементы. Пример использования:
+    render :partial => 'shared/addeble',
+      :locals => {
+        :view  => 'shared/addeble/contact_item',
+        :model => contact,
+        :items => :phones}
+  view      - содержимое ячейки .content таблицы интерфейса addeble, определяющее
+              собственно кол-во, размещение элементов ввода. Интерфейс ничего не
+              знает об этом содержимом, он просто копирует при добавлении это
+              содержимое и удаляет при удалении.
+  model     - для получения коллекции элементов items, а также для генерирования
+              id элементов html (см. код name=...)
+  items     - имя коллекции элементов в model.
+  auto_add  - [true,false] - если true, то после того как все поля будут не
+              пустые, автоматически появится новое пустое поле для ввода
+  title     - [false,'label_text'] - если не задано, то берет t(items)
+%>

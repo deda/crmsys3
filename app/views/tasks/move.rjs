@@ -1,0 +1,16 @@
+owner = owner_string(@owner)
+
+# прячем ПРОСМОТР
+page << "$('##{owner}task_container').hide();"
+
+# обновляем СПИСОК
+page.replace_html "#{owner}tasks_list_container",
+  :partial => 'shared/tasks/tasks_list',
+  :locals => {:tasks => @tasks, :owner => @owner}
+
+# показываем СПИСОК
+page << "$('##{owner}tasks_list_container').show();"
+
+# визуальный эффект на измененной задаче
+page.visual_effect :highlight, "task_line_#{@task.id}",
+  :duration => 2

@@ -1,0 +1,14 @@
+<% div_for operand do %>
+    <% fields_name = operand.new_record? ? "new_"+operand.is+"s[]" : "contact["+operand.is+"s_attributes][]" %>
+  <% fields_for fields_name, operand do |e|%>
+    <%= button_to_function "-" do |page|
+      page << "if(#{operand.new_record?}){$(this).parent().remove();}"
+      page << "else{$('##{operand.is}_#{operand.id}').hide();$('#contact_#{operand.is}s_attributes_#{operand.id}__delete').attr('value',1);}"
+    end %>
+    <%= e.text_field :value%>
+    <% unless e.object.new_record? %>
+      <%= e.hidden_field :_delete %>
+      <%= e.hidden_field :id %>
+    <% end %>
+  <% end %>
+<% end %>

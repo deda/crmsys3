@@ -1,0 +1,14 @@
+# прячем СОЗДАНИЕ
+page << "$('#sale_container').hide();"
+
+# обновляем СПИСОК
+page.replace_html "sales_list_container",
+  :partial => 'shared/sales/sales_list',
+  :locals => {:sales => @sales}
+
+# показываем СПИСОК
+page << "$('#sales_list_container').show();left_menu.correct()"
+
+# визуальный эффект на новой сделке
+page.visual_effect :highlight, "sale_line_#{@sale.id}",
+  :duration => 2

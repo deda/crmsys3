@@ -1,0 +1,6 @@
+page.replace 'canvas_container',
+  :partial  => 'shared/canvas',
+  :locals   => {:data => @data}
+
+page << "$('#canvas_container').show()"
+page << "canvas_code.run()"

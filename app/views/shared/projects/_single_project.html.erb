@@ -1,0 +1,19 @@
+<div class="single_project">
+  <div>
+    <span class="bold"><%= t('.name')%></span>:&nbsp;&nbsp;<span><%=h project.name %></span><br/>
+  </div>
+</div>
+
+<div class="wide_button">
+  <% if project.can_be_edited %>
+    <%= button_to_remote t(:edit),
+      :url => edit_project_path(project),
+      :method => :get %>
+  <% end %>
+  <% if project.can_be_deleted %>
+    <%= button_to_remote t(:delete),
+      :url => project_path(project),
+      :method => :delete,
+      :confirm => t(:confirm_delete)%>
+  <% end %>
+</div>

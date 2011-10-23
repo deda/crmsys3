@@ -1,0 +1,14 @@
+# прячем СОЗДАНИЕ
+page << '$("#user_group_container").hide();'
+
+# обновляем СПИСОК
+page.replace_html 'user_groups_list_container',
+  :partial  => 'list',
+  :locals   => {:user_groups => @user_groups}
+
+# показываем СПИСОК
+page << '$("#user_groups_list_container").show();'
+
+# визуальный эффект
+page.visual_effect :highlight, "user_group_line_#{@user_group.id}",
+  :duration => 2

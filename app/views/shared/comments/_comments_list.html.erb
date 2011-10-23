@@ -1,0 +1,10 @@
+<%
+  # да. код в виде.
+  # мы же хотим быстрой работы комментов с использованием JavaScript?
+  owner.comments << Comment.for_user.build(
+    :text       => '',
+    :created_at => DateTime.now)
+%>
+<table class="comments_table" id="<%= "#{html_id(owner)}_comments_list" %>">
+  <%= render :partial => 'shared/comments/comment', :locals => {:edit_comment => edit_comment}, :collection => owner.comments %>
+</table>

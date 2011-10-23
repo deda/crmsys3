@@ -1,0 +1,17 @@
+<%= edit_inventory ||= nil %>
+<table class="inventory_table" id="<%= "#{owner_string(owner)}inventory_items_list" %>">
+  <thead>
+    <tr>
+      <th class="item_opers"></th>
+      <th class="number">№</th>
+      <th class="document"><%= t(:document) %></th>
+      <th class="numof_sheets"><%= t(:numof_sheets) %></th>
+      <th class="attaches"><%= t(:attachmends) %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render :partial => 'shared/inventory/inventory_item',
+    :locals => {:edit_inventory => edit_inventory, :editable => editable},
+    :collection => owner.inventory_items %>
+  </tbody>
+</table>

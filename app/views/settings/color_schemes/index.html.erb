@@ -1,0 +1,21 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <div class="sheet">
+
+    <div class="sheet_title">
+      <%= t(:color_schemes) %>
+    </div>
+
+    <% semantic_form_for :scheme, :url => '/settings/color_schemes/1', :html => {:method => :put} do |f| %>
+      <%= f.input :id, :as => :hidden, :value => current_user.settings.scheme %>
+      <%= render :partial => 'scheme', :collection => [0,1,2] %>
+      <% f.buttons do %>
+        <%= f.commit_button t(:save) %>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>

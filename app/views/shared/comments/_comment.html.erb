@@ -1,0 +1,51 @@
+<%#
+  Пиздецки не по децки заморочено тут все конечно..
+  Все для того, что бы:
+    1. не было <form>...</form> для комментов;
+       P.S. - хотя спорный вопрос.. комменты все равно пока не вкладываются
+              никуда. а если и будут когда-нибудь, то можно реализовать так как
+              во вложениях, т.е. с отделенными формами
+    2. используется javascript и ajax для ускорения работы;
+    3. обращение к серверу только когда это действительно необходимо.
+  С такой реализацией вся работа идет через ajax и комменты можно вкладывать
+  в любое место, не боясь при этом получить вложенные формы.
+%>
+<%
+  edit_comment ||= nil
+  id = comment.new_record? ? '' : "id='comment_line_#{comment.id}'"
+  comment_error =
+    edit_comment &&
+    (comment.new_record? ? edit_comment.new_record? : comment.id == edit_comment.id) &&
+    edit_comment.respond_to?(:errors) &&
+    !edit_comment.errors[:text].blank?
+  attachmends_mode = comment.new_record? ? :new : :show
+%>
+<tr class="item_line <%= 'last' if comment.new_record? %>" <%= id %>>
+  <td class="item_opers">
+  <% if !comment.new_record? %>
+    <a class="item_uch_link <%= 'hidden' if !comment_error %>" href="#" title="<%= t(:cancel_edit) %>" onclick="comment.cancel(this); return false;"></a>
+    <% if comment.can_be_edited %>
+    <a class="item_chg_link <%= 'hidden' if  comment_error %>" href="#" title="<%= t(:edit) %>" onclick="comment.edit(this); return false;"></a>
+    <% end %>
+    <% if comment.can_be_deleted %>
+    <a class="item_del_link <%= 'hidden' if  comment_error %>" href="#" title="<%= t(:delete) %>" onclick="comment.del(this); return false;"></a>
+    <% end %>
+  <% else %>
+    <a class="item_uad_link <%= 'hidden' if !comment_error %>" href="#" title="<%= t(:cancel) %>" onclick="comment.cancel(this); return false;"></a>
+  <% end %>
+    <a class="item_apl_link <%= 'hidden' if !comment_error %>" href="#" title="<%= t(:save) %>" onclick="comment.<%= comment.new_record? ? 'create' : 'update' %>(this);  return false;"></a>
+  </td>
+  <td class="icon">
+    <%= image_tag comment.user.avatar_url(:s32x32), :class => (comment.new_record? and !comment_error) ? :hidden : nil %>
+  </td>
+  <td class="content">
+    <div class="title <%= 'hidden' if comment.new_record? and !comment_error %>"><%= comment.user.name %></div>
+    <div class="dati  <%= 'hidden' if comment.new_record? and !comment_error %>"><%= l(comment.created_at, :format => :long) %></div>
+    <div class="text  <%= 'hidden' if comment_error %>"><%= h(comment.text).gsub("\n", "<br>") %></div>
+  <% if comment_error %>
+    <textarea rows="5" cols="20" class="error"><%= edit_comment.text %></textarea>
+    <p class="error"><%= edit_comment.errors.on(:text) %></p>
+  <% end %>
+    <%= render :partial => 'shared/attachmends/my_attachmends', :locals => {:owner => comment, :mode => attachmends_mode, :title_class => 'small', :visible => false, :hideble_class => comment.new_record? ? 'hidden' : ''} %>
+  </td>
+</tr>

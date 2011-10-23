@@ -1,0 +1,142 @@
+<div class="specification">
+
+<%# Вариант со спецификацией -------------------------------------------------%>
+<% if current_user.account.tariff_plan.with_commodities %>
+<% row_num = 0 %>
+  <div class="dividing_line_black_2px"><span><%= t('.specification') %></span></div>
+  <% if !form && @sale.sale_items.empty? %>
+    <%= t('.no_items') %>
+  <% else %>
+  <%= "<input type='hidden' name='chg_item_id' value='#{@chg_item.id}' />" if @chg_item %>
+  <table class="items">
+    <thead>
+      <tr>
+        <th class="item_opers"></th>
+        <th style="width:3%">№</th>
+        <th><%= t('.ware_name') %></th>
+        <th style="width:10%"><%= t('.article') %></th>
+        <th style="width:17%"><%= t('.ware_house') %></th>
+        <th style="width:8%"><%= t('.price') %></th>
+        <th style="width:8%"><%= t('.discount') %></th>
+        <th style="width:8%"><%= t('.price_discount') %></th>
+        <th style="width:8%"><%= t('.quantity') %></th>
+        <th style="width:8%"><%= t('.total') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sale.sale_items.each do |sale_item| %>
+      <tr class="item_line">
+        <%# редактируемая позиция спецификации %>
+        <% if form and @chg_item and sale_item.id == @chg_item.id %>
+        <td class="item_opers">
+          <a class="item_uch_link"
+            href="#"
+            title="<%= t(:cancel_edit) %>"
+            onclick="<%= "if(confirm('#{t(:confirm_cancel_edit)}')){sale.new_item(null,'uch_item',0)}" %>">
+          </a>
+          <a class="item_del_link"
+            href="#"
+            title="<%= t(:delete) %>"
+            onclick="<%= "if(confirm('#{t(:confirm_delete)}')){sale.new_item(null,'del_item',#{@chg_item.id})}" %>">
+          </a>
+        </td>
+        <% form.semantic_fields_for :chg_item, @chg_item do |chg_item| %>
+        <td><%= row_num += 1 %></td>
+        <td><%= @chg_item.ware_item.ware.name %></td>
+        <td><%= @chg_item.ware_item.ware.art %></td>
+        <td><%= chg_item.input :ware_item_id, :as => :select, :collection => @chg_item.ware_item.ware.ware_items_collection, :include_blank => false, :label => false %></td>
+        <td id="sale_chg_item_price"><%= @chg_item.ware_item.ware.price_out %></td>
+        <td><%= render :partial => 'shared/discount_picker', :locals => {:form => chg_item, :item => @chg_item} %></td>
+        <td><%= chg_item.input :price_discount, :label => false %></td>
+        <td><%= chg_item.input :quantity,       :label => false %></td>
+        <td><%= chg_item.input :price_total,    :label => false %></td>
+        <% end %>
+        <% else %>
+        <%# обычная просматриваемая позиция спецификации %>
+        <td class="item_opers">
+          <% if form and @sale.can_be_edited %>
+          <a class="item_chg_link"
+            href="#"
+            title="<%= t(:edit) %>"
+            onclick="<%= "sale.new_item(null,'chg_item',#{sale_item.id})" %>">
+          </a>
+          <% end %>
+          <% if form and @sale.can_be_deleted %>
+          <a class="item_del_link"
+            href="#"
+            title="<%= t(:delete) %>"
+            onclick="<%= "if(confirm('#{t(:confirm_delete)}')){sale.new_item(null,'del_item',#{sale_item.id})}" %>">
+          </a>
+          <% end %>
+        </td>
+        <td><%= row_num += 1 %></td>
+        <td><%= sale_item.ware_item.ware.name %></td>
+        <td><%= sale_item.ware_item.ware.art %></td>
+        <td><%= sale_item.ware_item.ware_house.name %></td>
+        <td><%= sale_item.price_out %></td>
+        <td><%= sale_item.discount_value %></td>
+        <td><%= sale_item.price_discount %> </td>
+        <td><%= sale_item.quantity %></td>
+        <td><%= sale_item.price_total %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    <% if @new_item %>
+      <%# новая позиция спецификации %>
+      <% form.semantic_fields_for :new_item, @new_item do |new_item| %>
+      <tr class="item_line">
+        <td class="item_opers">
+          <a class="item_del_link"
+            href="#"
+            title="<%= t(:delete) %>"
+            onclick="<%= "if(confirm('#{t(:confirm_delete)}')){$(this).parent().parent().remove()}" %>">
+          </a>
+        </td>
+        <td><%= row_num += 1 %></td>
+        <td><%= @ware.name %></td>
+        <td><%= @ware.art %></td>
+        <td><%= new_item.input :ware_item_id, :as => :select, :collection => @ware.ware_items_collection, :include_blank => false, :label => false %></td>
+        <td id="sale_new_item_price"><%= @ware.price_out %></td>
+        <td><%= render :partial => 'shared/discount_picker', :locals => {:form => new_item, :item => @new_item} %></td>
+        <td><%= new_item.input :price_discount, :label => false %></td>
+        <td><%= new_item.input :quantity,       :label => false %></td>
+        <td><%= new_item.input :price_total,    :label => false %></td>
+      </tr>
+      <% end %>
+    <% end %>
+    <% if form %>
+      <tr>
+        <td class="item_opers"></td>
+        <td><%= row_num += 1 %></td>
+        <td colspan="8">
+          <%= FuzzyHelper.input_tag :models => 'ware', :fields => 'name,art', :prompt => t('.input_ware_name'), :on_sel => 'sale.new_item', :mfm => true %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  <div class="dividing_line_black_2px"><span><%= t('.deal_totals') %></span></div>
+  <table class="totals">
+    <tr><td><%= t('.summ_discount_cur') %></td><td id="sale_discount_cur"><%= "%.2f" % @summ_discount_cur %></td></tr>
+    <tr><td><%= t('.summ_discount_per') %></td><td id="sale_discount_per"><%= "%.2f" % @summ_discount_per %></td></tr>
+    <tr><td><%= t('.summ_expense') %></td><td><%= "%.2f" % @sale.price_in %></td></tr>
+    <tr><td><%= t('.summ_deal') %></td><td id="sale_price_total"><%= "%.2f" % @sale.price_total %></td></tr>
+    <tr><td><%= t('.net_profit') %></td><td><%= "%.2f" % (@sale.price_total - @sale.price_in) %></td></tr>
+    <tr><td><%= t('.movements') %></td><td><%= @sale.ware_movements.count %></td></tr>
+  </table>
+
+
+<%# Вариант без спецификации (только итоги) ----------------------------------%>
+<% else %>
+  <% if form %>
+    <%= form.input :price_in, :label => t('.summ_expense'), :required => false %>
+    <%= form.input :price_total, :label => t('.summ_deal'), :required => false %>
+  <% else %>
+    <label><%= t('.summ_expense') %></label><%= "%.2f" % @sale.price_in %><br/>
+    <label><%= t('.summ_deal') %></label><%= "%.2f" % @sale.price_total %><br/>
+    <label><%= t('.net_profit') %></label><%= "%.2f" % (@sale.price_total - @sale.price_in) %>
+  <% end %>
+<% end %>
+
+</div>

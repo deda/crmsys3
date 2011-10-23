@@ -1,0 +1,17 @@
+<div class="feedback hidded">
+  <%= link_to_function image_tag("feedback.png"), "feedback.toggle(this)", :class => :trigger %>
+  <div class="form">
+    <div class="title"><%= t(:feedback_write_here) %></div>
+    <% form_for :feedback, :url => '/feedback/create', :html => {:multipart => true, :target => :target_frame} do |f| %>
+      <%= f.text_area :message %>
+      <%= file_field :attachmend, :object %>
+      <p class="buttons">
+        <%= link_to_function t(:send), "feedback.submit(this)", :class => :button %>
+        <%= link_to_function t(:cancel), "feedback.toggle(this)", :class => :button %>
+      </p>
+    <% end %>
+  </div>
+  <div class="message" onclick="feedback.hide_message()">
+    <p><%= t(:feedback_ok) %></p>
+  </div>
+</div>

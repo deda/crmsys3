@@ -1,0 +1,12 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <% cn = controller_name.singularize.underscore %>
+  <div class="item_container sheet" id="<%= cn %>_container">
+  </div>
+  <div class="sheet" id="<%= cn.pluralize %>_list_container">
+    <%= render :partial => '/settings/tariff_plans/list', :locals => {:tariff_plans => @tariff_plans} %>
+  </div>
+
+</div>

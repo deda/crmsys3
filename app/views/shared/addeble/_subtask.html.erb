@@ -1,0 +1,5 @@
+<%= FuzzyHelper.input_tag :object => item,
+  :models => 'Task',
+  :fields => 'name',
+  :name => 'children[][name]',
+  :id_name => 'children[][id]' %>

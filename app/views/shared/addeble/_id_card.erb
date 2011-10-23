@@ -1,0 +1,30 @@
+<%= t(:type) %><br />
+<select name="<%= "#{name}[ctype]" %>">
+  <% IdCardType.collection.each_with_index do |type,i| %>
+    <option value="<%= i %>" <%= 'selected' if item.ctype == i %>>
+      <%= type %>
+    </option>
+  <% end %>
+</select><br />
+
+<%= t(:series) %><br />
+<input name="<%= "#{name}[series]" %>" type="text" value="<%= item.series %>" /><br />
+
+<%= t(:number_) %><br />
+<input name="<%= "#{name}[number]" %>" type="text" value="<%= item.number %>" /><br />
+
+<%= t(:code) %><br />
+<input name="<%= "#{name}[code]" %>" type="text" value="<%= item.code %>" /><br />
+
+<%= t(:whom_issued) %><br />
+<input name="<%= "#{name}[whom]" %>" type="text" value="<%= item.whom %>" /><br />
+
+<%= t(:when_issued) %><br />
+<input name="<%= "#{name}[when]" %>" type="text" value="<%= item.when %>" /><br />
+
+<%= t(:expiry) %><br />
+<input name="<%= "#{name}[expiry]" %>" type="text" value="<%= item.expiry %>" /><br />
+
+<% if item.id %>
+  <input name="<%= "#{name}[id]" %>" type="hidden" value="<%= item.id %>" />
+<% end %>

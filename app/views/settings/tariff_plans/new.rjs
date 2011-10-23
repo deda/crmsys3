@@ -1,0 +1,15 @@
+cn = controller_name.singularize.underscore
+cns = cn.pluralize
+item = "#{cn}_container"
+list = "#{cns}_list_container"
+
+# прячем СПИСОК
+page.hide list
+
+# рендерим СОЗДАНИЕ
+page.replace_html item,
+  :partial  => "/settings/tariff_plans/#{cns}/form",
+  :locals   => {:tariff_plan => @tariff_plan}
+
+# показываем СОЗДАНИЕ
+page.show item

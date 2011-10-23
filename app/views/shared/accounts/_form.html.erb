@@ -1,0 +1,23 @@
+<% url, method = get_url_and_method(account) %>
+<div class="sheet_title"><%=h account.new_record? ? t(:new_account) : account.name %></div>
+<% semantic_form_for :account, account, :url => url, :html => {:method => method, :target => 'target_frame'} do |form| %>
+  <% form.inputs do %>
+    <%= form.input :name, :label => t(:account_name) %>
+    <%= form.input :subdomain, :label => t(:subdomain) %>
+    <%= form.input :end_time, :label => t(:expiry), :as => :date, :include_blank => false %>
+    <%= form.input :tariff_plan, :label => t(:tariff_plan), :collection => AccountTariffPlan.all, :include_blank => false %>
+  <% end %>
+  <% form.inputs :for => :settings do |settings| %>
+    <%= settings.input :locale, :label => t(:default_lang), :as => :radio, :collection => locales_collection, :selected => account.settings.locale %>
+  <% end %>
+  <% form.semantic_fields_for :admins, account.admins[0] do |admin_form| %>
+    <b><%= t(:account_admin) %></b>
+    <% admin_form.inputs do %>
+      <%= admin_form.input :name, :label => t(:name) %>
+      <%= admin_form.input :email, :label => t(:email) %>
+      <%= admin_form.input :password, :label => t(account.new_record? ? :password : :password_if_need_change) %>
+      <%= admin_form.input :password_confirmation, :label => t(:password_confirmation) %>
+    <% end %>
+  <% end %>
+  <%= render :partial => 'shared/buttons', :locals => {:item => account, :buttons => [:submit,:cancel]} %>
+<% end %>

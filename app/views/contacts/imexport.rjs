@@ -1,0 +1,12 @@
+# прячем СПИСОК
+page << "$('#contacts_list_container').hide();"
+
+# рендерим ФОРМУ имэкспорта
+page.replace_html "contact_container",
+  :partial  => "shared/contacts/imexport_form"
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => 'contact', :buttons => [:cancel,:submit], :submit_msg => t(:import)})
+
+# показываем ФОРМУ имэкспорта
+page << "$('#contact_container').show();"

@@ -1,0 +1,8 @@
+<div class="main_container">
+  <%= render :partial => "shared/search_menu", :locals => {:models => 'Account', :fields => 'name'} %>
+  <%= render :partial => "shared/left_menu", :locals => {:new_link => current_user.is_admin? ? ['accounts'] : []} %>
+  <div class="central_container">
+    <%= render :partial => "shared/items_list", :locals => {:item => 'account', :locals => {:accounts => @accounts}} %>
+  </div>
+  <%= render :partial => "shared/dynamic_help" %>
+</div>

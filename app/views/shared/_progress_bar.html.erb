@@ -1,0 +1,12 @@
+<%#
+  Входные параметры (* - обязазтельный параметр):
+    * progress - процент заполнения progress_bar
+      title    - атрибут title для div progress_bar
+%>
+<%
+  ps = "#{progress}%"
+  title ||= ps
+%>
+<div class="shadowed progress_bar" title="<%=title%>">
+  <div class="progress" style="width:<%=ps%>;"><div class="text"><%=ps%></div></div>
+</div>

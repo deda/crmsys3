@@ -1,0 +1,2 @@
+page.replace_html 'report_container',
+  :partial => 'logs_list', :locals => {:logs => @logs}

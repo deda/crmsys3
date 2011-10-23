@@ -1,0 +1,35 @@
+<%
+  items = [
+    {:name => :common,          :title => true                                                        },
+    {:name => :users                                                                                  },
+    {:name => :user_groups,                                         :admin => true, :director => false},
+    {:name => :color_schemes,                                                       :director => false},
+    {:name => :recent_records                                                                         },
+    {:name => :account,                                             :admin => true, :director => false},
+    {:name => :states,          :title => true,                     :admin => true                    },
+    {:name => :sale_states,                                         :admin => true                    },
+    {:name => :case_states,                                         :admin => true                    },
+    {:name => :tariff_plans,    :title => true, :namespace => true, :admin => true, :director => true },
+    {:name => :account_tariff_plans,                                :admin => true, :director => true },
+  ]
+  active = controller_name.to_sym
+  ns = ''
+%>
+<div class="tree sheet">
+  <div class="sheet_title"><%= t(:settings) %></div>
+  <% items.each do |item| %>
+    <% n = item[:name] %>
+    <% next if item.has_key?(:admin) and current_user.is_admin? != item[:admin] %>
+    <% next if item.has_key?(:director) and current_user.is_accounts_admin? != item[:director] %>
+    <% if item[:title] %>
+      <% if item[:namespace] %>
+        <% ns = "#{n}/" %>
+      <% else %>
+        <% ns = '' %>
+      <% end %>
+      <h4><%= t(n) %></h4>
+    <% else %>
+      <a href="<%= active == n ? '#' : "/settings/#{ns}#{n}" %>" <%= 'class="active"' if active == n %>><%= t((n == :users and not current_user.is_admin?) ? :personal_info : n) %></a>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class="sheet" id="canvas_container">
+  <% if data %>
+    <script type="text/javascript">
+      var canvas_data = [<%= data.join(',') %>];
+    </script>
+    <canvas></canvas>
+  <% end %>
+</div>

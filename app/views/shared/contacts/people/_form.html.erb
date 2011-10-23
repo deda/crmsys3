@@ -1,0 +1,29 @@
+<%
+  url, method = get_url_and_method(contact)
+%>
+<div class="sheet_title"><%= contact.new_record? ? t(:new_person) : contact.formated_name %></div>
+<% semantic_form_for :person, contact, :url => url, :html => {:method => method, :target => 'target_frame', :multipart => true} do |form| %>
+  <% form.inputs do %>
+    <%= form.input :family_name, :required => false %>
+    <%= form.input :given_name %>
+    <%= form.input :additional_name, :required => false %>
+    <%= FuzzyHelper.input_tag :object => contact, :method => :company, :fields => 'given_name', :label => t('activerecord.attributes.person.company') %>
+    <%= FuzzyHelper.input_tag :object => contact, :method => :title, :models => 'person', :id_name => false, :label => t('activerecord.attributes.person.title') %>
+    <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :phones} %>
+    <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :emails} %>
+    <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/tag', :model => contact, :items => :tags, :auto_add => true} %>
+    <%= render :partial => 'shared/hideble', :locals => {
+      :title    => t(:additional_info),
+      :visible  => contact.additional_info?,
+      :content  => "
+        #{form.input :nick_name, :required => false}
+        #{form.input :bday, :required => false}
+        #{FuzzyHelper.input_tag :object => contact, :method => :parent, :models => 'person', :fields => 'family_name,given_name', :mfm => true, :name => 'parent[given_name]', :label => t('activerecord.attributes.person.parent')}
+        #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :urls}}
+        #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/contact_item', :model => contact, :items => :ims}}
+        #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/id_card', :model => contact, :items => :id_cards}}
+        #{render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/address', :model => contact, :items => :addresses}}
+        #{form.input :photo, :label => t(:select_image), :as => :file, :required => false}
+        #{form.input :visible, :label => t(:visible), :required => false}"} %>
+  <% end %>
+<% end %>

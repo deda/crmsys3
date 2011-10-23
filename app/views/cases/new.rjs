@@ -1,0 +1,12 @@
+# прячем СПИСОК
+page << "$('#cases_list_container').hide();"
+
+# рендерим СОЗДАНИЕ
+page.replace_html "case_container",
+  :partial  => 'shared/cases/form'
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @case, :buttons => [:submit,:cancel]})
+
+# показываем СОЗДАНИЕ
+page << "$('#case_container').show();"

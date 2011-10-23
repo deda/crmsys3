@@ -1,0 +1,5 @@
+<% checked ||= [] %>
+<%= render :partial => "shared/paging" %>
+<table class="sales_table">
+  <%= render :partial => 'shared/sales/sale', :collection => sales, :locals => {:checked => checked} %>
+</table>

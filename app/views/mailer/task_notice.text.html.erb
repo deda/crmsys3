@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+
+    <h3><%= t(:you_have_new_task) %></h3>
+
+    <p>
+      <b><%= t(:tasker) %></b><br />
+      <%=h @task.user.name_w_email %>
+    </p>
+
+    <p>
+      <b><%= t(:task) %></b><br />
+      <%= @task.name %>
+    </p>
+
+    <% unless @task.description.blank? %>
+    <p>
+      <b><%= t(:description) %></b><br />
+      <%= @task.description %>
+    </p>
+    <% end %>
+
+    <p>
+      <b><%= t(:completion_time) %></b><br />
+      <%= l(@task.completion_time, :format => :long) %>
+    </p>
+
+    <br /><br />
+    <%= t(:dont_reply) %>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <div class="item_container sheet" id="type_container">
+  </div>
+  <div class="sheet" id="types_list_container">
+    <%= render :partial => 'list', :locals => {:states => @states} %>
+  </div>
+
+</div>

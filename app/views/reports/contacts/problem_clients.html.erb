@@ -1,0 +1,27 @@
+<div class="sr_container">
+
+  <%= render :partial => '/reports/tree' %>
+
+  <div class="sheet">
+
+    <%= render :partial => 'shared/hideble', :locals => {
+      :title    => t(:no_tasks_and_deals),
+      :size     => @clients_ts.count,
+      :visible  => false,
+      :content  => render(:partial => 'contact_data', :collection => @clients_ts)} %>
+
+    <%= render :partial => 'shared/hideble', :locals => {
+      :title    => t(:no_tasks),
+      :size     => @clients_t.count,
+      :visible  => false,
+      :content  => render(:partial => 'contact_data', :collection => @clients_t)} %>
+
+    <%= render :partial => 'shared/hideble', :locals => {
+      :title    => t(:no_deals),
+      :size     => @clients_s.count,
+      :visible  => false,
+      :content  => render(:partial => 'contact_data', :collection => @clients_s)} %>
+
+  </div>
+
+</div>

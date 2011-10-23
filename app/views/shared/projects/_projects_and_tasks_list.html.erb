@@ -1,0 +1,29 @@
+<div class="projects_list" id ="projects_and_tasks_list_div">
+  <%= render :partial => "shared/assisted_menu", :locals => {:url => projects_path} %>
+
+
+  <table class="projects_table" id ="current_week_projects_and_tasks_list">
+    <%= render :partial => 'shared/projects/project',
+      :collection => projects.current_week_projects,
+      :locals => {:time_binding => "current_week"}%>
+    <%= render :partial => 'shared/tasks/task',
+      :collection => seperate_tasks.current_week_scope%>
+  </table>
+  <%= render :partial => "shared/dividing_line" , :locals => {:next_week => true}%>
+  <table class="projects_table" id ="next_week_projects_and_tasks_list">
+    <%= render :partial => 'shared/projects/project',
+      :collection => projects.next_week_projects,
+      :locals => {:time_binding => "next_week"}%>
+    <%= render :partial => 'shared/tasks/task',
+      :collection => seperate_tasks.next_week_scope%>
+  </table>
+  <%= render :partial => "shared/dividing_line"%>
+  <table class="projects_table" id ="other_projects_and_tasks_list">
+    <%= render :partial => 'shared/projects/project',
+      :collection => projects.other_projects,
+      :locals => {:time_binding => "other"}%>
+    <%= render :partial => 'shared/tasks/task',
+      :collection => seperate_tasks.other_scope%>
+  </table>
+
+</div>

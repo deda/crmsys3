@@ -1,0 +1,14 @@
+# прячем ПРОСМОТР
+page << "$('#contact_container').hide();"
+
+# обновляем СПИСОК
+page.replace_html "contacts_list_container",
+  :partial => 'shared/contacts/contacts_list',
+  :locals => {:contacts => @contacts}
+
+# показываем СПИСОК
+page << "$('#contacts_list_container').show();"
+
+# этот файл вызывается также после импорта
+# нужна коррекция левого меню
+page << "left_menu.correct();"

@@ -1,0 +1,44 @@
+<%
+  cn = contact.class.name.underscore
+  items = []
+  2.times do |i|
+    items << contact.phones[i]
+    items << contact.emails[i]
+    items << contact.urls[i]
+    items << contact.ims[i]
+  end
+  items.compact!
+%>
+<tr class="item_line" id="<%= "contact_line_#{contact.id}" %>">
+  <td class="item_opers">
+    <div><input type="checkbox" name="contacts_ids[]" value="<%= contact.id %>" class="mass_oper" /></div>
+    <% if contact.can_be_edited %>
+    <a class="item_chg_link"
+      href="#"
+      title="<%= t(:edit) %>"
+      onclick="<%= remote_function :url => send(:"edit_#{cn}_path", contact), :method => :get %>">
+    </a>
+    <% end %>
+    <% if contact.can_be_deleted %>
+    <a class="item_del_link"
+      href="#"
+      title="<%= t(:delete) %>"
+      onclick="<%= remote_function :url => contact_path(contact), :method => :delete, :confirm => t(:confirm_delete) %>">
+    </a>
+    <% end %>
+  </td>
+  <td class="icon">
+    <%= image_tag contact.avatar_url(:s32x32) %>
+  </td>
+  <td class="info">
+    <%= link_to_contact contact %>
+    <% if items[0] %>
+      <%= "<br />#{items[0]}" %>
+      <%= "<br />#{items[1]}" if items[1] %>
+    <% end %>
+    <%= tasks_comments_string_for(contact) %>
+  </td>
+  <td class="addt">
+    <%= sub_title(contact) %>
+  </td>
+</tr>

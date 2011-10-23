@@ -1,0 +1,12 @@
+id = "#{owner_string(@case)}inventory_items_list"
+page.replace id,
+  :partial => 'shared/inventory/inventory_items_list',
+  :locals => {
+    :owner => @case,
+    :editable => false}
+
+page.sortable id,
+  :tag => 'tbody > tr',
+  :cursor => 'move',
+  :opacity => '0.6',
+  :url => update_inventory_case_path(@case)

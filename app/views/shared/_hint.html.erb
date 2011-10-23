@@ -1,0 +1,8 @@
+<% if hint %>
+  <% text = hint.is_a?(String) ? hint : t(hint) %>
+  <div class="hint" style="display:none"><%= text %></div>
+<% else %>
+  <div class="hint_bkg" style="display:none"></div>
+  <div class="hint_pnt" style="display:none"></div>
+  <div class="hint_txt" style="display:none"></div>
+<% end %>

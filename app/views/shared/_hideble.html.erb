@@ -1,0 +1,108 @@
+<%
+  title_class ||= ''
+  title_class = 'medial' if title_class == ''
+  hideble_class ||= ''
+  hideble_id ||= nil
+  unhide_on_add ||= false
+  item ||= nil
+  size ||= nil
+  opers ||= {}
+  width = 24 + 24 * opers.size
+
+  if not defined? editable
+    editable = true
+  end
+  if not defined? visible
+    visible = :auto
+  end
+  visible = (not size.nil? and size > 0) if visible == :auto
+
+  if item && item.id
+    name = item.class.name.underscore
+    id = item.id
+  else
+    id = nil
+  end
+
+  if unhide_on_add
+    unhide_on_add = 'hideble.show(this);'
+  else
+    unhide_on_add = ''
+  end
+%>
+<div class="hideble <%= hideble_class %>" <%= "id='#{hideble_id}'" if hideble_id %>>
+  <div class="title <%= title_class %>">
+    <table>
+      <tr class="item_line" <% if id %>id="<%= "#{name}_line_#{id}" %>"<% end %>>
+        <td class="item_opers" style="width:<%= width %>px">
+          <a class="item_hid_link <%= 'hided' if !visible %>"
+            href="#"
+            ondblclick="hideble.toggle_all(this); return false;"
+            onclick="hideble.toggle(this); return false;">
+          </a>
+        <% if editable %>
+          <% if opers[:mass] %>
+          <div>
+            <input type="checkbox" name="_ids[]" value="<%= id %>" class="mass_oper" />
+          </div>
+          <% end %>
+          <% if op = opers[:add] %>
+          <a class="item_add_link"
+            href="#"
+            title="<%= t(:add) %>"
+            onclick="<%= unhide_on_add + op %>; return false;">
+          </a>
+          <% end %>
+          <% if op = opers[:edit] %>
+          <a class="item_chg_link"
+            href="#"
+            title="<%= t(:edit) %>"
+            onclick="<%= op %>; return false;">
+          </a>
+          <% end %>
+          <% if op = opers[:delete] %>
+          <a class="item_del_link"
+            href="#"
+            title="<%= t(:delete) %>"
+            onclick="<%= op %>; return false;">
+          </a>
+          <% end %>
+        <% end %>
+        </td>
+        <td onclick="hideble.toggle(this);return false" ondblclick="hideble.toggle_all(this);return false"><%= h(title) + (size ? " <span class='count'>(#{size})</span>" : "") %></td>
+      </tr>
+      <% if id %>
+      <tr id="<%= "#{name}_edit_#{id}" %>" style="display:none;">
+        <td colspan="2">
+          <div class="edit_item_container" id="<%= "div_#{name}_edit_#{id}" %>">
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="content <%= 'hidden' if !visible %>">
+    <%= content %>
+  </div>
+</div>
+<%#
+  item          - если заголовок группы может редактироваться (например, это
+                  название группы контактов), то item - это элемент БД
+  opers         - хэш действий. допустимые значения :mass, :add, :edit, :delete.
+                  значки выводятся в заголовке главного div.hideble.
+                  пример: opers[:add => 'alert(1)'] - будет нарисована иконка
+                  добавления и на ее событие onclick будет назначен указанный
+                  обработчик (в данном случае alert(1))
+  size          - кол-во элементов в списке. будет показано в заголовке
+                  главного div.hideble.
+  visible       - начальние состояние списка:
+                    true  - открыт
+                    false - скрыт
+                    :auto - открыт если size > 0, иначе скрыт
+                  по умолчанию скрыт
+  hideble_id    - строка: id для главного div.hideble
+  unhide_on_add - true, если надо раскрывать список перед выполнении операции
+                  добавления (opers[:add])
+  hideble_class - строка: class для главного div.hideble
+  title_class   - строка: стиль заголовка. 'big', 'medial', 'small'
+%>

@@ -1,0 +1,25 @@
+<%#
+  Принимаемые параметры (* - обязательный):
+    mode - см. коммент в _attachmend.html.erb
+    title_class, hideble_class, visible - параметры для hideble
+%>
+<%
+  title_class ||= ''
+  hideble_class ||= ''
+  hideble_class += ' attachmends'
+  unless defined? mode
+    mode = owner.new_record? ? :new : :edit
+  end
+
+  size = owner.attachmends.size
+  hideble_class += ' hidden' if size == 0 and mode == :show
+%>
+<%= render :partial => 'shared/hideble',
+  :locals => {
+    :hideble_class  => hideble_class,
+    :hideble_id     => "#{mode}_#{owner_string(owner)}hideble_attachmends_list",
+    :title_class    => title_class,
+    :title          => t(:attachmends),
+    :size           => size,
+    :visible        => defined?(visible) ? visible : :auto,
+    :content        => render(:partial => 'shared/attachmends/attachmends_list', :locals => {:owner => owner, :mode => mode}) } %>

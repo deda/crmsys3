@@ -1,0 +1,18 @@
+<% count = local_assigns[:state].cases.count %>
+<tr class="item_line" id="type_line_<%= state.id %>">
+  <td>
+  <% if local_assigns[:state].can_be_deleted %>
+    <input type="checkbox" name="ids[]" value="<%= local_assigns[:state].id %>" class="mass_oper" />
+  <% else %>
+    <input type="checkbox" name="" value="" class="mass_oper" disabled />
+  <% end %>
+  </td>
+  <td><%= link_to_remote("#{local_assigns[:state].name}", :url => edit_settings_case_state_path(local_assigns[:state]), :method => :get) %></td>
+  <td>
+  <% if count > 0 %>
+    <%= link_to count, cases_path(:f => "states!#{local_assigns[:state].id}") %>
+  <% else %>
+    <%= "#{count}" %>
+  <% end %>
+   </td>
+</tr>

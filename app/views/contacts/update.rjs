@@ -1,0 +1,14 @@
+# прячем РЕДАКТИРОВАНИЕ текущего контакта
+page << "$('#contact_container').hide();"
+
+# обновляем список контактов
+page.replace_html "contacts_list_container",
+  :partial => 'shared/contacts/contacts_list',
+  :locals => {:contacts => @contacts}
+
+# показываем список контактов
+page << "$('#contacts_list_container').show();left_menu.correct()"
+
+# визуальный эффект на измененном контакте
+page.visual_effect :highlight, "contact_line_#{@contact.id}",
+  :duration => 2

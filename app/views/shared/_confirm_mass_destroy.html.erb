@@ -1,0 +1,38 @@
+<div class="sheet_title"><%=h t(:mass_delete) %></div>
+
+<div class="confirm_mass_destroy">
+
+  <% items.each do |item| %>
+
+    <% disabled = new_items.count == 1 and new_items[0] == item %>
+    <% name =  h(item.formated_name) %>
+    <% hint = ''; item.cases.each { |i| hint += "<a href='#{i.class.name.pluralize.underscore}/#{i.id}'>#{t(i.class.name.underscore)}: #{i.formated_name}</a><br />" } %>
+
+    <fieldset>
+      
+      <%= t(:confirm_mass_destroy_title, :name => name, :hint => render(:partial => 'shared/hint', :locals => {:hint => hint})) %>
+
+      <label>
+        <input name="action_for_<%= item.id %>" type="radio" value="0" class="mass_oper" checked /><%= t(:confirm_mass_destroy_o1, :name => name) %>
+      </label>
+
+      <label>
+        <input name="action_for_<%= item.id %>" type="radio" value="1" class="mass_oper" /><%= t(:confirm_mass_destroy_o2, :name => name) %>
+      </label>
+
+      <label <%= 'class="disabled"' if disabled %>>
+        <input name="action_for_<%= item.id %>" type="radio" value="2" class="mass_oper" <%= 'disabled' if disabled %> /><%= t(:confirm_mass_destroy_o3, :name => name) %>
+        <select name="new_id_for_<%= item.id %>" <%= 'disabled' if disabled %> class="mass_oper">
+          <% new_items.each do |new_item| %>
+            <% if new_item != item %>
+              <option value="<%= new_item.id %>"><%= new_item.formated_name %></option>
+            <% end %>
+          <% end %>
+        </select>
+      </label>
+      
+    </fieldset>
+
+  <% end %>
+
+</div>

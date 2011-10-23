@@ -1,0 +1,20 @@
+cn = controller_name.singularize.underscore
+item = "#{cn}_container"
+list = "#{cn.pluralize}_list_container"
+line = "#{html_id(@tariff_plan)}_line"
+
+# прячем СОЗДАНИЕ
+page.hide item
+
+# обновляем СПИСОК
+page.replace_html list,
+  :partial  => '/settings/tariff_plans/list',
+  :locals   => {:tariff_plans => @tariff_plans}
+
+# показываем СПИСОК
+page.show list
+
+# визуальный эффект
+page.visual_effect :highlight,
+  line,
+  :duration => 2

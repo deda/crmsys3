@@ -1,0 +1,11 @@
+<%
+  items = item.pluralize
+  owner_s = owner_string(owner ||= nil)
+  embedded ||= false
+  embedded = embedded ? 'embedded' : ''
+%>
+<div class="item_container sheet" id="<%= owner_s %><%= item %>_container">
+</div>
+<div class="items_list_container <%= embedded %>" id="<%= owner_s + items %>_list_container">
+  <%= render :partial => "shared/#{items}/#{items}_list", :locals => (locals ||= {}) %>
+</div>

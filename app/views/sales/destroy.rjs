@@ -1,0 +1,10 @@
+# прячем ПРОСМОТР
+page << "$('#sale_container').hide();"
+
+# обновляем СПИСОК
+page.replace_html "sales_list_container",
+  :partial => 'shared/sales/sales_list',
+  :locals => {:sales => @sales}
+
+# показываем СПИСОК
+page << "$('#sales_list_container').show();"

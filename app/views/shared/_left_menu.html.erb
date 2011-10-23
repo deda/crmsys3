@@ -1,0 +1,81 @@
+<%#
+  Выводит меню действий над списком элементов на текущей странице
+  Пример вызова:
+
+    render :partial => "shared/left_menu",
+      :locals => {
+        :new_link       => true или имя контроллера или массив с именами контроллеров,
+        :mass_accept    => true или имя контроллера,
+        :mass_destroy   => true или имя контроллера,
+        :imexport       => true или имя контроллера}
+
+  Если в качестве параметра передано true, то параметр будет заменен именем
+  текущего контроллера.
+%>
+
+<%
+  cn = controller_name
+  new_link      = defined?(new_link)      ? (new_link       === true ? [cn] : new_link    )  : nil
+  mass_task     = defined?(mass_task)     ? (mass_task      === true ?  cn  : mass_task   )  : nil
+  mass_accept   = defined?(mass_accept)   ? (mass_accept    === true ?  cn  : mass_accept )  : nil
+  mass_destroy  = defined?(mass_destroy)  ? (mass_destroy   === true ?  cn  : mass_destroy)  : nil
+  mass_state    = defined?(mass_state)    ? mass_state : nil
+  imexport      = defined?(imexport)      ? (imexport       === true ?  cn  : imexport)      : nil
+%>
+<div class="left_menu_container_wrapper">
+  <div class="left_menu_container" id="left_menu_container">
+
+    <div class="context_buttons">
+      <div class="white_dummy">&nbsp;</div>
+      <div id="left_menu_item_buttons"></div>
+      <div id="left_menu_mass_buttons">
+        <% if mass_accept %>
+          <div class="mass_accept">
+            <%= link_to_function(t(:mass_accept), :class => :button) { |page| page << "mass.accept('#{mass_accept}');" } %>
+          </div>
+        <% end %>
+        <% if mass_task %>
+          <div class="mass_task">
+            <%= link_to_function(t(:mass_task), :class => :button) { |page| page << "mass.task('#{mass_task}');" } %>
+            <%= render :partial => 'shared/hint', :locals => {:hint => :hint_mass_task} %>
+          </div>
+        <% end %>
+        <% if mass_state %>
+          <div class="mass_state">
+            <%= link_to_function(t(:mass_state), :class => :button) { |page| page << "mass.state(this,'#{cn}');" } %>
+            <div class="sheet hidden">
+              <% mass_state.each { |s| %><%= "<a href='#' class='#{s.id}'>#{s.name}</a>" %><% } %>
+            </div>
+          </div>
+        <% end %>
+        <% if mass_destroy %>
+          <div class="mass_destroy">
+            <%= link_to_function(t(:mass_delete), :class => :button) { |page| page << "mass.destroy('#{mass_destroy}');" } %>
+            <%= render :partial => 'shared/hint', :locals => {:hint => t(:hint_mass_destroy, :klass => loc_tuc(cn))} %>
+          </div>
+        <% end %>
+        <div class="select_counter"><%= t(:selected) %><span></span></div>
+      </div>
+    </div>
+
+    <div class="common_buttons">
+      <% new_link.each do |i| %>
+        <div class="new_link">
+          <%= link_to_remote t(:"new_#{i.singularize}"), :url => "/#{i}/new", :method => :get, :html => {:class => :button} %>
+        </div>
+      <% end %>
+      <% if imexport %>
+        <div class="imexport">
+          <%= link_to_remote t(:imexport), :url => "/#{imexport}/imexport", :method => :get, :html => {:class => :button} %>
+        </div>
+      <% end %>
+      <div class="page_up">
+        <%= link_to_function t(:to_up), 'window.scrollTo(0,0)', :class => :button, :style => 'display:none' %>
+      </div>
+    </div>
+
+    <div class="empty">
+    </div>
+
+  </div>
+</div>

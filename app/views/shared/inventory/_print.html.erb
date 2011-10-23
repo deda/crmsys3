@@ -1,0 +1,22 @@
+<b><%= t(:inventory) %></b><br />
+<table class="print" cellpadding="0" cellspacing="0">
+  <thead style="font-weight:bold">
+    <th><%= t(:list_number) %></th>
+    <th><%= t(:document) %></th>
+    <th><%= t(:orig_copy) %></th>
+    <th><%= t(:numof_sheets) %></th>
+  </thead>
+  <tbody>
+  <% i = 1 %>
+  <% owner.inventory_items.each do |item| %>
+    <% new_i = i + item.number_of_sheets %>
+    <tr>
+      <td><%= item.number_of_sheets == 1 ? i : "#{i}-#{new_i-1}" %></td>
+      <td><%= h(item.name) %></td>
+      <td><%= t(:copy) %></td>
+      <td><%= h(item.number_of_sheets) %></td>
+    </tr>
+    <% i = new_i %>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,21 @@
+<% cn = item.class.name.underscore %>
+<div class="contact_item">
+  <%= "<input name='#{name}[value]' type='text' value='#{item.value}' />" %>
+  <%= "<input name='#{name}[id]' type='hidden' value='#{item.id}' />" if item.id %>
+  <%= FuzzyHelper.input_tag(
+    :object => item,
+    :method => :protocol,
+    :models => "#{cn}Protocol",
+    :fields => 'name',
+    :name => "#{cn}_protocol_names[]",
+    :id_name => "#{name}[protocol_id]",
+    :prompt => loc_tdc(:protocol)) if item.respond_to?(:protocol) %>
+  <%= FuzzyHelper.input_tag(
+    :object => item,
+    :method => :type,
+    :models => "#{cn}Type",
+    :fields => 'name',
+    :name => "#{cn}_type_names[]",
+    :id_name => "#{name}[type_id]",
+    :prompt => loc_tdc(:type)) %>
+</div>

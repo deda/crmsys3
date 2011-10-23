@@ -1,0 +1,13 @@
+<% fn = tariff_plan.formatted_name{|x| loc_tdc(x)} %>
+<tr class="item_line" id="<%= "#{html_id(tariff_plan)}_line" %>">
+  <td>
+  <% if tariff_plan.can_be_deleted %>
+    <input type="checkbox" name="ids[]" value="<%= tariff_plan.id %>" class="mass_oper" />
+  <% else %>
+    <input type="checkbox" name="" value="" class="mass_oper" disabled />
+  <% end %>
+  </td>
+  <td>
+    <%= link_to_remote(fn, :url => edit_settings_tariff_plans_account_tariff_plan_path(tariff_plan), :method => :get) %>
+  </td>
+</tr>

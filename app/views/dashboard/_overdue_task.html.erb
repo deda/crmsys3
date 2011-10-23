@@ -1,0 +1,10 @@
+<% content_tag_for(:li,overdue_task) do %>
+  <% project = overdue_task.project %>
+  <% name =
+    project.nil? ?
+    overdue_task.name : project.name.to_s+"::"+overdue_task.name.to_s %>
+  <% url =
+    project.nil? ?
+    task_path(overdue_task) : project_task_path(project, overdue_task) %>
+  <li><a href =<%= url %>><%= name %></a></li>
+<% end %>

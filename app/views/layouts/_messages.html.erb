@@ -1,0 +1,13 @@
+<script type="text/javascript">
+  $(function(){
+    locmes = {
+        confirm_accept      : "<%= t(:confirm_accept) %>",
+        confirm_delete      : "<%= t(:confirm_delete) %>",
+        confirm_cancel_edit : "<%= t(:confirm_cancel_edit) %>",
+        attachmends_sending : "<%= t(:attachmends_sending) %>"
+      }
+<% if params[:action] == 'show' %>
+  <%= render :file => "#{params[:controller]}/show" %>
+<% end %>
+  })
+</script>

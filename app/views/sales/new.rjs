@@ -1,0 +1,12 @@
+# прячем СПИСОК
+page << "$('#sales_list_container').hide();"
+
+# рендерим СОЗДАНИЕ
+page.replace_html "sale_container",
+  :partial  => 'shared/sales/form'
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @sale, :buttons => [:submit,:cancel]})
+
+# показываем СОЗДАНИЕ
+page << "$('#sale_container').show();"

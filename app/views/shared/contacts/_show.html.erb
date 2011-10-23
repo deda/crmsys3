@@ -1,0 +1,107 @@
+<div class="sheet_title">
+  <%=h contact.formated_name %>
+</div>
+
+<div class="icon">
+  <%= render :partial => 'shared/changable_avatar', :locals => {:item => contact, :size => :s128x128} %>
+  <p><%= contact.nick_name if contact.nick_name %></p>
+</div>
+
+<div class="data">
+  
+  <div class="items">
+    <%= sub_title(contact, true) %>
+  </div>
+
+  <% unless contact.bday.blank? %>
+  <div class="items">
+    <label><%= t(:bday) %></label><br />
+    <%= contact.bday %>
+  </div>
+  <% end %>
+
+  <% if contact.addresses.any? %>
+  <div class="items">
+    <label><%= t(:addresses) %></label><br />
+    <% contact.addresses.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% unless contact.rs.blank?      and
+            contact.bank_id.blank? and
+            contact.inn.blank?     and
+            contact.kpp.blank?     and
+            contact.ogrn.blank?    and
+            contact.bic.blank?     and
+            contact.cs.blank? %>
+  <div class="items">
+    <label><%= t(:rekvisits) %></label><br />
+    <%= rs_in_bank(contact) %>
+    <%= "#{t(:inn)} #{contact.inn}<br />" unless contact.inn.blank? %>
+    <%= "#{t(:kpp)} #{contact.kpp}<br />" unless contact.kpp.blank? %>
+    <%= "#{t(:ogrn)} #{contact.ogrn}<br />" unless contact.ogrn.blank? %>
+    <%= "#{t(:bic)} #{contact.bic}<br />" unless contact.bic.blank? %>
+    <%= "#{t(:cs)} #{contact.cs}<br />" unless contact.cs.blank? %>
+  </div>
+  <% end %>
+
+  <% if contact.discount_value and contact.discount_value != 0 %>
+  <div class="items">
+    <label><%= t(:covenantee_discount) %></label><br />
+    <%= "#{contact.discount_value}%" %>
+  </div>
+  <% end %>
+
+  <% if contact.urls.any? %>
+  <div class="items">
+    <label><%= t(:urls) %></label><br />
+    <% contact.urls.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% if contact.emails.any? %>
+  <div class="items">
+    <label><%= t(:email) %></label><br />
+    <% contact.emails.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% if contact.phones.any? %>
+  <div class="items">
+    <label><%= t(:phones) %></label><br />
+    <% contact.phones.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% if contact.ims.any? %>
+  <div class="items">
+    <label><%= t(:ims) %></label><br />
+    <% contact.ims.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% if contact.is_a?(Person) and contact.id_cards.any? %>
+  <div class="items">
+    <label><%= t(:id_cards) %></label><br />
+    <% contact.id_cards.each{|i| %><%="#{i}<br />"%><%} %>
+  </div>
+  <% end %>
+
+  <% if contact.is_a?(Company) %>
+    <% if contact.people.any? %>
+  <div class="items">
+    <label><%= t(:employees) %></label><br />
+    <% contact.people.each{|i| %><%= link_to_contact(i,true) %><br /><%} %>
+  </div>
+    <% end %>
+    <% if contact.sub_companies.any? %>
+  <div class="items">
+    <label><%= t(:sub_companies) %></label><br />
+    <% contact.sub_companies.each{|i| %><%= link_to_contact(i) %><br /><%} %>
+  </div>
+    <% end %>
+  <% end %>
+
+</div>
+<%= render :partial => 'shared/tasks/my_tasks', :locals => {:owner => contact} %>
+<%= render :partial => 'shared/comments/my_comments', :locals => {:owner => contact} %>

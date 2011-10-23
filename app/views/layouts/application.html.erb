@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title><%=h "#{current_user.account(true).name} - " if current_user %><%= t(:default_title) %> <%= yield(:title) %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <% if signed_in? %>
+      <%= javascript_include_tag(
+        'jquery',
+        'jrails',
+        'jquery-ui',
+        'jquery.rest_in_place',
+        'jquery.colorbox',
+        'application',
+        'fuzzy',
+        'feedback') %>
+      <%= stylesheet_link_tag(
+        'style',
+        'reports',
+        'jquery-ui',
+        'formtastic',
+        'formtastic_changes',
+        'colorbox',
+        'color_schemes',
+        "schemes/color_scheme_#{current_user.settings.scheme}",
+        'feedback') %>
+      <%= render :partial => 'mockups/javascripts' %>
+      <%= render :partial => 'mockups/stylesheets' %>
+    <% else %>
+      <%= stylesheet_link_tag 'login_form.css' %>
+    <% end %>
+  </head>
+  <body>
+    <% if signed_in? %>
+      <%= render :partial => 'layouts/top_panel' %>
+      <%= render :partial => 'layouts/tabs' %>
+      <%= render :partial => 'layouts/navi' %>
+      <%= render :partial => 'layouts/iframes' %>
+    <% end %>
+    <%= yield %>
+    <% if signed_in? %>
+      <%= render :partial => 'layouts/footer' %>
+      <%= render :partial => 'layouts/messages' %>
+      <%= render :partial => 'feedback/form' %>
+    <% end %>
+    <%= render :partial => 'shared/hint', :locals => {:hint => nil} %>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<div class="sheet_title"><%= t(:imexport) %></div>
+<%= t(:prompt_export) %>
+<a href="#" onclick="do_export.vcf('contact','contacts')">vCard v3.0</a>,
+<a href="#" onclick="do_export.xml('contact','contacts')">XML</a>
+<br /><br /><b>
+<%= t(:or) %>
+</b><br /><br />
+<%= t(:prompt_import) %>
+<% semantic_form_for :import, :url => import_contacts_path, :html => {:method => :post, :target => 'target_frame', :enctype => 'multipart/form-data'} do |form| %>
+  <%= form.input :file, :as => :file, :label => false, :input_html => {:style => "width:100%;"} %>
+  <%= "<p class='error'>#{flash[:notice]}</p>" %>
+  <br /><br />
+  <a href="contacts.csv"><%= t(:csv_file_example) %></a>
+<% end %>

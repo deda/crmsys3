@@ -1,0 +1,11 @@
+# прячем СПИСОК
+page << '$("#users_list_container").hide();'
+
+# рендерим СОЗДАНИЕ
+page.replace_html 'user_container',
+  :partial  => 'form',
+  :locals   => {:user => @user, :user_groups => @user_groups}
+
+# показываем СОЗДАНИЕ
+page << '$("#user_container").show();'
+ 

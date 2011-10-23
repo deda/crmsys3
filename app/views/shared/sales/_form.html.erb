@@ -1,0 +1,17 @@
+<%
+  url, method = get_url_and_method(@sale)
+%>
+<div class="sheet_title"><%=h @sale.new_record? ? t(:new_sale) : @sale.name %></div>
+<% semantic_form_for :sale, @sale, :url => url, :html => {:method => method, :target => 'target_frame', :onmouseover => 'sale.init(this)'} do |form| %>
+  <% form.inputs do %>
+    <%= form.input :name, :label => t('.name') %>
+    <%= form.input :recipient, :label => t('.manager'), :as => :select, :collection => @recipients_collection, :include_blank => false %>
+    <%= FuzzyHelper.input_tag :object => @sale, :method => :contact, :models => 'person|company', :fields => 'family_name,given_name,additional_name|given_name', :id_name => 'sale[contact_id]', :mfm => true, :label => t('.company') %>
+    <%#= form.input :ware_house, :label => t('.ware_house'), :as => :select, :collection => @sale_ware_houses_collection, :required => false %>
+    <%= form.input :state, :label => t(:state), :as => :select, :collection => @states_collection, :include_blank => false %>
+    <%= form.input :description, :label => t(:description), :as => :text, :input_html => {:rows => 4}, :required => false %>
+    <%= render :partial => 'shared/visibility', :locals => {:item => @sale} %>
+    <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/tag', :model => @sale, :items => :tags, :auto_add => true} %>
+    <%= render :partial => 'shared/sales/specification', :locals => {:form => form} %>
+  <% end %>
+<% end %>

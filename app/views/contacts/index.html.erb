@@ -1,0 +1,9 @@
+<% filters = [{:name => :all, :values => [[0,t(:all_people)], [1,t(:all_companies)]]}] %>
+<div class="main_container">
+  <%= render :partial => "shared/search_menu", :locals => {:models => 'ContactTag|Contact', :fields => 'name|given_name,family_name,title,nick_name,rs,inn,kpp,ogrn', :user_filters => filters} %>
+  <%= render :partial => "shared/left_menu", :locals => {:new_link => ['people','companies'], :mass_destroy => true, :mass_task => true, :imexport => true} %>
+  <div class="central_container">
+    <%= render :partial => "shared/items_list", :locals => {:item => 'contact', :paging => @contacts, :locals => {:contacts => @contacts}} %>
+  </div>
+  <%= render :partial => "shared/dynamic_help" %>
+</div>

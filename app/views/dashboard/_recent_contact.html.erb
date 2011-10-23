@@ -1,0 +1,8 @@
+<% content_tag_for(:li,recent_contact) do %>
+  <% group = recent_contact.group %>
+<% name = recent_contact.formated_name.to_s+"  "+ l(recent_contact.created_at,:format => :short) %>
+  <% url =
+    group.nil? ?
+    contact_path(recent_contact) : group_contact_path(group, recent_contact) %>
+  <li><a href =<%= url %>><%= name %></a></li>
+<% end %>

@@ -1,0 +1,15 @@
+owner = owner_string(@owner)
+
+# прячем СПИСОК
+page << "$('##{owner}tasks_list_container').hide();"
+
+# рендерим СОЗДАНИЕ
+page.replace_html "#{owner}task_container",
+  :partial => 'shared/tasks/form',
+  :locals => {:task => @task, :owner => @owner, :recipients => @recipients}
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @task, :owner => @owner, :buttons => [:submit,:cancel]}) unless @owner
+
+# показываем СОЗДАНИЕ
+page << "$('##{owner}task_container').show();"

@@ -1,0 +1,14 @@
+# прячем СПИСОК
+page << "$('#contacts_list_container').hide();"
+
+# рендерим СОЗДАНИЕ
+page.replace_html "contact_container",
+  :partial  => "shared/contacts/#{controller_name}/form",
+  :locals   => {
+    :contact => @contact}
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @contact, :buttons => [:submit,:cancel]})
+
+# показываем СОЗДАНИЕ
+page << "$('#contact_container').show();"

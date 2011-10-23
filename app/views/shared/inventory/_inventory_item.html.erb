@@ -1,0 +1,56 @@
+<%
+  if inventory_item.new_record?
+    mode = :new
+  elsif inventory_item.id == @chg_item
+    mode = :edit
+  else
+    mode = :show
+  end
+%>
+<tr class="item_line" id="inventory_item_position_<%= inventory_item_counter %>">
+  <td class="item_opers">
+<%  if editable %>
+  <% unless inventory_item.new_record? %>
+    <% if mode == :edit %>
+      <a class="item_uch_link" href="#" title="<%= t(:cancel_edit) %>" onclick="inventory.cancel(); return false;"></a>
+      <a class="item_apl_link" href="#" title="<%= t(:save) %>" onclick="inventory.apply(); return false;"></a>
+    <% else %>
+       <% if inventory_item.can_be_edited %>
+         <a class="item_chg_link" href="#" title="<%= t(:edit) %>" onclick="inventory.change(<%= inventory_item.id %>); return false;"></a>
+       <% end %>
+       <% if inventory_item.can_be_deleted %>
+         <a class="item_del_link" href="#" title="<%= t(:delete) %>" onclick="inventory.destroy(<%= inventory_item.id %>); return false;"></a>
+     <% end %>
+    <% end %>
+  <% else %>
+    <a class="item_uad_link" href="#" title="<%= t(:cancel) %>" onclick="inventory.cancel(); return false;"></a>
+    <a class="item_apl_link" href="#" title="<%= t(:save) %>" onclick="inventory.apply(); return false;"></a>
+  <% end %>
+<% end %>
+  </td>
+  <td class="number"><%= inventory_item_counter + 1 %></td>
+
+<% if mode == :show %>
+  <td class="document"><%= h(inventory_item.name) %></td>
+  <td class="numof_sheets"><%= h(inventory_item.number_of_sheets) %></td>
+<% else %>
+  <td class="document">
+  <% if mode == :edit %>
+    <input type="hidden" name="inventory_item_id" value="<%= inventory_item.id %>" />
+  <%  end %>
+    <input type="text" name="inventory_item[name]" value="<%= inventory_item.name %>" />
+  </td>
+  <td class="numof_sheets">
+    <input type="text" name="inventory_item[number_of_sheets]" value="<%= inventory_item.number_of_sheets %>" />
+  </td>
+<% end %>
+
+  <td class="attaches">
+    <%= render :partial => 'shared/attachmends/my_attachmends',
+               :locals  => {:owner => inventory_item,
+                            :mode  => mode,
+                            :title_class => 'small',
+                            :visible     => (mode == :show ? false : true),
+                            :hide_if_empty => false} %>
+  </td>
+</tr>

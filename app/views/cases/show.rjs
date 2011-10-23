@@ -1,0 +1,20 @@
+# прячем СПИСОК
+page << "$('#cases_list_container').hide();"
+
+# рендерим ПРОСМОТР
+page.replace_html "case_container",
+  :partial => 'shared/cases/show',
+  :locals => {:item => @case}
+
+# делаем возможным перемещение элементов описи при просмотре
+page.sortable "#{owner_string(@case)}inventory_items_list",
+  :tag => 'tbody > tr',
+  :cursor => 'move',
+  :opacity => '0.6',
+  :url => update_inventory_case_path(@case)
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @case, :buttons => [:edit,:delete,:cancel,:report,:print]})
+
+# показываем ПРОСМОТР
+page << "$('#case_container').show();"

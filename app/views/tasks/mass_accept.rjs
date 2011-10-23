@@ -1,0 +1,14 @@
+@accepted_ids.each do |i|
+  id = "task_line_#{i}"
+  page.visual_effect :highlight, id, :duration => 1
+  page << "$('##{id} .main_part a').css('text-decoration','line-through');"
+end
+page.delay(1.seconds) do
+  page.replace_html "#{owner_string(@owner)}tasks_list_container",
+    :partial => 'shared/tasks/tasks_list',
+    :locals => {:tasks => @tasks, :owner => @owner}
+  @accepted_ids.each do |i|
+    id = "task_line_#{i}"
+    page.visual_effect :highlight, id, :duration => 1
+  end
+end

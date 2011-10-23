@@ -1,0 +1,8 @@
+<iframe name="target_frame" style="display:none"></iframe>
+<div id="attachmends_form_container" style="display:none">
+  <% form_tag(attachmends_path, :multipart => true) do %>
+    <input type="hidden" name="owner_id" />
+    <input type="hidden" name="owner_type" />
+    <input type="hidden" name="uid" />
+  <% end %>
+</div>

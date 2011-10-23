@@ -1,0 +1,49 @@
+<div class="sr_container">
+
+  <%= render :partial => '/reports/tree' %>
+
+  <div class="sheet" id="params_container">
+
+    <% form_for :report, :url => '/reports/logs/logs_view', :html => {:target => :target_frame} do |f| %>
+      <p>
+        <%= f.label t(:user) %>
+        <%= f.collection_select :user_id, @users, :id, :name, :selected => @user.id %>
+      </p>
+      <p>
+        <%= f.label t(:operation) %>
+        <%= f.select :oper, @opers, :selected => @oper %>
+      </p>
+      <p>
+        <%= f.label t(:rec_num) %>
+        <%= f.text_field :record_id, :style => 'width:64px', :value => @record_id %>
+      </p>
+
+      <% if @models.any? %>
+        <div>
+          <p>
+            <%= f.label t(:class) %>
+            <%= f.select :model, @models, {:selected => @model}, {:onchange => "$(this).parents(':first').nextAll(':visible').hide().find('select').attr('disabled','1');$('#fields_for_'+$(this).val().toLowerCase().replace('::','_')).show().find('select').removeAttr('disabled')"} %>
+          </p>
+          <% @models.each do |model| %>
+            <% unless (m=model[1]).blank? %>
+              <p style="display:none" id="fields_for_<%= m.downcase.gsub('::', '_') %>">
+                <%= f.label t(:field) %>
+                <%= f.select :field, @fields[m], {:selected => @field}, {:disabled => true} %>
+              </p>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= render :partial => 'reports/date_range_select', :locals => {:form => f, :from => @from, :to => @to} %>
+      <%= render :partial => 'shared/buttons', :locals => {:item => 'tasks', :namespace => 'settings', :buttons => [:submit], :submit_msg => t(:update)} %>
+    <% end %>
+
+  </div>
+
+
+  <div class="sheet" id="report_container" style="display:block;width:96%">
+    <%= render :partial => 'logs_list', :locals => {:logs => @logs} %>
+  </div>
+
+</div>

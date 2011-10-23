@@ -1,0 +1,13 @@
+# обновляем СПИСОК
+page.replace_html "contacts_list_container",
+  :partial => 'shared/contacts/contacts_list',
+  :locals => {:contacts => @contacts}
+
+# рендерим ПРОСМОТР
+page.replace_html "contact_container",
+  :partial => 'shared/contacts/show',
+  :locals => {:contact => @contact}
+
+# контекстные кнопки элемента в левом меню
+params[:action] = 'show'
+LeftMenuHelper.render(page, {:item => @contact, :buttons => [:edit,:delete,:cancel,:export_vcf,:export_xml]})

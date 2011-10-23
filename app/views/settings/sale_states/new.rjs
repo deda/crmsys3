@@ -1,0 +1,11 @@
+# прячем СПИСОК
+page << '$("#types_list_container").hide();'
+
+# рендерим СОЗДАНИЕ
+page.replace_html 'type_container',
+  :partial  => 'form',
+  :locals   => {:state => @state}
+
+# показываем СОЗДАНИЕ
+page << '$("#type_container").show();'
+ 

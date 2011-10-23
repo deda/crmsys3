@@ -1,0 +1,17 @@
+<%
+  filters = [
+    {:name => :all,       :values => [[0,t(:nesteds)], [1,t(:not_nesteds)]]},
+    {:name => :nesteds,   :values => [[0,t(:for_contacts)], [1,t(:for_sales)]]},
+    {:name => :recipient, :values => @filter_recipients}]
+%>
+<div class="main_container">
+  <%= render :partial => "shared/search_menu", :locals => {:models => 'Task', :fields => 'name', :user_filters => filters} %>
+  <%= render :partial => "shared/left_menu", :locals => {:new_link => true, :mass_accept => true, :mass_destroy => true} %>
+  <div class="central_container">
+    <%= render :partial => "shared/items_list", :locals => {:item => 'task', :locals => {:tasks => @tasks}} %>
+  </div>
+  <%= render :partial => "shared/dynamic_help" %>
+</div>
+<% if params[:action] == 'mass_new' and not @mass_new_data.empty? %>
+  <script>$(function(){<%= remote_function :url => new_task_path, :method => :get, :with => @mass_new_data %>})</script>
+<% end %>

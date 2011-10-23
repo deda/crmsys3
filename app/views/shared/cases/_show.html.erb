@@ -1,0 +1,31 @@
+<div class="sheet_title"><%=h item.name %></div>
+<%= Tag.string_for(item) %>
+
+<% unless item.code.blank? %>
+  <label><%= t('.code') %></label><div class="field_value"><%= item.code %></div>
+<% end %>
+
+<% if item.sale %>
+  <label><%= t('.contractor') %></label><div class="field_value"><%= link_to h(item.sale.contact.formated_name), contact_path(item.sale.contact), :class => :link_class %></div>
+  <label><%= t('.sale') %></label><div class="field_value"><%= link_to h(item.sale.formated_name), sale_path(item.sale), :class => :link_class %></div>
+<% end %>
+
+<label><%= t('.state') %></label><div class="field_value"><%= select_in_place(item, :state, :name) %></div>
+<label><%= t(:recipient) %></label><div class="field_value"><%= select_in_place(item, :recipient, :name) %></div>
+
+<% unless item.description.blank? %>
+  <label><%= t(:description)%></label><div class="field_value"><%=h item.description %></div>
+<% end %>
+
+<% if item.contacts.any? %>
+<label><%= t('.contacts') %></label>
+  <div>
+  <% item.contacts.each do |contact| %>
+    <%= link_to contact.formated_name, contact_path(contact) %>
+  <% end %>
+  </div>
+<% end %>
+
+<%= render :partial => 'shared/inventory/my_inventory', :locals => {:owner => @case, :visible => false, :editable => false} %>
+<%= render :partial => 'shared/tasks/my_tasks', :locals => {:owner => item} %>
+<%= render :partial => 'shared/comments/my_comments', :locals => {:owner => item} %>

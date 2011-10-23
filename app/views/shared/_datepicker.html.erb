@@ -1,0 +1,27 @@
+<%
+  hid = html_id(item)
+  dati = item.send(method)
+  sname = "#{item.class.name.underscore}[#{method}]"
+  dp_id = "#{hid}_datepicker"
+  cs_id = "#{hid}_completion_select"
+%>
+<script type="text/javascript" src="javascripts/i18n/jquery-ui-i18n.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $.datepicker.setDefaults($.extend($.datepicker.regional["ru"]));
+    var date_object = new Date("<%= l(dati || Date.today, :format => "%Y,%m,%d") %>");
+    $("#<%= dp_id %>").datepicker({
+      defaultDate:date_object,
+      onSelect: function(dateText,inst) {
+        datepkr.add_picked_date('<%= hid %>',dateText);
+        $("#<%= dp_id %>").hide();
+      }
+    });
+  });
+</script>
+<select id="<%= cs_id %>" name="<%= sname %>" onchange="<%= "datepkr.show_hide(this,'#{hid}');" %>">
+  <% collection.each do |c| %>
+    <%= "<option value='#{c[1]}' #{'selected' if c[1] == dati}>#{c[0]}</option>" %>
+  <% end %>
+</select>
+<div style="display:none;position:absolute;z-index:10;" id="<%= dp_id %>"></div>

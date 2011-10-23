@@ -1,0 +1,11 @@
+<tr class="item_line" id="user_group_line_<%= user_group.id %>">
+  <td>
+  <% if user_group.can_be_deleted %>
+    <input type="checkbox" name="ids[]" value="<%= user_group.id %>" class="mass_oper" />
+  <% else %>
+    <input type="checkbox" name="" value="" class="mass_oper" disabled />
+  <% end %>
+  </td>
+  <td><%= link_to_remote(user_group.name, :url => edit_settings_user_group_path(user_group), :method => :get) %></td>
+  <td><%= user_group.users.count %></td>
+</tr>

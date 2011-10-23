@@ -1,0 +1,19 @@
+<% count = state.sales.count %>
+<tr class="item_line" id="type_line_<%= state.id %>">
+  <td>
+  <% if state.can_be_deleted %>
+    <input type="checkbox" name="ids[]" value="<%= state.id %>" class="mass_oper" />
+  <% else %>
+    <input type="checkbox" name="" value="" class="mass_oper" disabled />
+  <% end %>
+  </td>
+  <td><%= link_to_remote("#{state.name}", :url => edit_settings_sale_state_path(state), :method => :get) %></td>
+  <td><%= "#{state.value}%" %></td>
+  <td>
+  <% if count > 0 %>
+    <%= link_to count, sales_path(:f => "states!#{state.id}") %>
+  <% else %>
+    <%= "#{count}" %>
+  <% end %>
+  </td>
+</tr>

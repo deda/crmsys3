@@ -1,0 +1,35 @@
+<%
+  items = [
+    {:name => :contacts,        :title => true,                 :director => false},
+    {:name => :problem_clients,                                 :director => false},
+    {:name => :tasks,           :title => true,                 :director => false},
+    {:name => :outcoming,                                       :director => false},
+    {:name => :punctuality,                                     :director => false},
+    {:name => :sales,           :title => true,                 :director => false},
+    {:name => :users,           :title => true,                 :director => false},
+    {:name => :activity,                                        :director => false},
+    {:name => :logs,            :title => true, :admin => true, :director => false},
+    {:name => :logs_view,                       :admin => true, :director => false},
+  ]
+  active = "#{controller_name}/#{action_name}"
+  controller = ''
+%>
+<div class="tree sheet">
+  <div class="sheet_title"><%= t(:reports) %></div>
+  <% items.each do |item| %>
+    <% action = item[:name] %>
+    <% next if item.has_key?(:admin) and current_user.is_admin? != item[:admin] %>
+    <% next if item.has_key?(:director) and current_user.is_accounts_admin? != item[:director] %>
+    <% if item[:title] %>
+      <% controller = "#{action}" %>
+      <h4><%= t(action) %></h4>
+    <% else %>
+      <% ca = "#{controller}/#{action}" %>
+      <% if ca == active %>
+        <%= link_to t(action), '', :class => :active %>
+      <% else %>
+        <%= link_to t(action), "/reports/#{ca}" %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

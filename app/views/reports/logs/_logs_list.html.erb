@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th style="width:10em"><%= t(:dati) %></th>
+      <th style="width:7em"><%= t(:operation) %></th>
+      <th style="width:20em"><%= t(:user) %></th>
+      <th style="width:10em"><%= t(:record) %></th>
+      <th><%= t(:fields) %></th>
+      <th><%= t(:values) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% logs.each do |log| %>
+      <tr class="<%= cycle :even, :odd %>">
+        <td><%= l(log.dati.localtime, :format => "%d.%m.%Y %H:%M:%S") %></td>
+        <td><%= CrmLogger::OperType[log.oper_type] %></td>
+        <td><%= log.user.attributes['name'] %></td>
+        <td><%= "#{log.object}.#{log.record_id}" %></td>
+        <td><%= log.fields.gsub(',', '<br>') unless log.fields.blank? %></td>
+        <td><%= log.values.gsub(',', '<br>') unless log.values.blank? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

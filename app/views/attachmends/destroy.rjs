@@ -1,0 +1,7 @@
+id_new = "attachmend_new_#{params[:id]}"
+id_edit = "attachmend_edit_#{params[:id]}"
+page << "hideble.count('##{id_new}',-1);"
+page << "hideble.count('##{id_edit}',-1);"
+page.remove id_new
+page.remove id_edit
+page << "attachmends.sended();"

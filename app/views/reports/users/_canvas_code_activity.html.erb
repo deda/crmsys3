@@ -1,0 +1,140 @@
+<script type="text/javascript">
+var canvas_code = {
+
+    html_id  : 'canvas_container',
+    instance : null,
+    context  : null,
+    dx       : 10,
+    dy       : 10,
+    width    : null,
+    height   : null,
+    font1    : '11px Arial, sans-serif',
+    font2    : '18px Arial, sans-serif',
+
+    run: function () {
+        canvas_code.init();
+        canvas_code.draw_data();
+    },
+
+    init: function () {
+        if (!canvas_code.instance) {
+            $(window).bind('resize', function(){canvas_code.run()});
+        }
+        canvas_code.instance = $('#'+canvas_code.html_id);
+        var w = canvas_code.instance.width();
+        var h = canvas_code.instance.height(1000).height();
+        canvas_code.context = canvas_code.instance.find('canvas').get(0).getContext("2d");
+        var c = canvas_code.context;
+        c.font          = canvas_code.font1;
+        c.canvas.width  = w;
+        c.canvas.height = h;
+        c.lineWidth     = 1;
+        c.shadowColor   = 0;
+        c.shadowOffsetX = 0;
+        c.shadowOffsetY = 0;
+        c.shadowBlur    = 0;
+        c.translate(0.5+canvas_code.dx, 0.5+canvas_code.dy);
+        //c.translate(0.5+canvas_code.dx, h-0.5-canvas_code.dy);
+        //c.transform(1, 0, 0, -1, 0, 0);
+        canvas_code.width  = w - 2 * canvas_code.dx;
+        canvas_code.height = h - 2 * canvas_code.dy;
+    },
+
+    draw_data: function (p) {
+      var w = canvas_code.width;
+      var h = canvas_code.height;
+      var c = canvas_code.context;
+      var y = 10;
+      var x = 0;
+
+      c.fillStyle = "#000";
+      c.font = canvas_code.font2;
+
+      var contacts_tot = canvas_data[0];
+      var contacts_usr = canvas_data[1];
+      c.fillText('<%= t(:contacts) %>', x, y);
+      y += 80;
+      canvas_code.dia.draw(x+100, y, contacts_usr / contacts_tot, '<%= 'все контакты' %>', '<%= 'контакты, созданные пользователем' %>');
+      y += 150;
+
+      var tasks_tot = canvas_data[2];
+      var tasks_out = canvas_data[3];
+      var tasks_inc = canvas_data[4];
+      var tasks_don = canvas_data[5];
+      c.fillText('<%= t(:tasks) %>', x, y);
+      y += 80;
+      canvas_code.dia.draw(x+100, y, tasks_out / tasks_tot, '<%= 'задачи всех пользователей' %>', '<%= 'исходящие задачи пользователя' %>');
+      canvas_code.dia.draw(x+300, y, tasks_inc / tasks_tot, '<%= 'задачи всех пользователей' %>', '<%= 'входящие задачи пользователя' %>');
+      canvas_code.dia.draw(x+500, y, tasks_don / tasks_inc, '<%= 'все входящие задачи пользователя' %>', '<%= 'выполненные задачи пользователя' %>');
+      y += 150;
+
+
+      var sales_tot = canvas_data[6];
+      var sales_usr = canvas_data[7];
+      var sales_sum_tot = canvas_data[8];
+      var sales_sum_usr = canvas_data[9];
+      c.fillText('<%= t(:sales) %>', x, y);
+      y += 80;
+      canvas_code.dia.draw(x+100, y, sales_usr / sales_tot, '<%= 'сделки всех пользователей' %>', '<%= 'сделки пользователя' %>');
+      canvas_code.dia.draw(x+300, y, sales_sum_usr / sales_sum_tot, '<%= 'сумма сделок всех пользователей' %>', '<%= 'сумма сделок пользователя' %>');
+      y += 150;
+
+      var cases_tot = canvas_data[10];
+      var cases_usr = canvas_data[11];
+      c.fillText('<%= t(:cases) %>', x, y);
+      y += 80;
+      canvas_code.dia.draw(x+100, y, cases_usr / cases_tot, '<%= 'дела всех пользователей' %>', '<%= 'дела пользователя' %>');
+      y += 150;
+
+    },
+
+    dia: {
+
+      r : 60,
+
+      draw: function (x,y,p,m1,m2) {
+        var t = 2 * Math.PI;
+        var a = t * (1 - p);
+        var c = canvas_code.context;
+        var r = this.r;
+
+        var dd =  (p > 0.5 ? -1 : 1) * 5 * Math.cos(p * Math.PI) + 2;
+        var dx =  dd * Math.cos(p * Math.PI);
+        var dy = -dd * Math.sin(p * Math.PI);
+
+        c.save();
+
+        c.strokeStyle = "#666";
+
+        c.fillStyle = "#ddd";
+        c.beginPath();
+        if (p > 0) c.moveTo(x-dx, y-dy);
+        c.arc(x-dx, y-dy, r, 0, a);
+        c.closePath();
+        c.fillRect(x-r, y+r+8, 10, 10);
+        c.strokeRect(x-r, y+r+8, 10, 10);
+        c.fill();
+        c.stroke();
+
+        c.fillStyle = "#f53";
+        c.beginPath();
+        if (p < 1) c.moveTo(x+dx, y+dy);
+        c.arc(x+dx, y+dy, r, a, t);
+        c.closePath();
+        c.fillRect(x-r, y+r+24, 10, 10);
+        c.strokeRect(x-r, y+r+24, 10, 10);
+        c.fill();
+        c.stroke();
+
+        c.font = canvas_code.font1;
+        c.fillStyle = "#000";
+        c.fillText(m1, x-r+16, y+r+16);
+        c.fillText(m2, x-r+16, y+r+32);
+
+        c.restore();
+      }
+    }
+
+}
+$(canvas_code.run);
+</script>

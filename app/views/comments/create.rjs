@@ -1,0 +1,7 @@
+# обновим список комментов
+page.replace_html "#{html_id(@owner)}_hideble_comments_list",
+  :partial => 'shared/comments/my_comments',
+  :locals  => {
+    :owner   => @owner,
+    :visible => true,
+    :edit_comment => @comment}

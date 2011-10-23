@@ -1,0 +1,4 @@
+page.insert_html :bottom, 'quick_info',
+  :partial => 'shared/quick_info',
+  :locals => {:info => @qi}
+page << "quick_info.show('#{@qi.html_id}');"

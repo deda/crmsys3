@@ -1,0 +1,29 @@
+<% if item.can_be_edited %>
+
+  <% id = "#{html_id(item)}_changable_avatar" %>
+  <% unless defined?(with_form); with_form = true end %>
+  <% onchange = item.new_record? ? "$('##{id}').append('<p>'+value.replace(/.*(\\/|\\\\)/,'')+'</p>')" : 'form.submit()' %>
+
+  <div class="changable_avatar editable" id="<%= id %>">
+
+    <% if with_form %>
+      <% form_for :image, :url => send(:"update_avatar_#{item.class.base_class.name.underscore}_path",item), :html => { :multipart => true, :target => :target_frame } do |form| %>
+        <%= form.file_field :photo, :style => "position:absolute; right:0; z-index:10; margin:0; padding:0; font-size:100px; cursor:pointer; opacity:0;", :onchange => onchange %>
+        <p class="change"><%= t(:change) %></p>
+        <%= image_tag item.avatar_url(size), :align => :center %>
+      <% end %>
+    <% else %>
+      <input type="file" name="image[photo]" style="position:absolute; right:0; z-index:10; margin:0; padding:0; font-size:100px; cursor:pointer; opacity:0;" onchange="<%= onchange %>" />
+      <p class="change"><%= t(:change) %></p>
+      <%= image_tag item.avatar_url(size), :align => :center %>
+    <% end %>
+
+  </div>
+
+<% else %>
+
+  <div class="changable_avatar">
+    <%= image_tag item.avatar_url(size) %>
+  </div>
+
+<% end %>

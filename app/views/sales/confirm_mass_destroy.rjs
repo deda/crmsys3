@@ -1,0 +1,12 @@
+page.replace_html "sales_list_container",
+  :partial => 'shared/sales/sales_list',
+  :locals => {:sales => @sales, :checked => @nested}
+
+page.replace_html "sale_container",
+  :partial  => 'shared/confirm_mass_destroy',
+  :locals => {:items => @nested, :new_items => @new_items}
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => controller_name, :buttons => [:mass_confirmed_delete,:cancel]})
+
+page << "$('#sales_list_container').hide();$('#sale_container').show();"

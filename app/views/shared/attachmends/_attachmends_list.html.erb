@@ -1,0 +1,9 @@
+<%
+  # Входные параметры (* - обязательный параметр):
+  # * owner     - элемент, для которого необходимо вывести список вложений
+  # * mode      - см. коммент в _attachmend.html.erb
+%>
+<div class="attachmends_list" id="<%= "#{mode}_#{owner_string(owner)}attachmends_list" %>">
+  <%= render :partial => 'shared/attachmends/attachmend', :locals => {:owner => owner, :mode => mode}, :collection => owner.attachmends %>
+  <%= render :partial => 'shared/attachmends/attachmend', :locals => {:owner => owner, :mode => mode, :attachmend => nil} %>
+</div>

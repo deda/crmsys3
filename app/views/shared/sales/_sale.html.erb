@@ -1,0 +1,41 @@
+<% checked ||= [] %>
+<tr class="item_line" id="<%= "sale_line_#{sale.id}" %>">
+  <td class="item_opers">
+    <div><input type="checkbox" name="sales_ids[]" value="<%= sale.id %>" class="mass_oper" <%= 'checked' if checked.include?(sale) %> /></div>
+    <% if sale.can_be_edited %>
+    <a class="item_chg_link"
+      href="#"
+      title="<%= t(:edit) %>"
+      onclick="<%= remote_function :url => edit_sale_path(sale), :method => :get %>">
+    </a>
+    <% end %>
+    <% if sale.can_be_deleted %>
+    <a class="item_del_link"
+      href="#"
+      title="<%= t(:delete) %>"
+      onclick="<%= remote_function :url => sale_path(sale), :method => :delete, :confirm => t(:confirm_delete) %>">
+    </a>
+    <% end %>
+  </td>
+  <td class="name">
+    <% if sale.user_id != sale.recipient_id and sale.user_id == current_user.id %>
+    <div class="rounded marker from_me"><%= sale.recipient.name %></div>
+    <% end %>
+    <%= link_to_remote h(sale.name), :url => sale_path(sale), :method => :get, :html => {:class => :link_class} %><br />
+    <%= Tag.string_for(sale) %>
+    <%= tasks_comments_string_for(sale) %>
+  </td>
+  <td class="contact">
+    <%= link_to h(sale.contact.formated_name), contact_path(sale.contact), :class => :link_class %>
+  </td>
+  <td class="summ">
+    <%= number_to_currency(sale.price_total,
+      :unit       => "руб.",
+      :format     => "%n %u",
+      :precision  => 2) %>
+  </td>
+  <td class="state">
+    <%= render :partial => 'shared/progress_bar', :locals => {:title => sale.state.name, :progress => sale.state.value.to_i} %>
+    <div class="g100"><%= sale.state.name %></div>
+  </td>
+</tr>

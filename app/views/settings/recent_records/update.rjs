@@ -1,0 +1,3 @@
+page.replace 'settings_recent_records_form',
+  :partial => '/settings/recent_records/form'
+page.alert t(:successfully)

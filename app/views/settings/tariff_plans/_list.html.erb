@@ -1,0 +1,11 @@
+<div class="sheet_title"><%= t(:account_tariff_plans) %></div>
+
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <%= render :partial => 'tariff_plan', :collection => tariff_plans %>
+  </tbody>
+</table>
+
+<%= render :partial => 'shared/buttons', :locals => {:item => 'account_tariff_plan', :namespace => 'settings/tariff_plans', :buttons => [:add, :mass_delete]} %>

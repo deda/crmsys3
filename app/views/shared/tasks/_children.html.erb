@@ -1,0 +1,3 @@
+<% if item.children.any? %>
+  <label><%= t(:subtasks) %></label><div class="field_value"><% item.children.each{ |c| %><%= link_to c.formated_name, task_path(c) %><br /><% } %></div>
+<% end %>

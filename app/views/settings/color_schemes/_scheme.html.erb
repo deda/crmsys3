@@ -1,0 +1,15 @@
+<a href="#" class="scheme_item scheme_item_<%= scheme %> <%= 'active' if current_user.settings.scheme.to_i == scheme.to_i %>" onclick="scheme.select(this,'<%= scheme %>'); return false;">
+
+  <div class="tabs">
+    <span><%= t(:contacts) %></span>
+    <span class="selected"><%= t(:tasks) %></span>
+  </div>
+
+  <div class="sheet_title">
+    <%= t(:settings) %>
+  </div>
+
+  <span class="link"><%= t(:settings) %></span><br />
+  <span class="link"><%= t(:color_schemes) %></span>
+
+</a>

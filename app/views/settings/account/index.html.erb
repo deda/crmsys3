@@ -1,0 +1,25 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <div class="sheet">
+
+    <div class="sheet_title">
+      <%= t(:settings_account) %>
+    </div>
+
+    <% semantic_form_for @account, :url => settings_account_path(@account), :html => {:target => :target_frame} do |f| %>
+      <% f.inputs do %>
+        <%= f.input :name, :label => t(:account_name) %>
+      <% end %>
+      <% f.inputs :for => :settings do |settings| %>
+        <%= settings.input :locale, :label => t(:default_lang), :as => :radio, :collection => locales_collection, :selected => @account.settings.locale %>
+      <% end %>
+      <% f.buttons do %>
+        <%= f.commit_button t(:save) %>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>

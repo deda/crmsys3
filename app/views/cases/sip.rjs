@@ -1,0 +1,4 @@
+# обновим краткое описание
+page.replace "case_line_#{@case.id}",
+  :partial => 'shared/cases/caze',
+  :locals => {:item => @case}

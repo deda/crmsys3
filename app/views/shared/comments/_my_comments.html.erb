@@ -1,0 +1,12 @@
+<%# 
+  Выводит комментарии для owner. По умолчанию область комментариев скрыта.
+%>
+<%= render :partial => 'shared/hideble',
+  :locals => {
+    :hideble_id     => "#{html_id(owner)}_hideble_comments_list",
+    :title          => t(:comments),
+    :size           => owner.comments.size,
+    :visible        => defined?(visible) ? visible : :auto,
+    :opers          => {:add => "comment.add($(this).parents('.hideble').find('.item_line.last .content'));"},
+    :unhide_on_add  => true,
+    :content        => render(:partial => 'shared/comments/comments_list', :locals => {:owner => owner, :edit_comment => (edit_comment ||= nil)}) } %>

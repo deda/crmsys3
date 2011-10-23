@@ -1,0 +1,7 @@
+<div class="navi">
+  <% if ['sales','projects','tasks'].include?(params[:controller]) %>
+    <%= complex_breadcrumbs @current_object%>
+  <% else %>
+    <%= breadcrumbs %>
+  <% end %>
+</div>

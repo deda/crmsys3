@@ -1,0 +1,11 @@
+<% x = @_paging[:pages] %>
+<% p = @_paging[:page] %>
+<div class="paging">
+  <% x.times do |i| %>
+    <% if i == p %>
+  <b><%= i+1 %></b>
+    <% else %>
+  <a href="#" onclick="ssearch.page(<%= i %>);return false;"><%= i+1 %></a>
+    <% end %>
+  <% end %>
+</div>

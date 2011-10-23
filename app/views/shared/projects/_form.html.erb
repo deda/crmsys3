@@ -1,0 +1,23 @@
+<% url = project.new_record? ? projects_path :  project_path(project)  %>
+<% method = project.new_record? ? :post :  :put  %>
+<% semantic_form_for :project, project, :url => url, :html => {:id => 'single_project_form', :method => method, :target => 'target_frame'} do |form| %>
+  <div class="projects_narrow_form_content">
+    <% form.inputs do%>
+      <%= form.input :name, :label => t('.name') %>
+    <% end %>
+  </div>
+  <div class="projects_wide_button">
+    <% form.buttons do %>
+      <%= form.commit_button t(:save) %>
+      <% unless project.new_record? %>
+        <%= button_to_remote t(:cancel),
+          :url => restore_project_path(project),
+          :method => :get %>
+      <% else %>
+        <%= link_to_function t(:cancel), :class => "cancel_link" do |page|
+          page << "$.fn.colorbox.close();"
+        end%>
+      <% end %>
+    <% end %>
+  </div>
+<%- end -%>

@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title><%= "#{t(:case)} - #{t(:print)} - #{@case.formated_name}" %></title>
+    <%= stylesheet_link_tag("reports") %>
+  </head>
+  <body>
+
+    <!--
+    <b><%= t(:case) %></b>: <%= @case.formated_name %><br />
+    <b><%= t(:contractor) %></b>: <%= @case.sale.contact.formated_name %>&nbsp;(<%= @case.sale.formated_name %>)<br />
+    <b><%= t(:recipient) %></b>: <%= @case.recipient.name %>
+    <hr /><br />
+    -->
+
+    <%= render :partial => 'shared/inventory/print', :locals => {:owner => @case} %>
+
+  </body>
+</html>

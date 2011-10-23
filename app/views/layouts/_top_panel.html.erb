@@ -1,0 +1,18 @@
+<div class="top-panel">
+  <div id="ajax_process" style="display:none"><%= t(:loading) %></div>
+  <div class="right-block">
+    <ul>
+      <li onmouseover="$(this).next().show();"><%= t(:locale) %></li>
+      <div class="locale_select" onmouseout="$(this).hide();" onmouseover="$(this).show();">
+        <a href="?locale=ru">Русский</a><br />
+        <a href="?locale=en">English</a><br />
+        <a href="?locale=it">Italiano</a>
+      </div>
+      <li class="logout"><%= link_to t('.sign_out'), sign_out_path %></li>
+      <li><%=h current_user.name_w_email %></li>
+    </ul>
+  </div>
+  <div class="left-block">
+    <p class="company-name"><%=h current_user.account(true).name %></p>
+  </div>
+</div>

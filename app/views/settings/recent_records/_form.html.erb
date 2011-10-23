@@ -1,0 +1,31 @@
+<% semantic_form_for :recent, :url => settings_recent_records_path, :html => {:target => :target_frame, :id => :settings_recent_records_form} do |f| %>
+  <table class="settings_recent_records"cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <th><%= t(:contacts) %></th>
+        <td><input type="text" name="recent_days[contact]" value="<%= @rd_contact %>" /></td>
+        <td class="error"><%= flash[:error_recent_days_contact] %></td>
+      </tr>
+      <tr>
+        <th><%= t(:tasks) %></th>
+        <td><input type="text" name="recent_days[task]" value="<%= @rd_task %>" /></td>
+        <td class="error"><%= flash[:error_recent_days_task] %></td>
+      </tr>
+      <tr>
+        <th><%= t(:sales) %></th>
+        <td><input type="text" name="recent_days[sale]" value="<%= @rd_sale %>" /></td>
+        <td class="error"><%= flash[:error_recent_days_sale] %></td>
+      </tr>
+      <tr>
+        <th><%= t(:cases) %></th>
+        <td><input type="text" name="recent_days[case]" value="<%= @rd_case %>" /></td>
+        <td class="error"><%= flash[:error_recent_days_case] %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% f.buttons do %>
+    <%= f.commit_button t(:save) %>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,11 @@
+<div class="item_line" id="user_line_<%= user.id %>">
+  <% if user.can_be_deleted %>
+    <input type="checkbox" name="ids[]" value="<%= user.id %>" class="mass_oper" />
+  <% else %>
+    <input type="checkbox" name="" value="" class="mass_oper" disabled />
+  <% end %>
+  <%= image_tag user.avatar_url(:s32x32) %>
+  <%= '<b>' if user.is_admin? %>
+  <%= link_to_remote(h(user.name_w_email), :url => edit_settings_user_path(user), :method => :get) %>
+  <%= '</b>' if user.is_admin? %>
+</div>

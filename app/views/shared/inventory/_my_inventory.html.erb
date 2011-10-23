@@ -1,0 +1,18 @@
+<%# 
+  Выводит опись для owner. По умолчанию область описи открыта.
+%>
+<%= render :partial => 'shared/hideble',
+  :locals => {
+    :title_class    => (title_class ||= nil),
+    :hideble_class  => (hideble_class ||= nil),
+    :hideble_id     => "#{owner_string(owner)}hideble_inventory_items_list",
+    :title          => t(:inventory),
+    :size           => owner.inventory_items.size,
+    :visible        => defined?(visible)  ? visible  : :auto,
+    :editable       => defined?(editable) ? editable : true,
+    :opers          => {:add => "inventory.add();"},
+    :unhide_on_add  => true,
+    :content        => render(:partial => 'shared/inventory/inventory_items_list',
+                              :locals => {:owner => owner,
+                                          :editable => defined?(editable) ? editable : true,
+                                          :edit_inventory => (edit_inventory ||= nil)})} %>

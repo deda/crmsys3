@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+
+    <% if @tasks_overdue.count + @tasks_today.count != 0 %>
+
+      <h3><%= t(:tasks) %></h3>
+
+      <% if @tasks_overdue.count != 0 %>
+      <p>
+        <b style="color:#f44"><%= t('shared.dividing_text.overdue') %></b><br />
+        <% @tasks_overdue.each do |task| %>
+          <%= "#{I18n.l(task.completion_time.to_date, :format => 'default')}, #{task.name}<br />" %>
+        <% end %>
+      </p>
+      <% end %>
+
+      <% if @tasks_today.count != 0 %>
+      <p>
+        <b style="color:#666"><%= t('shared.dividing_text.today') %></b><br />
+        <% @tasks_today.each do |task| %>
+          <%= "#{task.name}<br />" %>
+        <% end %>
+      </p>
+      <% end %>
+
+    <% end %>
+
+    <br /><br />
+    <%= t(:dont_reply) %>
+
+  </body>
+</html>

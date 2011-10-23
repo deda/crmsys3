@@ -1,0 +1,26 @@
+<%
+  url, method = get_url_and_method(tariff_plan,'settings/tariff_plans')
+  buttons = [:submit,:cancel]
+  buttons << :delete if not tariff_plan.new_record? and tariff_plan.can_be_deleted
+%>
+
+<div class="sheet_title">
+  <%= t(:tariff_plan) %>
+</div>
+
+<% semantic_form_for :tariff_plan, tariff_plan, :url => url, :html => {:method => method, :target => :target_frame} do |f| %>
+
+  <% f.inputs do %>
+    <%= f.input :name, :label => t(:name) %>
+    <%= f.input :price, :label => t(:price) %>
+    <%= f.input :max_users, :label => t(:max_users) %>
+    <%= f.input :max_mbytes, :label => t(:max_mbytes) %>
+    <%= f.input :max_contacts, :label => t(:max_contacts) %>
+    <%= f.input :with_commodities, :label => t(:with_commodities), :as => :boolean, :required => false %>
+    <%= f.input :with_cases, :label => t(:with_cases), :as => :boolean, :required => false %>
+    <%= f.input :with_projects, :label => t(:with_projects), :as => :boolean, :required => false %>
+  <% end %>
+
+  <%= render :partial => 'shared/buttons', :locals => {:item => tariff_plan, :namespace => 'settings/tariff_plans', :buttons => buttons} %>
+
+<% end %>

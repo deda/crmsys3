@@ -1,0 +1,38 @@
+<%
+  owner_params = owner_params(owner, false)
+  url, method = get_url_and_method(task)
+%>
+<div class="sheet_title"><%=h task.new_record? ? t(:new_task) : task.name %></div>
+<% semantic_form_for :task, task, :url => url, :html => {:method => method, :target => 'target_frame', :enctype => 'multipart/form-data'} do |form| %>
+  <% if !task.new_record? and not task.completed? %>
+  <div class="move_to">
+    <label><%= t('.move_to') %></label>
+    <div class="actions">
+      <span><%= link_to_remote t('.today'), :url => move_task_path(task), :method => :put, :with => "'time_binding=today&#{owner_params}'" %></span>
+      <span><%= link_to_remote t('.tomorrow'), :url => move_task_path(task), :method => :put, :with => "'time_binding=tomorrow&#{owner_params}'" %></span>
+      <span><%= link_to_remote t('.this_week'), :url => move_task_path(task), :method => :put, :with => "'time_binding=this_week&#{owner_params}'" %></span>
+      <span><%= link_to_remote t('.next_week'), :url => move_task_path(task), :method => :put, :with => "'time_binding=next_week&#{owner_params}'" %></span>
+      <span><%= link_to_remote t('.later'), :url => move_task_path(task), :method => :put, :with => "'time_binding=later&#{owner_params}'" %></span>
+    </div>
+  </div>
+  <% end %>
+  <% form.inputs do %>
+    <%= form.input :name, :label => t('.name') %>
+    <%= form.input :description, :label => t(:description), :as => :text, :input_html => {:rows => 4}, :required => false %>
+    <li class="select">
+      <label><%= t(:completion_time) %><abbr title="required">*</abbr></label>
+      <%= render :partial => 'shared/datepicker',
+        :locals => {
+          :item       => task,
+          :method     => :completion_time,
+          :collection => task.timestamps} %>
+    </li>
+    <%= form.input :recipient, :as => :select, :label => t('.whom'), :collection => recipients, :include_blank => false, :selected => task.recipient_id || current_user.id %>
+    <%= render(:partial => 'shared/addeble', :locals => {:view => 'shared/addeble/subtask', :model => task, :items => :children, :title => t(:subtasks)}) unless task.parent_id %>
+    <%= render :partial => 'shared/addeble', :locals => {:view => 'shared/addeble/tag', :model => task, :items => :tags, :auto_add => true} %>
+    <%= form.input :completed, :label => t(:completed_task), :required => false %>
+    <%= form.input :visible, :label => t(:visible), :required => false %>
+  <% end %>
+  <%= render(:partial => 'mass_new_items', :locals => {:items => @mass_new_items}) if not @mass_new_items.blank? and @mass_new_items.any? %>
+  <%= render(:partial => 'shared/buttons', :locals => {:item => task, :owner => owner, :buttons => [:submit,:cancel]}) if owner %>
+<% end %>

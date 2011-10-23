@@ -1,0 +1,19 @@
+<%  if item.discount_id == -1 or (item.discount_id == 0 and item.discount_value != 0)
+      di_style = "display:none"
+      dv_style = "display:inline"
+    else
+      di_style = "display:inline"
+      dv_style = "display:none"
+    end %>
+<%= form.input :discount_id,
+  :as             => :select,
+  :label          => false,
+  :collection     => @discounts_collection,
+  :include_blank  => true,
+  :selected       => item.discount_id,
+  :wrapper_html   => {:style => di_style},
+  :input_html     => {:onchange => "di=$(this);dv=di.parent().next().find('input:first');if(di.val()==-1){di.parent().hide();dv.keyup(function(e){if(e.keyCode==27){dv.val(0).trigger('blur').parent().hide();di.val(0).parent().show();}}).parent().show();}else{v=parseFloat(di.find('option:selected').text());dv.val(isNaN(v)?0:v).trigger('blur');}"} %>
+<%= form.input :discount_value,
+  :label          => false,
+  :wrapper_html   => {:style => dv_style},
+  :input_html     => {:value => item.discount_value, :onfocus => "dv=$(this);di=dv.parent().prev().find('select:first');dv.keyup(function(e){if(e.keyCode==27){dv.val(0).trigger('blur').parent().hide();di.val(0).parent().show();}})"} %>

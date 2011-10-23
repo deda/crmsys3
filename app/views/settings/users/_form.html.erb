@@ -1,0 +1,45 @@
+<%
+  url, method = get_url_and_method(user,'settings')
+  buttons = [:submit]
+  buttons << :cancel unless user == current_user and not current_user.is_admin?
+  buttons << :delete unless user == current_user or user.new_record?
+%>
+
+<div class="sheet_title">
+  <%= t(:personal_info) %>
+</div>
+
+<% semantic_form_for user, :url => url, :html => {:method => method, :target => :target_frame, :multipart => true} do |f| %>
+
+  <div class="icon">
+    <%= render :partial => 'shared/changable_avatar', :locals => {:item => user, :size => :s128x128, :with_form => false} %>
+    <%= h(user.name_w_email) %>
+  </div>
+
+  <div class="data">
+
+    <% f.inputs do %>
+      <%= f.input :name, :label => t(:name) %>
+      <% if user.new_record? %>
+        <%= f.input :email, :label => t(:email) %>
+      <% end %>
+    <% end %>
+
+    <% f.inputs do %>
+      <%= f.input :password, :label => t(user.new_record? ? :password : :password_if_need_change), :required => false %>
+      <%= f.input :password_confirmation, :label => t(:password_confirmation), :required => false %>
+    <% end %>
+
+    <% if current_user.is_admin? %>
+      <% f.inputs do %>
+        <%= f.input :is_admin, :as => :boolean, :label => t(:is_admin), :required => false, :input_html => {:disabled => current_user == user} %>
+      <% end %>
+      <b><%= t(:user_groups) %></b><br />
+      <%= render :partial => 'user_group', :locals => {:groups => user.user_groups}, :collection => user_groups %>
+    <% end %>
+
+  </div>
+
+  <%= render :partial => 'shared/buttons', :locals => {:item => user, :namespace => 'settings', :buttons => buttons} %>
+
+<% end %>

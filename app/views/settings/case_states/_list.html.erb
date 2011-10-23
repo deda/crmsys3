@@ -1,0 +1,14 @@
+<div class="sheet_title"><%= t(:case_states) %></div>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td><%= t(:state) %></td>
+      <td><%= t(:numof_cases) %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'state', :collection => states %>
+  </tbody>
+</table>
+<%= render :partial => 'shared/buttons', :locals => {:item => 'case_state', :namespace => 'settings', :buttons => [:add, :mass_delete]} %>

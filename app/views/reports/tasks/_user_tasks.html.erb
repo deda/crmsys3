@@ -1,0 +1,32 @@
+<div class="sheet" id="report_container">
+
+  <div class="wrapper">
+    <table>
+      <tbody>
+        <% user.received_tasks.find(:all, :conditions => {:user_id => current_user.id}).each do |task| %>
+          <tr>
+            <% if task.completed %>
+              <th width="10px" style="color:green">&radic;</th>
+            <% else %>
+              <th width="10px" style="color:red">x</th>
+            <% end %>
+            <td width="70px"><%= task.timestamp %></td>
+            <td>
+              <%= link_to h(task.name), task_path(task) %>
+              <% if task.owner %>
+                (Re:<%= link_to h(task.owner.formated_name), send(:"#{task.owner.class.base_class.name.underscore}_path", task.owner) %>)
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="item_buttons">
+    <%= link_to_function t(:back), "$('#report_container').hide();$('#params_container').show()", :class => :button %>
+    <%= link_to t(:view_in_tasks),"/tasks?f=recipient!#{user.id}", :class => :button %>
+    <%= link_to t(:punctuality), "/reports/tasks/punctuality?user_id=#{user.id}", :class => :button %>
+  </div>
+
+</div>

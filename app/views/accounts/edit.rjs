@@ -1,0 +1,10 @@
+# прячем СПИСОК
+page << "$('#accounts_list_container').hide();"
+
+# рендерим РЕДАКТИРОВАНИЕ
+page.replace_html "account_container",
+  :partial => "shared/accounts/form",
+  :locals => {:account => @account}
+
+# показываем РЕДАКТИРОВАНИЕ
+page << "$('#account_container').show();"

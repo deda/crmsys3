@@ -1,0 +1,29 @@
+<%= t(:type) %><br />
+<%= FuzzyHelper.input_tag :object => item,
+  :method => :type,
+  :fields => 'name',
+  :models => 'AddressType',
+  :name => 'address_type_names[]',
+  :id_name => "#{name}[type_id]" %><br />
+
+<%= t('.country') %><br />
+<input name="<%= "#{name}[country_name]" %>" type="text" value="<%= item.country_name %>" /><br />
+
+<%= t('.region') %><br />
+<input name="<%= "#{name}[region]" %>" type="text" value="<%= item.region %>" /><br />
+
+<%= t('.locality') %><br />
+<input name="<%= "#{name}[locality]" %>" type="text" value="<%= item.locality %>" /><br />
+
+<%= t('.street') %><br />
+<input name="<%= "#{name}[street_address]" %>" type="text" value="<%= item.street_address %>" /><br />
+
+<%= t('.index') %><br />
+<input name="<%= "#{name}[postal_code]" %>" type="text" value="<%= item.postal_code %>" /><br />
+
+<%= t('.box') %><br />
+<input name="<%= "#{name}[post_office_box]" %>" type="text" value="<%= item.post_office_box %>" /><br />
+
+<% if item.id %>
+  <input name="<%= "#{name}[id]" %>" type="hidden" value="<%= item.id %>" />
+<% end %>

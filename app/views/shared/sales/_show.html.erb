@@ -1,0 +1,10 @@
+<div class="sheet_title"><%=h sale.name %></div>
+<%= Tag.string_for(sale) %>
+<label><%= t('.company') %></label><div class="field_value"><%= link_to h(sale.contact.formated_name), contact_path(sale.contact), :class => :link_class %></div>
+<%#<label><%= t('.ware_house') </label><div class="field_value"><%= sale.ware_house.name if sale.ware_house </div>%>
+<label><%= t('.state') %></label><div class="field_value"><%= select_in_place(sale, :state, :name) %></div>
+<label><%= t(:recipient) %></label><div class="field_value"><%= select_in_place(sale, :recipient, :name) %></div>
+<% unless sale.description.blank? %><label><%= t(:description)%></label><div class="field_value"><%=h sale.description %></div><% end %>
+<%= render :partial => 'shared/sales/specification', :locals => {:form => nil} %>
+<%= render :partial => 'shared/tasks/my_tasks', :locals => {:owner => sale} %>
+<%= render :partial => 'shared/comments/my_comments', :locals => {:owner => sale} %>

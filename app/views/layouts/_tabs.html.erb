@@ -1,0 +1,44 @@
+<div class="tabs">
+
+<% if current_user.account.director? %>
+
+  <div><a class="inv" id="AccountsController" href="<%= accounts_path %>"><%= t(:accounts) %></a></div>
+
+<% else %>
+
+  <div><a class="inv" id="ContactsController" href="<%= root_path %>"><%= t(:contacts) %></a></div>
+  <div><a class="inv" id="TasksController" href="<%= tasks_path %>"><%= t(:tasks) %></a></div>
+  <div><a class="inv" id="SalesController" href="<%= sales_path %>"><%= t(:sales) %></a></div>
+
+  <% if current_user.account.tariff_plan.with_cases %>
+    <div><a class="inv" id="CasesController" href="<%= cases_path %>"><%= t(:cases) %></a></div>
+  <% end %>
+
+  <% if false %>
+    <div><a class="inv" id="CommoditiesController" href="<%= tab_commodities_path %>"><%= t('.nomenclature') %></a></div>
+  <% end %>
+
+  <% if false %>
+    <div><a class="inv" id="WareHousesController" href="<%= ware_houses_path %>"><%= t('.warehouse') %></a></div>
+  <% end %>
+
+  <% if false %>
+    <div><a class="inv" id="DashboardController" href="<%= dashboard_path %>"><%= t('.dashboard') %></a></div>
+  <% end %>
+
+<% end %>
+
+  <div class="right">
+    <a class="inv" id="SettingsController" href="<%= settings_users_path %>"><%= t(:settings) %></a>
+  </div>
+  <% unless current_user.account.director? %>
+    <div class="right"><a class="inv" id="ReportsController" href="<%= reports_root_path %>"><%= t(:reports) %></a></div>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $("#<%=@navi.split("::").last%>").parent().addClass('selected');
+  });
+</script>

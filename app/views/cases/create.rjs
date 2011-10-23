@@ -1,0 +1,14 @@
+# прячем СОЗДАНИЕ
+page << "$('#case_container').hide()"
+
+# обновляем СПИСОК
+page.replace_html "cases_list_container",
+  :partial => 'shared/cases/cases_list',
+  :locals => {:items => @cases}
+
+# показываем СПИСОК
+page << "$('#cases_list_container').show();left_menu.correct()"
+
+# визуальный эффект на новом
+page.visual_effect :highlight, "case_line_#{@case.id}",
+  :duration => 2

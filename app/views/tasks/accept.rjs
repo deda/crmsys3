@@ -1,0 +1,12 @@
+# эффект зачеркивания строки задачи
+id = "task_line_#{@task.id}"
+page.visual_effect :highlight, id, :duration => 1
+page << "$('##{id} .main_part a').css('text-decoration','line-through');"
+
+# обновляем список всех задач, с визуальным эффектом на выполненной задаче
+page.delay(1.seconds) do
+  page.replace_html "#{owner_string(@owner)}tasks_list_container",
+    :partial => 'shared/tasks/tasks_list',
+    :locals => {:tasks => @tasks, :owner => @owner}
+  page.visual_effect :highlight, id, :duration => 1
+end

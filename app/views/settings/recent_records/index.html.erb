@@ -1,0 +1,13 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <div class="sheet">
+    <div class="sheet_title">
+      <%= t(:recent_records) %>
+    </div>
+    <p><%= t(:recent_records_description) %></p><br />
+    <%= render :partial => '/settings/recent_records/form' %>
+  </div>
+
+</div>

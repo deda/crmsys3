@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<%= render :partial => 'stylesheets' %>
+		<%= render :partial => 'javascripts' %>
+		<title>Mockups</title>
+	</head>
+	<body>
+		<i id="darkLayer"></i>
+		<div id="popup">
+			<span class="close">закрыть</span>
+			<div class="company-card">
+				<p class="company-name">НефтьХимМаш (<a href="#">Перейти в контрагента</a>)</p>
+				<p class="company-description">Производство химических удобрений и бытовой химии</p>
+				<p class="contact-post">ООО "НефтьХимМаш"</p>
+				<ul class="contact">
+					<li>Юридический адрес: <span>404118, г. Волгоград, ул. Красноармейская д. 1, корп. 12</span></li>
+					<li>Телефон: <span>8 (8442) 91-28-53</span></li>
+					<li>Сайт: <a href="#">www.oilchemmash.ru</a></li>
+					<li>E-mail: <a href="#">oil@volgograd.ru</a></li>
+				</ul>
+				<p class="contact-post">Генеральный директор:</p>
+				<ul class="contact">
+					<li class="name"><span>Петров Александр Евгеньевич</span></li>
+					<li>Мобильный телефон: <span>8 905 321 54 76</span></li>
+					<li>Рабочий телефон: <span>8 905 321 54 76</span></li>
+					<li>E-mail: <a href="#">pochta@yandex.ru</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="outer">
+			<div class="outer">
+				<%= render :partial => 'layouts/top_panel' %>
+				<%= render :partial => 'layouts/tabs' %>
+				<%= render :partial => 'layouts/navi' %>
+				<div class="columns clear-after">
+					<div class="left-column">
+						<ul class="buttons">
+							<li><i class="icon i-add"></i><span rel="Add" class="withInfo">Добавить</span></li>
+							<li><i class="icon i-remove"></i><span rel="Remove" class="withInfo">Удалить</span></li>
+						</ul>
+						<i class="border"></i>
+						<ul class="buttons">
+							<li><i class="icon i-add"></i><span rel="Add" class="withInfo">Добавить</span></li>
+							<li><i class="icon i-remove"></i><span rel="Remove" class="withInfo">Удалить</span></li>
+						</ul>
+					</div>
+					<%= yield %>
+					<div class="right-column">
+						<div class="info-block">
+							<div id="infoAdd">
+								<p class="head">Добавление новой сделки</p>
+								<p>После нажатия появится форма</p>
+							</div>
+							<div id="infoRemove">
+								<p class="head">Удаление сделки</p>
+								<p>И что то произойдет</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%= render :partial => 'layouts/footer' %>
+	</body>
+</html>

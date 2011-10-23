@@ -1,0 +1,28 @@
+<%#
+  Принимаемые параметры (* - обязательный):
+  * attachmend  - элемент класса Attachmend (одно вложение)
+  * mode        - :edit, :show, :new. Задает контекст вывода списка вложений:
+                  действие, производимое в данный момент с владельцем вложений.
+                  Например при создании нового элемента владельца используется
+                  mode => :new. И т.д.
+                  Если mode = :edit или :new то будут выводиться иконки с
+                  ссылками для удаления существующих вложений и добавления
+                  нового вложения.
+%>
+
+<% edit_mode = (mode == :edit or mode == :new) %>
+
+<% if attachmend %>
+  <% link_text = "#{attachmend.object_file_name} (#{number_to_human_size(attachmend.object_file_size, :precision => 2)})" %>
+  <div class="attachmend_line item_line" id="<%= "attachmend_#{mode}_#{attachmend.id}" %>">
+    <div class="attachmend_icon type_unknown <%= 'item_del_link' if edit_mode %>"></div>
+    <div class="attachmend_link"><a href="<%= attachmend.object.url %>" target="_blank" title="<%= link_text %>"><%= link_text %></a></div>
+    <div class="attachmend_prog"></div>
+  </div>
+<% else %>
+  <div class="attachmend_line item_line" <%= 'style="display:none"' if !edit_mode %>>
+    <div class="attachmend_icon item_add_link"><input type="file" name="attachmend[object]" style="position:absolute; right:0; z-index:1; margin:0; padding:0; font-size:40px; cursor:pointer; opacity:0;" /></div>
+    <div class="attachmend_link"><%= t(:add_file) %></div>
+    <div class="attachmend_prog"></div>
+  </div>
+<% end %>

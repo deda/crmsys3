@@ -1,0 +1,21 @@
+<%
+  url, method = get_url_and_method(user_group,'settings')
+  buttons = [:submit,:cancel]
+  buttons << :delete if not user_group.new_record? and user_group.can_be_deleted
+%>
+
+<div class="sheet_title">
+  <%= t(:group) %>
+</div>
+
+<% semantic_form_for user_group, :url => url, :html => {:method => method, :target => :target_frame} do |f| %>
+
+  <% f.inputs do %>
+    <%= f.input :name, :label => t(:group) %>
+  <% end %>
+
+  <b><%= t(:users) %></b><br />
+  <%= render :partial => 'user', :locals => {:group => user_group.users}, :collection => users %>
+  <%= render :partial => 'shared/buttons', :locals => {:item => user_group, :namespace => 'settings', :buttons => buttons} %>
+
+<% end %>

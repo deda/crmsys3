@@ -1,0 +1,94 @@
+<%
+  if item.is_a?(String)
+    cn = item.singularize.underscore
+    nm = cn
+  else
+    cn = item.class.name.underscore
+    nm = item.class.base_class.name.underscore
+  end
+  namespace ||= nil
+  items_path = cn.pluralize
+  items_path = "#{namespace}/#{items_path}" if namespace
+  cn = "#{namespace.gsub('/','_')}_#{cn}" if namespace
+  owner ||= nil
+  os = owner_string(owner)
+  op = owner_params(owner)
+  cancel_msg ||= params[:action] == 'show' ? t(:close) : t(:cancel)
+  submit_msg ||= t(:save)
+  cisl = "$('##{os}#{nm}_container').hide();$('##{os}#{nm.pluralize}_list_container').show();left_menu.correct();"
+%>
+<div class="item_buttons">
+
+  <% if buttons.include?(:add) %>
+    <%= link_to_remote t(:add), :url => send(:"new_#{cn}_path"), :method => :get, :html => {:class => :button} %>
+  <% end %>
+
+  <% if buttons.include?(:edit) and item.can_be_edited %>
+    <%= link_to_remote t(:edit), :url => send(:"edit_#{cn}_path",item), :with => op, :method => :get, :html => {:class => :button} %>
+  <% end %>
+
+  <% if buttons.include?(:submit) and (item.is_a?(String) or item.new_record? or item.can_be_edited) %>
+    <% append_owner_inputs = owner ? ".append(\"<input type='hidden' name='owner_id' value='#{item.owner_id}' /><input type='hidden' name='owner_type' value='#{item.owner_type}' />\")" : '' %>
+    <% my_form = "$(this).parents('form').add('.central_container form').first()" %>
+    <% f = "quick_info.cache.clear();#{my_form}#{append_owner_inputs}.submit()" %>
+    <%= link_to_function submit_msg, f, :class => :button %>
+  <% end %>
+
+  <% if buttons.include?(:delete) and item.can_be_deleted %>
+    <%= link_to_remote t(:delete), :url => send(:"#{cn}_path",item), :with => op, :method => :delete, :confirm => t(:confirm_delete), :html => {:class => :button} %>
+  <% end %>
+
+  <% if buttons.include?(:mass_confirmed_delete) %>
+    <%= link_to_function t(:continue), "mass.destroy('#{items_path}', true)", :class => :button %>
+  <% end %>
+
+  <% if buttons.include?(:export_vcf) %>
+    <%= link_to_function t(:export_vcf), "do_export.vcf('contact','contacts',#{item.id})", :class => :button %>
+  <% end %>
+
+  <% if buttons.include?(:export_xml) %>
+    <%= link_to_function t(:export_xml), "do_export.xml('contact','contacts',#{item.id})", :class => :button %>
+  <% end %>
+
+  <% if buttons.include?(:mass_delete) %>
+    <%= link_to_function t(:mass_delete), "mass.destroy('#{items_path}')", :class => :button %>
+  <% end %>
+
+  <% [:report, :print].each do |oper| %>
+    <% if buttons.include?(oper) %>
+      <%= link_to_function t(oper), "window.open('#{send(:"#{oper}_#{cn}_path")}')", :class => :button %>
+    <% end %>
+  <% end %>
+
+  <% if buttons.include?(:cancel) %>
+    <% if !item.is_a?(String) and !item.new_record? and respond_to?(:"cancel_#{cn}_path") and params[:action] == 'edit' %>
+      <% f = remote_function :url => send(:"cancel_#{cn}_path",item), :method => :get, :width => op, :html => {:class => :button} %>
+    <% else %>
+      <% f = '' %>
+    <% end %>
+    <%= link_to_function cancel_msg, cisl + f, :class => :button %>
+  <% end %>
+
+</div>
+<%#
+  Рендерит кнопки дейтсвий.
+  * item      - элемент, для которого выполняются действя кнопок
+    owner     - владелец item, если нужно передавать на сервер параметры owner`а
+    namespace - если контроллер определен как Namespace::Items
+  * buttons   - какие кнопки рендерить
+      :add        Добавить
+      :edit       Редактировать
+      :delete     Удалить
+      :submit     Сохранить
+      :cancel     Отмена (в режиме создания или редактирования элемента)
+                  Закрыть (при просмотре элемента)
+      :export_vcf Экспорт в vCard
+      :export_xml Экспорт в xml
+
+  Пример использования:
+    render :partial => 'shared/buttons',
+      :locals => {
+        :item     => contact,
+        :owner    => contact.owner,
+        :buttons  => [:edit,:delete,:cancel]}
+%>

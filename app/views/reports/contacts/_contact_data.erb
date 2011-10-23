@@ -1,0 +1,15 @@
+<%
+  cn = contact_data[:contact]
+  tc = contact_data[:tasks_count]
+  sc = contact_data[:sales_count]
+  fn = cn.formated_name
+%>
+<div class="col_fix_250">
+  <%= link_to fn, contact_path(cn) %>
+  <% if tc > 0 or sc > 0 %>
+    &nbsp;(
+    <%= link_to("#{loc_tdc(:tasks)}:#{tc} ", "/tasks?s[]=#{fn}") if tc > 0 %>
+    <%= link_to("#{loc_tdc(:sales)}:#{sc} ", "/sales?s[]=#{fn}") if sc > 0 %>
+    &nbsp;)
+  <% end %>
+</div>

@@ -1,0 +1,3 @@
+<div class="sheet_title"><%= t(:settings_users) %></div>
+<%= render :partial => 'user', :collection => users %>
+<%= render :partial => 'shared/buttons', :locals => {:item => 'user', :namespace => 'settings', :buttons => [:add, :mass_delete]} %>

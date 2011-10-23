@@ -1,0 +1,91 @@
+<%-
+  search_name = "s[]"
+  filter_str = "#{@_filter[:type]}!#{@_filter[:id]}"
+  max_i = @_search.size
+  user_filters ||= []
+  # тэги
+  tags = []
+  begin
+    Object.const_get(controller_name.singularize.camelcase + 'Tag').
+      for_account.
+      find(:all).
+      each{ |i| tags << [i.id, i.name] }
+  rescue
+  end
+  # статусы
+  states = []
+  begin
+    Object.const_get(controller_name.singularize.camelcase + 'State').
+      for_account.
+      find(:all).
+      each{ |i| states << [i.id, i.name] }
+  rescue
+  end
+  # фильтры, доступные для всех
+  filters = [
+    {:name => :all,      :values => [[nil,t(:all_records)]]},
+    {:name => :tags,     :values => tags},
+    {:name => :states,   :values => states},
+    {:name => :recent_records, :values => [[0,t(:recently_created)], [1,t(:recently_updated)]]}]
+  # добавим к общим фильтрам специфические фильтры, заданные в начальных страницах
+  user_filters.each do |uf|
+    was_add = false
+    filters.each do |f|
+      if f[:name] == uf[:name]
+        f[:values] += uf[:values]
+        was_add = true
+        break
+      end
+    end
+    filters.insert(1, uf) if not was_add
+  end
+%>
+<div class="search_menu_container">
+  <form id="top_search_form" action="/<%= controller_name %>" method="get">
+    <div class="select">
+      <%= t(:select) %><br />
+      <select onchange="mass.select(this, '<%= controller_name %>')">
+        <option value=""></option>
+        <option value="0"><%= t(:select_non) %></option>
+        <option value="1"><%= t(:select_all) %></option>
+        <option value="2"><%= t(:invert) %></option>
+      </select>
+    </div>
+    <div class="records">
+      <%= t(:paging) %><br />
+      <select name="r" onchange="ssearch.go(this)">
+        <% [[10,10],[30,30],[50,50],[100,100],[0,t(:all)]].each do |o| %>
+         <%= "<option value='#{o[0]}'#{' selected' if o[0] == @_paging[:recs]}>#{o[1]}</option>" %>
+        <% end %>
+      </select>
+    </div>
+    <div class="filter">
+      <%= t(:filter) %><br />
+      <select name="f" onchange="ssearch.go(this)">
+      <% filters.each do |filter| %>
+        <% if filter and filter[:values].count > 0 %>
+        <optgroup label="<%= t(filter[:name]) %>">
+          <% filter[:values].each do |value| %>
+          <% value_str = value[0] ? "#{filter[:name]}!#{value[0]}" : '' %>
+          <option value="<%= value_str %>" <%= 'selected' if value_str == filter_str %>><%= value[1] %></option>
+          <% end %>
+        </optgroup>
+        <% end %>
+      <% end %>
+      </select>
+    </div>
+    <div class="search">
+      <%= t(:search) %><br />
+      <% @_search.each_with_index do |search_value, i| %>
+      <input type="hidden" name="<%= search_name %>" value="<%=h search_value %>" />
+      <div class="value"><%=h search_value %></div>
+      <% end %>
+      <%= FuzzyHelper.input_tag :models => models, :fields => fields, :on_sel => 'ssearch.go', :name => search_name %>
+    </div>
+  </form>
+</div>
+<%#
+  Передаваемые параметры
+    models  - модели fuzzy-поиска
+    fields  - поля fuzzy-поиска
+%>

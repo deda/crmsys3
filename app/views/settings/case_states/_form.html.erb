@@ -1,0 +1,19 @@
+<%
+  url, method = get_url_and_method(state,'settings')
+  buttons = [:submit,:cancel]
+  buttons << :delete if not state.new_record? and state.can_be_deleted
+%>
+
+<div class="sheet_title">
+  <%= t(:state) %>
+</div>
+
+<% semantic_form_for state, :url => url, :html => {:method => method, :target => :target_frame} do |f| %>
+
+  <% f.inputs do %>
+    <%= f.input :name, :label => t(:state) %>
+  <% end %>
+
+  <%= render :partial => 'shared/buttons', :locals => {:item => state, :namespace => 'settings', :buttons => buttons} %>
+
+<% end %>

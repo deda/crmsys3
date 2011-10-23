@@ -1,0 +1,14 @@
+<div class="sheet_title"><%= t(:user_groups) %></div>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td><%= t(:group) %></td>
+      <td><%= t(:users) %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'user_group', :collection => user_groups %>
+  </tbody>
+</table>
+<%= render :partial => 'shared/buttons', :locals => {:item => 'user_group', :namespace => 'settings', :buttons => [:add, :mass_delete]} %>

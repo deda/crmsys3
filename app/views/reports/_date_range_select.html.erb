@@ -1,0 +1,4 @@
+<p class="date_range_select">
+  <span><%= form.label t(:date_from) %><%= form.date_select(:from, :default => from, :order => [:day, :month, :year]) %></span>
+  <span><%= form.label t(:date_to) %><%= form.date_select(:to, :default => to, :order => [:day, :month, :year]) %></span>
+</p>

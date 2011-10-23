@@ -1,0 +1,8 @@
+<div class="mass_new_items">
+  <b><%= "#{t(:mass_task)} #{loc_tdc(:for)}: " %></b>
+  <%= items.map{ |i| i.formated_name }.join(', ') %>
+  <input type="hidden" name="cn" value="<%= items[0].class.base_class.name.pluralize %>" />
+  <% items.each do |i| %>
+    <input type="hidden" name="ids[]" value="<%= i.id %>" />
+  <% end %>
+</div>

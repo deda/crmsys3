@@ -1,0 +1,2 @@
+class UrlType < Type
+end

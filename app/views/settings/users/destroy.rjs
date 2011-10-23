@@ -1,0 +1,10 @@
+# прячем РЕДАКТИРОВАНИЕ
+page << '$("#user_container").hide();'
+
+# обновляем СПИСОК
+page.replace_html 'users_list_container',
+  :partial  => 'list',
+  :locals   => {:users => @users}
+
+# показываем СПИСОК
+page << '$("#users_list_container").show();'

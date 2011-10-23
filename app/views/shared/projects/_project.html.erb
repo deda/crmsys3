@@ -1,0 +1,14 @@
+<% time_binding ||= nil 
+container_id = time_binding ? "project_container_#{project.id}_#{time_binding}" :
+  "project_container_#{project.id}"
+project_id = time_binding ? "project_#{project.id}_#{time_binding}" :
+  "project_#{project.id}"%>
+<tbody class="project_container_identifier" id =<%= container_id %>>
+  <%= render :partial => 'shared/projects/project_inside',
+    :locals => {:user => current_user, :project => project, :project_id => project_id} %>
+  <% if time_binding %>
+    <% project.tasks.visible_for_user.incomplete.send(time_binding+"_tasks").each do |task| %>
+      <%= render :partial => 'shared/tasks/task', :locals =>{:task => task} %>
+    <% end %>
+  <% end %>
+</tbody>

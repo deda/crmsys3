@@ -1,0 +1,24 @@
+page.alert(t(:successfully)) unless current_user.is_admin?
+
+if current_user.is_admin? and current_user != @user
+
+  # прячем СОЗДАНИЕ
+  page << '$("#user_container").hide();'
+
+  # обновляем СПИСОК
+  page.replace_html 'users_list_container',
+    :partial  => 'list',
+    :locals   => {:users => @users}
+
+  # показываем СПИСОК
+  page << '$("#users_list_container").show();'
+  
+  # визуальный эффект
+  page.visual_effect :highlight, "user_line_#{@user.id}",
+    :duration => 2
+
+else
+
+  page.redirect_to(settings_users_url)
+
+end

@@ -1,0 +1,2 @@
+page.alert t(:successfully)
+page.redirect_to :action => :index

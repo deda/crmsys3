@@ -1,0 +1,6 @@
+page.replace 'report_container',
+  :partial  => 'user_tasks',
+  :locals   => {:user => @user}
+
+page.hide 'params_container'
+page.show 'report_container'

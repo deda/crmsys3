@@ -1,0 +1,8 @@
+# обновляем аву
+page.replace "#{html_id(@contact)}_changable_avatar",
+  :partial => 'shared/changable_avatar',
+  :locals => {:item => @contact, :size => :s128x128}
+
+page.replace "#contact_line_#{@contact.id}",
+  :partial => 'shared/contacts/contact',
+  :locals => {:contact => @contact}

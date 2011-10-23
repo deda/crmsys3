@@ -1,0 +1,15 @@
+<div class="sheet_title"><%= t(:sale_states) %></div>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <td><%= t(:state) %></td>
+      <td><%= t(:percentage) %></td>
+      <td><%= t(:sales) %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => 'state', :collection => states %>
+  </tbody>
+</table>
+<%= render :partial => 'shared/buttons', :locals => {:item => 'sale_state', :namespace => 'settings', :buttons => [:add, :mass_delete]} %>

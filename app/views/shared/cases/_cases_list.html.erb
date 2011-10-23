@@ -1,0 +1,4 @@
+<%= render :partial => "shared/paging" %>
+<table class="cases_table">
+  <%= render :partial => 'shared/cases/caze', :collection => items, :as => :item %>
+</table>

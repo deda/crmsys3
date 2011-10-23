@@ -1,0 +1,23 @@
+<div class="sr_container">
+
+  <%= render :partial => '/reports/tree' %>
+
+  <div class="sheet" id="params_container">
+
+    <% form_for :report, :url => '/reports/users/activity', :html => {:target => :target_frame} do |f| %>
+      <% if current_user.is_admin? %>
+        <p>
+          <%= f.label t(:user) %>
+          <%= f.collection_select :user_id, @users, :id, :name, :selected => @user.id %>
+        </p>
+      <% end %>
+      <%= render :partial => 'reports/date_range_select', :locals => {:form => f, :from => @from, :to => @to} %>
+      <%= render :partial => 'shared/buttons', :locals => {:item => 'tasks', :namespace => 'settings', :buttons => [:submit], :submit_msg => t(:update)} %>
+    <% end %>
+
+  </div>
+
+  <%= render :partial => 'shared/canvas', :locals => {:data => @data} %>
+  <%= render :partial => "canvas_code_#{action_name}" %>
+
+</div>

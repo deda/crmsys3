@@ -1,0 +1,8 @@
+<%= render :partial => 'shared/hideble',
+  :locals => {
+    :title          => t(:tasks),
+    :size           => owner.tasks.size,
+    :visible        => defined?(visible) ? visible : :auto,
+    :opers          => {:add => remote_function(:url => new_task_path, :method => :get, :with => owner_params(owner))},
+    :unhide_on_add  => true,
+    :content        => render(:partial => "shared/items_list", :locals => {:item => 'task', :owner => owner, :embedded => true, :locals => {:owner => owner}}) } %>

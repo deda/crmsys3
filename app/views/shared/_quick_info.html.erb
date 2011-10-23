@@ -1,0 +1,27 @@
+<% if info.lines.any? %>
+
+  <div class="quick_info" id="<%= info.html_id %>">
+    <a href="<%= info.item_path %>">
+      <div class="title">
+        <div class="icon"><%= info.icon.img_tag %></div>
+        <div class="name"><%= info.name %></div>
+      </div>
+    </a>
+    <div class="main">
+      <% info.lines.each do |line| %>
+      <div class="line">
+        <div class="icon"><%= line.icon.img_tag if line.icon %></div>
+        <div class="data"><%= line.data %></div>
+      </div>
+      <% end %>
+    </div>
+    <% if info.item.can_be_edited %>
+      <%= render :partial => 'shared/buttons', :locals => {:item => info.item, :buttons => [:edit]} %>
+    <% end %>
+  </div>
+
+<% else %>
+
+  <div class="quick_info empty" id="<%= info.html_id %>"></div>
+
+<% end %>

@@ -1,0 +1,43 @@
+<% owner_params = owner_params(owner) %>
+<tr class="item_line" id="<%= "task_line_#{task.id}" %>">
+  <td class="item_opers">
+    <div><input type="checkbox" name="tasks_ids[]" value="<%= task.id %>" class="mass_oper" /></div>
+    <% if task.can_be_accepted %>
+    <a class="<%= task.completed? ? "item_uap_link" : "item_apl_link" %>"
+      href="#"
+      title="<%= task.completed? ? t(:uncomplete) : t(:complete) %>"
+      onclick="<%= remote_function :url => accept_task_path(task), :method => :put, :with => owner_params %>">
+    </a>
+    <% end %>
+    <% if task.can_be_edited %>
+    <a class="item_chg_link"
+      href="#"
+      title="<%= t(:edit) %>"
+      onclick="<%= remote_function :url => edit_task_path(task), :method => :get, :with => owner_params %>">
+    </a>
+    <% end %>
+    <% if task.can_be_deleted %>
+    <a class="item_del_link"
+      href="#"
+      title="<%= t(:delete) %>"
+      onclick="<%= remote_function :url => task_path(task), :method => :delete, :with => owner_params, :confirm => t(:confirm_delete) %>">
+    </a>
+    <% end %>
+  </td>
+  <td class="main_part">
+    <% if task.some_me %>
+    <div class="rounded marker some_me" title="<%= task.who_to_whom %>"><%= task.user.name %></div>
+    <% elsif task.from_me %>
+    <div class="rounded marker from_me" title="<%= task.who_to_whom %>"><%= task.recipient.name %></div>
+    <% elsif task.not_me %>
+    <div class="rounded marker not_me" title="<%= task.who_to_whom %>"><%= task.user.name %></div>
+    <% end %>
+    <%= task.completion_time_string %>
+    <%= link_to_remote h(task.name), :url => task_path(task), :method => :get, :with => owner_params, :html => {:class => :link_class} %>
+    <% if !owner and task.owner %>
+    (Re:<%= link_to h(task.owner.formated_name), send(:"#{task.owner.class.base_class.name.underscore}_path", task.owner), :class => :link_class %>)
+    <% end %>
+    <%= Tag.string_for(task) %>
+    <%= comments_string_for(task) %>
+  </td>
+</tr>

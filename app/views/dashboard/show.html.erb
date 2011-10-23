@@ -1,0 +1,20 @@
+<script type="text/javascript"> $(document).ready(function(){
+  $('.inv').click(function(){
+    $(this).parent().parent().children('li').removeClass('selected');
+    $(this).parent().addClass('selected');
+  });
+})
+</script>
+<h1> <%= t('.dashboard') %> </h1>
+<div class="overdue_tasks_container">
+  <h3><%= t('.overdue_tasks') %></h3>
+  <ul class="overdue_tasks_list">
+    <%= render :partial => 'overdue_task', :collection => @overdue_tasks%>
+  </ul>
+</div>
+<div class="recent_contacts_container">
+  <h3><%= t('.recent_contacts') %></h3>
+  <ul class="recent_contacts_list">
+    <%= render :partial => 'recent_contact', :collection => @recent_contacts%>
+  </ul>
+</div>

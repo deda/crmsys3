@@ -1,0 +1,11 @@
+<div class="sr_container">
+
+  <%= render :partial => '/settings/tree' %>
+
+  <div class="item_container sheet" id="user_group_container">
+  </div>
+  <div class="sheet" id="user_groups_list_container">
+    <%= render :partial => 'list', :locals => {:user_groups => @user_groups} %>
+  </div>
+
+</div>

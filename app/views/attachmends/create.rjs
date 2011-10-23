@@ -1,0 +1,14 @@
+id = "#{@uid}_sending"
+
+if error = @attachmend.errors.on(:overflow)
+  page.remove id
+  page.alert(error)
+else
+  page << "hideble.count('##{id}',1);"
+  page.replace id,
+    :partial => 'shared/attachmends/attachmend',
+    :locals  => {:attachmend => @attachmend, :mode => :new}
+end
+
+page << "$('form[target=#{@uid}]').remove();"
+page << "attachmends.sended();"

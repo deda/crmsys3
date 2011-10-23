@@ -1,0 +1,13 @@
+# прячем СПИСОК
+page << "$('#sales_list_container').hide();"
+
+# рендерим ПРОСМОТР
+page.replace_html "sale_container",
+  :partial => 'shared/sales/show',
+  :locals => {:sale => @sale}
+
+# контекстные кнопки элемента в левом меню
+LeftMenuHelper.render(page, {:item => @sale, :buttons => [:edit,:delete,:cancel]})
+
+# показываем ПРОСМОТР
+page << "$('#sale_container').show();"

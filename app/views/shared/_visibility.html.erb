@@ -1,0 +1,22 @@
+<%
+  cn = item.class.name.underscore
+  n1 = cn + '[visibility]'
+  n2 = cn + '[user_group_ids][]'
+  vs = item.visibility == Visibility::FOR_ME_RECIPIENT_GROUPS
+  ug = item.user_groups
+%>
+
+<li>
+  <label><%= t(:visibility) %></label>
+  <div class="visibility">
+    <label><input type="radio" name="<%= n1 %>" value="<%= Visibility::FOR_ME_RECIPIENT %>" onclick="$(this).parent().nextAll('.groups').hide();" <%= 'checked' if item.visibility == 0 %> /><%= t(:visibility_0) %></label>
+    <label><input type="radio" name="<%= n1 %>" value="<%= Visibility::FOR_ALL %>" onclick="$(this).parent().nextAll('.groups').hide();" <%= 'checked' if item.visibility == 1 %> /><%= t(:visibility_1) %></label>
+    <label><input type="radio" name="<%= n1 %>" value="<%= Visibility::FOR_ME_RECIPIENT_GROUPS %>" onclick="$(this).parent().nextAll('.groups').show();" <%= 'checked' if item.visibility == 2 %> /><%= t(:visibility_2) %></label>
+    <div class="groups" <%= 'style="display:block"' if vs %>>
+    <% item.account.user_groups.each do |group| %>
+      <label><input type="checkbox" name="<%= n2 %>" value="<%= group.id %>" <%= 'checked' if ug.include?(group) %> /><%=h group.name %></label>
+    <% end %>
+    </div>
+    <input type="hidden" name="<%= n2 %>" value="" />
+  </div>
+</li>

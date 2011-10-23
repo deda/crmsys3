@@ -1,0 +1,36 @@
+<tr class="item_line" id="<%= "case_line_#{item.id}" %>">
+  <td class="item_opers">
+    <div><input type="checkbox" name="cases_ids[]" value="<%= item.id %>" class="mass_oper" /></div>
+    <% if item.can_be_edited %>
+    <a class="item_chg_link"
+      href="#"
+      title="<%= t(:edit) %>"
+      onclick="<%= remote_function :url => edit_case_path(item), :method => :get %>">
+    </a>
+    <% end %>
+    <% if item.can_be_deleted %>
+    <a class="item_del_link"
+      href="#"
+      title="<%= t(:delete) %>"
+      onclick="<%= remote_function :url => case_path(item), :method => :delete, :confirm => t(:confirm_delete) %>">
+    </a>
+    <% end %>
+  </td>
+  <td class="code">
+    <%= item.code %>
+  </td>
+  <td class="name">
+    <%= link_to_remote h(item.name), :url => case_path(item), :method => :get, :html => {:class => :link_class} %>
+    <%= Tag.string_for(item) %>
+    <%= tasks_comments_string_for(item) %>
+  </td>
+  <td class="contact">
+    <%= link_to(h(item.sale.contact.formated_name), contact_path(item.sale.contact), :class => :link_class) if item.sale %>
+  </td>
+  <td class="recipient_part">
+    <%= item.recipient.name %>
+  </td>
+  <td class="state">
+    <%= item.state.name %>
+  </td>
+</tr>

@@ -1,0 +1,28 @@
+<tr  class="border_right_none object_cover" id =<%= project_id %>>
+  <td class="checkbox">
+    <%= check_box_tag :inner_objects_select, project.id, false,
+      :class => "inner_tasks_in_project_select",
+      :onclick =>"if(this.checked == true){
+$.fn.select_inner_tasks.bind(this)();
+}else{
+$.fn.skip_selection_for_inner_tasks.bind(this)();
+}"%>
+  </td>
+  <td class="main_part">
+    <%= link_to h(project.name),project_path(project),:class => "example5 link_class"%>
+  </td>
+  <td class="recipient_part">
+  </td>
+  <td class="completion_checkbox">
+    <%= check_box_tag :complete, project.id, false,
+      :class => "remove_on_complete",
+      :name => "ids[]",
+      :disabled => (!project.can_be_accepted),
+      :onclick =>
+      "if(this.checked == true){
+$.fn.mass_accept.bind(this)('project_#{project.id}');
+}"%>
+  </td>
+  <td class="attached">
+  </td>
+</tr>

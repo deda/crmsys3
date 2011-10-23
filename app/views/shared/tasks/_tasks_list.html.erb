@@ -1,0 +1,73 @@
+<%
+  owner ||= nil
+  if owner
+    tasks = owner.tasks
+  end
+  tasks = Task.do_group(tasks)
+%>
+
+<%= render(:partial => "shared/paging") unless owner %>
+
+
+<%# Не завершенные задачи %>
+
+<% if (col = tasks[:overdue]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.overdue', :color => :red}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+<% if (col = tasks[:today]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.today'}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+<% if (col = tasks[:tomorrow]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.tomorrow'}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+<% if (col = tasks[:this_week]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.this_week'}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+<% if (col = tasks[:next_week]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.next_week'}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+<% if (col = tasks[:other]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => '.other'}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+
+<%# Завершенные задачи %>
+
+<% if (col = tasks[:completed]).count != 0 %>
+  <%= render :partial => "shared/dividing_text", :locals => {:text => :completed, :color => :green}%>
+  <table class="tasks_table">
+    <%= render :partial => 'shared/tasks/task', :collection => col, :locals => {:owner => owner} %>
+  </table>
+<% end %>
+
+
+<%#
+  Данный файл может вызываться двумя путями:
+  1. из страницы "Задачи" для вывода списка всех задач пользователя
+  2. из других страниц для вывода списка задач, связанных с каким-либо
+     объектом (продажи, проекты и т.д.)
+  По этому, если задан owner, то нужно вывести задачи по пункту 2
+%>

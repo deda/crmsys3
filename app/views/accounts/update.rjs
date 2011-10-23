@@ -1,0 +1,14 @@
+# прячем РЕДАКТИРОВАНИЕ
+page << "$('#account_container').hide();"
+
+# обновляем СПИСОК
+page.replace_html "accounts_list_container",
+  :partial => 'shared/accounts/accounts_list',
+  :locals => {:accounts => @accounts}
+
+# показываем СПИСОК
+page << "$('#accounts_list_container').show();"
+
+# визуальный эффект на измененном
+page.visual_effect :highlight, "account_line_#{@account.id}",
+  :duration => 2

@@ -1,0 +1,10 @@
+<%= javascript_include_tag "inventory.js" %>
+<% filters = [{:name => :recipient, :values => @filter_recipients}] %>
+<div class="main_container">
+  <%= render :partial => "shared/search_menu", :locals => {:models => 'CaseTags|Case', :fields => 'name|description', :user_filters => filters} %>
+  <%= render :partial => "shared/left_menu", :locals => {:new_link => true, :mass_destroy => true, :mass_state => @states_collection} %>
+  <div class="central_container">
+    <%= render :partial => "shared/items_list", :locals => {:item => 'case', :locals => {:items => @cases}} %>
+  </div>
+  <%= render :partial => "shared/dynamic_help" %>
+</div>

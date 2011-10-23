@@ -1,0 +1,163 @@
+<script type="text/javascript">
+var canvas_code = {
+
+    html_id  : 'canvas_container',
+    instance : null,
+    context  : null,
+    dx       : 10,
+    dy       : 10,
+    width    : null,
+    height   : null,
+
+    run: function () {
+        canvas_code.init();
+        canvas_code.grid.draw();
+        if (canvas_data.length > 0) {
+            var p = canvas_code.calc_params();
+            canvas_code.draw_data(p);
+            canvas_code.legend.draw(p);
+        }
+    },
+
+    init: function () {
+        if (!canvas_code.instance) {
+            $(window).bind('resize', function(){canvas_code.run()});
+        }
+        canvas_code.instance = $('#'+canvas_code.html_id);
+        var w = canvas_code.instance.width();
+        var h = canvas_code.instance.height();
+        canvas_code.context = canvas_code.instance.find('canvas').get(0).getContext("2d");
+        var c = canvas_code.context;
+        c.font          = '10px Arial, sans-serif';
+        c.canvas.width  = w;
+        c.canvas.height = h;
+        c.lineWidth     = 1;
+        c.shadowColor   = 0;
+        c.shadowOffsetX = 0;
+        c.shadowOffsetY = 0;
+        c.shadowBlur    = 0;
+        c.translate(0.5+canvas_code.dx, h-0.5-canvas_code.dy);
+        c.transform(1, 0, 0, -1, 0, 0);
+        canvas_code.width  = w - 2 * canvas_code.dx;
+        canvas_code.height = h - 2 * canvas_code.dy;
+    },
+
+    calc_params: function () {
+        var l = canvas_data.length;
+        var params = {item_w:1, item_s:1, item_k:0};
+        if (l != 0) {
+            var w = canvas_code.width  - canvas_code.grid.arrow_l - 1;
+            var h = canvas_code.height - canvas_code.grid.arrow_l - 1;
+
+            // by h
+            var max = 0;
+            for (var i = 0; i < l; i++) {
+                var m = canvas_data[i];
+                if (max < m) max = m;
+            }
+            if (max != 0) params.item_k = h / max;
+
+            // by w
+            var n = l / 2;
+            if (n > w) {
+                params.item_s = w / n;
+            } else {
+                params.item_w = parseInt(w / n);
+                var lim = canvas_code.grid.delta_w / 2;
+                if (params.item_w > lim )
+                    params.item_w = lim;
+            }
+        }
+        return params;
+    },
+
+    draw_data: function (p) {
+        var s = 0;
+        var l = canvas_data.length;
+        var c = canvas_code.context;
+        for (var i = 0; i < l; i += 2) {
+            var a = canvas_data[i]   * p.item_k;
+            var b = canvas_data[i+1] * p.item_k;
+            if (a > b) {
+                c.fillStyle = "rgba(0, 255, 0, 0.5)";
+                c.fillRect(s+0.5, 0.5, p.item_w, b);
+                c.fillStyle = "rgba(255, 255, 0, 0.5)";
+                c.fillRect(s+0.5, 0.5+b, p.item_w, a-b);
+            } else {
+                c.fillStyle = "rgba(255, 255, 0, 0.5)";
+                c.fillRect(s+0.5, 0.5, p.item_w, a);
+                c.fillStyle = "rgba(255, 0, 0, 0.5)";
+                c.fillRect(s+0.5, 0.5+a, p.item_w, b-a);
+            }
+            s += p.item_w;
+        }
+        c.fill();
+    },
+
+    grid: {
+        delta_w : 64,
+        delta_h : 64,
+        arrow_l : 20,
+
+        draw: function() {
+            var w = canvas_code.width;
+            var h = canvas_code.height;
+            var c = canvas_code.context;
+
+            c.strokeStyle = "#444";
+            c.beginPath();
+            c.moveTo(0, 0); c.lineTo(0, h); c.lineTo(-1, h-this.arrow_l); c.lineTo(1, h-this.arrow_l); c.lineTo(0, h);
+            c.moveTo(0, 0); c.lineTo(w, 0); c.lineTo(w-this.arrow_l, -1); c.lineTo(w-this.arrow_l, 1); c.lineTo(w, 0);
+            c.closePath();
+            c.stroke();
+
+            c.strokeStyle = "#ddd";
+            c.beginPath();
+            for (var i = this.delta_h; i < h-this.arrow_l; i += this.delta_h) { c.moveTo(1, i); c.lineTo(w-this.arrow_l, i); }
+            for (var i = this.delta_w; i < w-this.arrow_l; i += this.delta_w) { c.moveTo(i, 1); c.lineTo(i, h-this.arrow_l); }
+            c.closePath();
+            c.stroke();
+        }
+    },
+
+    legend: {
+
+        draw: function (p) {
+            var w = canvas_code.width;
+            var h = canvas_code.height;
+            var c = canvas_code.context;
+            var dw = canvas_code.grid.delta_w;
+            var x = dw * (parseInt((w - canvas_code.grid.arrow_l) / dw) - 1);
+            var y = h - 10;
+
+            var x1 = 10;
+            var x2 = 10 + 110;
+            var x3 = 10 + 220;
+            c.beginPath();
+            c.fillStyle = "rgba(255, 255, 0, 0.5)"; c.fillRect(x1, y, 100, 12); c.strokeStyle = "#aa0"; c.strokeRect(x1, y, 100, 12);
+            c.fillStyle = "rgba(0, 255, 0, 0.5)";   c.fillRect(x2, y, 100, 12); c.strokeStyle = "#0a0"; c.strokeRect(x2, y, 100, 12);
+            c.fillStyle = "rgba(255, 0, 0, 0.5)";   c.fillRect(x3, y, 100, 12); c.strokeStyle = "#a00"; c.strokeRect(x3, y, 100, 12);
+            c.closePath();
+            c.fill();
+            c.stroke();
+
+            c.strokeStyle = "#444";
+            c.beginPath();
+            c.moveTo(x, y); c.lineTo(x+dw, y);
+            c.moveTo(x, y-3); c.lineTo(x, y+3);
+            c.moveTo(x+dw, y-3); c.lineTo(x+dw, y+3);
+            c.closePath();
+            c.stroke();
+
+            c.transform(1, 0, 0, -1, 0, 0);
+            c.fillStyle = "#000";
+            c.fillText('<%=I18n::t(:report_tasks_punctuality_ye)%>', x1+3, -y-3);
+            c.fillText('<%=I18n::t(:report_tasks_punctuality_gr)%>', x2+3, -y-3);
+            c.fillText('<%=I18n::t(:report_tasks_punctuality_rd)%>', x3+3, -y-3);
+            c.fillText(parseFloat(dw / p.item_w, 1) + ' items', x+3, -y-3);
+            c.transform(1, 0, 0, -1, 0, 0);
+        }
+    }
+}
+$(canvas_code.run);
+</script>

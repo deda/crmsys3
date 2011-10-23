@@ -1,0 +1,6 @@
+<%= FuzzyHelper.input_tag :object => item,
+  :models => 'Person|Company',
+  :fields => 'family_name,given_name,additional_name|given_name',
+  :name => 'contact[][given_name]',
+  :id_name => 'contact[][id]',
+  :mfm => true %>

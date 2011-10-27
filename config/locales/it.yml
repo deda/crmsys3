@@ -1,332 +1,332 @@
-en:
-  account_admin: Account admin
-  account_full_contacts: Reached of the maximum number of contacts for this account
-  account_full_mbytes: Disk limit for the account is exhausted
-  account_full_users: Reached of the maximum number of users for this account
-  account_name: Account name
-  account_tariff_plans: Tariff plans of accounts
+it:
+  account_admin: Account administrator
+  account_full_contacts: Raggiunto il numero massimo di сontatti per questo account
+  account_full_mbytes: Disco limite per l'account è esaurito
+  account_full_users: Raggiunto il numero massimo di utenti per questo account
+  account_name: Nome account
+  account_tariff_plans: Piani tariffari dei conti
   account: Account
-  accounts: Accounts
-  active_records: Active records
-  activity: Activity
-  add: Add
-  add_comment: Add a comment
-  add_file: Add file
-  add_user: Add user
-  addresses: Addresses
-  additional_info: Additional info
-  admins: Admins
-  all: All
-  all_records: All records
-  all_people: All people
-  all_companies: All companies
-  any_he: Any
-  any_it: Any
-  any_she: Any
-  attachmends: Attachments
-  attachmends_sending: Attachments sending. Please wait...
+  accounts: Conti
+  active_records: Record attivi
+  activity: Attività
+  add: Aggiungi
+  add_comment: Добавить новый комментарий
+  add_file: Добавить файл
+  add_user: Aggiungere un utente
+  addresses: Indirizzi
+  additional_info: Дополнительная информация
+  admins: Администраторы
+  all: Tutti
+  all_records: Tutti i record
+  all_people: Tutte le persone
+  all_companies: Tutte le aziende
+  any_he: Qualsiasi
+  any_it: Qualsiasi
+  any_she: Qualsiasi
+  attachmends: Allegati
+  attachmends_sending: Отправляются вложения. Пожалуйста подождите...
 
-  back: Back
+  back: Indietro
   bank: в банке
-  bday: Birthday
+  bday: Дата рождения
   bic: БИК
 
-  cancel: Cancel
+  cancel: Annulla
   cancel_edit: Отменить редактирование
-  case_states: Case states
-  case: Case
-  cases: Cases
-  change: Change
-  close: Close
-  code: Code
-  class: Class
-  color_schemes: Color schemes
-  comments: Comments
-  common: Сommon
-  complete: Complete
-  completed: Completed
-  completed_task: Completed task
-  completion_time: Completion time
-  confirm: Sure?
+  case_states: Caso stati
+  case: Caso
+  cases: Casi
+  change: Cambiare
+  class: Classe
+  close: Finire
+  code: Codice
+  color_schemes: Combinazioni di colori
+  comments: Commenti
+  common: Comune
+  complete: Finire
+  completed: Completato
+  completed_task: Compito completata
+  completion_time: Fine time
+  confirm: Sicuro?
   confirm_delete: Удалить. Вы уверены?
   confirm_accept: Завершить. Вы уверены?
   confirm_cancel_edit: Отменить редактирование. Вы уверены?
-  confirm_mass_destroy_title: "To record <b>{{name}}</b> references other <b>objects{{hint}}</b>. What you are want doing now?"
-  confirm_mass_destroy_o1: "Do not deleting record <b>{{name}}</b>"
-  confirm_mass_destroy_o2: "Delete record <b>{{name}}</b> and all objects"
-  confirm_mass_destroy_o3: "Delete record <b>{{name}}</b> and reference objects to"
-  contacts: Contacts
-  continue: Continue
-  contractor: Contractor
+  confirm_mass_destroy_title: "Sul record <b>{{name}}</b> fa riferimento ad altri <b>oggetti{{hint}}</b>. Cosa devo fare?"
+  confirm_mass_destroy_o1: "Не удалять запись <b>{{name}}</b>"
+  confirm_mass_destroy_o2: "Удалить запись <b>{{name}}</b> и все ссылающиеся объекты"
+  confirm_mass_destroy_o3: "Удалить запись <b>{{name}}</b> и связать ссылающиеся объекты с"
+  contacts: Contatti
+  continue: Continua
+  contractor: Imprenditore
   copy: Copy
   covenantee_discount: Скидка контрагента
-  create: Create
-  created: Created
-  creation: Creation
+  create: Creare
+  created: Creato
+  creation: Creazione
   cs_num: КС
-  csv_file_example: Download csv-file example
+  csv_file_example: Скачать образец csv-файла
 
-  dati: Date/time
-  date_from: From date
-  date_to: To date
-  default_lang: Default language
+  dati: Data/time
+  date_from: Data iniziale
+  date_to: Data di fine
+  default_lang: Madrelingua
   default_title: Mighty Tote 0.2 alfa
-  delete: Delete
-  delete_user: Delete user
-  deleted_records: Deleted records
-  deletion: Deletion
-  description: Description
-  document: Document
+  delete: Cancellare
+  delete_user: Удалить пользователя
+  deleted_records: Удаленные записи
+  deletion: Rimozione
+  description: Descrizione
+  document: Documento
   dont_reply: Пожалуйста, не отвечайте на это письмо. Оно было сгенерировано роботом.
 
-  edit: Edit
-  editing: Editing
+  edit: Correggere
+  editing: Cambiare
   email: Email
-  emails: Emails
-  employees: Employees
-  error_empty: Cannot be blanc
+  emails: Адреса электронной почты
+  employees: Сотрудники компании
+  error_empty: Не может быть пустым
   error_format: Имеет не верный формат
   error_separator: Не удалось определить разделитель полей
   error_type: Имеет не верный тип
   error_string_values_count: "В строке {{ln}} указано значений: {{is}}. Должно быть: {{must}}"
   error_string_field_requare: "В строке {{ln}} пропущено обязательное поле '{{field}}'"
-  event: Event
-  expiry: Expiry date
-  export_vcf: Export to vCard
-  export_xml: Export to XML
+  event: Evento
+  expiry: Data di scadenza
+  export_vcf: Экспорт в vCard
+  export_xml: Экспорт в XML
 
-  feedback_ok: Your message is stored and will be considered in the near future
-  feedback_write_here: Write here your comments or suggestions
-  field: Field
-  fields: Fields
-  filter: Filter
-  for: For
-  for_contacts: For contacts
-  for_sales: For sales
-  from_company: from company
+  feedback_ok: Il tuo messaggio è memorizzato e saranno prese in considerazione nel prossimo futuro
+  feedback_write_here: Scrivi qui i vostri commenti o suggerimenti
+  field: Campo
+  fields: Campi
+  filter: Filtro
+  for: Per
+  for_contacts: Per contatti
+  for_sales: Per le vendite
+  from_company: da società
 
-  group: Group
+  group: Gruppo
 
-  hint_mass_task: Create one task for each item selected. All tasks will have the same data.
-  hint_mass_destroy: Removes all selected items belonging to the class {{klass}}.
+  hint_mass_task: Creare un task per ogni elemento selezionato. Tutte le attività completate avranno gli stessi dati.
+  hint_mass_destroy: Rimuove tutti gli elementi selezionati appartenenti alla classe {{klass}}.
 
-  id_card_driving_license: Driving license
-  id_card_identity_card: Identity card
-  id_card_passport: Passport
-  id_card_travel_passport: Travel passport
-  id_cards: Identity documents
-  imexport: Import / export
-  import: Import
-  ims: IM
+  id_card_driving_license: Patente di guida
+  id_card_identity_card: Carta d'identita
+  id_card_passport: Passaporto
+  id_card_travel_passport: Viaggiare senza passaporto
+  id_cards: Carte di identità
+  imexport: Importazione / esportazione
+  import: Importazione
+  ims: Мгновенные сообщения
   inn: ИНН
-  inventory: List of documents
-  invert: Invert
-  is_admin: This is an admin
-  issued: Issued
+  inventory: Elenco dei documenti
+  invert: Invertire
+  is_admin: Это администратор
+  issued: Rilasciato
 
   kpp: КПП
 
-  list: List
-  list_number: List number
-  loading: Loading...
-  locale: English
+  list: Список
+  list_number: Foglo
+  loading: Caricamento...
+  locale: Italiano
   logs: Logs
   logs_view: Logs view
 
   main_he: Main
   main_it: Main
   main_she: Main
-  mass_accept: Accept selected
-  mass_delete: Delete selected
-  mass_state: Change the state of selected
+  mass_accept: Completo selezionati
+  mass_delete: Rimuovere selezionati
+  mass_state: Cambiare lo stato di selezionato
   mass_task: Common task
-  max_contacts: Maximum of contacts
-  max_mbytes: Maximum of megabytes on disk
-  max_users: Maximum of users
+  max_contacts: Massimo di contatti
+  max_mbytes: Massimo di megabyte su disco
+  max_users: Massimo di utenti
   measure_kg: kg
   measure_pc: pc
 
-  name: Name
-  nesteds: Nested
-  new_account: New account
-  new_company: New company
-  new_person: New person
+  name: Nome
+  nesteds: Вложенные
+  new_account: Nuovo acconto
+  new_company: Nuova azienda
+  new_person: Nuova contatto
   new_case: Новое дело
-  new_project: New project
-  new_sale: New deal
-  new_task: New task
-  new_type: New type
+  new_project: Nuovo progetto
+  new_sale: Nuova vendita
+  new_task: Nuova compito
+  new_type: Nuovo tipo
   no_: "No"
-  no_tasks_and_deals: No tasks and deals
-  no_tasks: No tasks
-  no_deals: No deals
-  not_nesteds: Not nested
-  number_: Number
-  numof_cases: Cases
-  numof_sheets: Sheets
+  no_tasks_and_deals: Nessuna attività e transazione
+  no_tasks: Nessuna attività
+  no_deals: Nessuna transazione
+  not_nesteds: Не вложенные
+  number_: Numero
+  numof_cases: Casi
+  numof_sheets: Fogli
 
   ogrn: ОГРН
-  operation: Operation
-  or: or
+  operation: Operazione
+  or: или
   orig_copy: Orig/copy
-  outcoming: Outcoming
+  outcoming: In uscita
 
-  paging: Records
+  paging: Record
   password: Password
-  password_if_need_change: Password (type if need to change current)
-  password_confirmation: Password confirmation
-  percentage: Percentage of completion
-  personal_info: Personal info
-  phones: Phones
-  please_wait: Please wait...
-  price: Price
-  print: Print
-  problem_clients: Problem clients
-  prompt_export: Export to
-  prompt_import: Import from file (vcf, xml, csv)
-  protocol: Protocol
-  punctuality: Timeliness
+  password_if_need_change: Password (input, se necessario modificare vecchi)
+  password_confirmation: Password di conferma
+  percentage: Percentuale di completamento
+  personal_info: Dati personali
+  phones: Telefoni
+  please_wait: Attendere prego...
+  price: Prezzo
+  print: Stampa
+  problem_clients: Problema clienti
+  prompt_export: Fare l'esportazione di file
+  prompt_import: Fare importazione da file (vcf, xml, csv)
+  protocol: Protocollo
+  punctuality: Tempestività
 
-  rec_num: Record number
-  recent_records: Recent entries
+  rec_num: Numero record di
+  recent_records: Le voci recenti
   recent_records_description: You can set 'recent days' for each type of items
-  recently_created: Recently created
-  recently_updated: Recently updated
-  recipient: Recipient
+  recently_created: Недавно созданные
+  recently_updated: Недавно обновленные
+  recipient: Destinatario
   record: Record
-  record_creation: Record creation
-  remember_me: Remember me
+  record_creation: Creazione di record
   rekvisits: Реквизиты
+  remember_me: Ricordati di me
   report: Report
-  report_tasks_punctuality_gr: done before
-  report_tasks_punctuality_rd: overdue
-  report_tasks_punctuality_ye: deadline
-  reports: Reports
+  report_tasks_punctuality_gr: fatto prima
+  report_tasks_punctuality_rd: scaduto
+  report_tasks_punctuality_ye: scadenza
+  reports: Rapporti
   root: На главную
   rs: РС
 
-  sale_states: Deal states
-  sales: Deals
-  save: Save
-  search: Search
-  select: Select
-  select_all: All
-  select_image: Select an image file
-  select_non: None
-  selected: "selected "
-  send: Send
-  series: Series
-  set_discount: Set the discount
-  settings: Settings
-  settings_account: Account settings
-  settings_user: User settings
-  settings_users: Users settings
-  show: Show
-  show_statistic: Show statistic
-  sign_in: Sign in
-  sign_up: Sign up
-  state: State
-  state_case_canceled: canceled
-  state_case_completed: completed
-  state_case_new: new
-  state_case_work: in work
-  state_changed: State changed
-  state_sale_billed: billed
-  state_sale_canceled: canceled
-  state_sale_completed: completed
-  state_sale_debt: debt
-  state_sale_new: new
-  state_sale_quotation: quotation
-  state_sale_shipment: shipment
-  state_sale_specification: specification
-  states: States
+  sale_states: Stati affare
+  sales: Affare
+  save: Salvare
+  search: Ricerca
+  set_discount: Impostare lo sconto
+  select: Selezionare
+  select_all: Tutti
+  select_image: Selezionare un file immagine
+  select_non: Non uno
+  selected: "selezionati "
+  send: Invia
+  series: Serie
+  settings: Impostazioni
+  settings_account: Impostazione account
+  settings_user: Impostazioni utente
+  settings_users: Configurazione degli utenti
+  show: Visualizzare
+  show_statistic: Visualizzare le statistiche
+  sign_in: Entra
+  sign_up: Registrarsi nel sistema
+  state: Stato
+  state_case_canceled: annullato
+  state_case_completed: completato
+  state_case_new: nuovo
+  state_case_work: nel lavoro
+  state_changed: Stato cambiato
+  state_sale_billed: fatturato
+  state_sale_canceled: annullato
+  state_sale_completed: completato
+  state_sale_debt: debito
+  state_sale_new: nuovo
+  state_sale_quotation: citazione
+  state_sale_shipment: spedizione
+  state_sale_specification: specificazione
+  states: Stati
   sub_companies: Подчиненные компании
-  subdomain: Subdomain
-  subtasks: Subtasks
-  successfully: The operation completed successfully
+  subdomain: Sottodominio
+  subtasks: Sottocompiti
+  successfully: Operazione completata con successo
 
-  tags: Tags
-  tariff_plan: Tariff plan
-  tariff_plans: Tariff plans
-  task: Task
-  task_completed: Task completed
+  tags: Tag
+  tariff_plan: Tariffa piano
+  tariff_plans: Piani tariffari
+  task: Compito
+  task_completed: Operazione completata
   task_from_me: "Вы поставили эту задачу пользователю\n{{recipient}}"
   task_not_me1: "Пользователь\n{{user}}\nпоставил эту задачу сам себе"
   task_not_me2: "Пользователь\n{{user}}\nпоставил эту задачу пользователю\n{{recipient}}"
   task_some_me: "Эту задачу поставил Вам пользователь\n{{user}}"
   tasker: Постановщик задачи
-  tasks: Tasks
-  to_up: To up
+  tasks: Compiti
+  to_up: Fino
   top_manager: непосредственный начальник
   top_company: вышестоящая компания
-  type: Type
+  type: Tipo
   type_car: car
   type_car_cell: car cell
-  type_for_translate_car: car
+  type_for_translate_car: auto
   type_for_translate_cell: cell
   type_for_translate_fax: fax
   type_for_translate_home: home
-  type_for_translate_pager: pager
+  type_for_translate_pager: cercapersone
   type_for_translate_pref: prefer
-  type_for_translate_work: work
+  type_for_translate_work: lavoro
   type_home: home
   type_home_cell: home cell
   type_home_fax: home fax
-  type_juridical: juridical
+  type_juridical: giuridico
   type_other: other
-  type_postal: postal
+  type_postal: postale
   type_pref: prefer
-  type_real: real
-  type_regi: registrational
-  type_shipping: shipping
+  type_real: reale
+  type_regi: di registrazione
+  type_shipping: di spedizione
   type_work: work
   type_work_cell: work cell
   type_work_fax: work fax
 
-  uncomplete: Cancel completion
-  update: Update
-  updating: Updating
-  urls: Urls
-  user: User
-  users: Users
-  user_groups: Users groups
+  uncomplete: Annulla completamento
+  update: Aggiornare
+  updating: Aggiornamento
+  urls: Indirizzo Web
+  user: Utente
+  users: Gli utenti
+  user_groups: Gruppi di utenti
 
-  values: Values
-  view_in_tasks: View in tasks
-  visibility: Visibility
-  visibility_0: Visible for me and recipient
-  visibility_1: Visible for all
-  visibility_2: Visible for me, recipient and selected groups
-  visible: Visible for all
+  values: Valori
+  view_in_tasks: Vista in compiti
+  visibility: Visibilita
+  visibility_0: Visibile per me e il destinatario
+  visibility_1: Visibile per tutti
+  visibility_2: Visibile per me, destinatario e gruppi selezionati
+  visible: Visibile per tutti
 
-  when_issued: When issued
-  whom_issued: Issued
-  with_commodities: Commodities and warehouses
-  with_cases: Clerical work, cases
-  with_projects: Project management
+  when_issued: Una volta rilasciate
+  whom_issued: Rilasciato
+  with_commodities: Materie prime e magazzini
+  with_cases: Lavoro d'ufficio, i casi
+  with_projects: Gestione del progetto
 
-  yes_: "Yes"
-  you_have_new_task: You have a new task
-  your_digest: Your digest
+  yes_: "Si"
+  you_have_new_task: Вам поставлена новая задача
+  your_digest: Il tuo digerire
 
-  CasesController: Cases
-  CommoditiesController: Commodities
-  ContactsController: Contacts
-  WareHousesController: Ware houses
-  AccountsController: Accounts
-  ProjectsController: Projects
-  TasksController: Tasks
-  SalesController: Deals
-  PurchasesController: Purchases
-  DashboardController: Dashboard
-  SettingsController: Settings
-  ReportsController: Reports
+  CasesController: Casi
+  CommoditiesController: Materie prime
+  ContactsController: Contatti
+  WareHousesController: Galleria di immagini
+  AccountsController: Conti
+  ProjectsController: Progetti
+  TasksController: Compiti
+  SalesController: Vendite
+  PurchasesController: Acquisti
+  DashboardController: Cruscotto
+  SettingsController: Impostazioni
+  ReportsController: Rapporti
 
   clearance:
     controllers:
       sessions:
-        bad_email_or_password: Bad email-password pair
-        account_time_is_over: Account has expired
+        bad_email_or_password: Bad email-password coppia
+        account_time_is_over: Account e scaduto
 
   controller_names:
     commodities: Номенклатура
@@ -334,17 +334,17 @@ en:
 
   layouts:
     top_panel:
-      sign_out: Sign out
+      sign_out: выйти
       enter: '{{email}}'
   sessions:
     new:
-      sign_in: Sign in
+      sign_in: Вход в систему
       sign_up: Зарегистрироваться
       forgot_password?: Напоминание пароля
-      login: Login
-      email: email
-      password: password
-      remember_me: remember me
+      login: Войти в систему
+      email: Электронная почта
+      password: Пароль
+      remember_me: Запомните меня
   passwords:
     new:
       email: Электронная почта
@@ -474,20 +474,20 @@ en:
         pick_the_date: Указать дату
         hide_the_date: Не указывать дату
       form:
-        sale: Deal
-        name: Task
+        sale: Сделка
+        name: Задача
         project: Проект
-        whom: Responsible
+        whom: Ответственный
         start_time: Время начала
         expended_hours: Затрачено часов
         visible: Видят все
-        pick_the_date: Pick a date
-        move_to: Move to
-        today: Today
-        tomorrow: Tomorrow
-        this_week: This week
-        next_week: Next week
-        later: Later
+        pick_the_date: Указать дату
+        move_to: Переместить
+        today: Сегодня
+        tomorrow: Завтра
+        this_week: Эта неделя
+        next_week: Следующая неделя
+        later: Позже
       show:
         name: Задача
         from: Дал задание

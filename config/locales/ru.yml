@@ -1,332 +1,332 @@
-en:
-  account_admin: Account admin
-  account_full_contacts: Reached of the maximum number of contacts for this account
-  account_full_mbytes: Disk limit for the account is exhausted
-  account_full_users: Reached of the maximum number of users for this account
-  account_name: Account name
-  account_tariff_plans: Tariff plans of accounts
-  account: Account
-  accounts: Accounts
-  active_records: Active records
-  activity: Activity
-  add: Add
-  add_comment: Add a comment
-  add_file: Add file
-  add_user: Add user
-  addresses: Addresses
-  additional_info: Additional info
-  admins: Admins
-  all: All
-  all_records: All records
-  all_people: All people
-  all_companies: All companies
-  any_he: Any
-  any_it: Any
-  any_she: Any
-  attachmends: Attachments
-  attachmends_sending: Attachments sending. Please wait...
+ru:
+  account_admin: Администратор аккаунта
+  account_full_contacts: Превышено максимальное количество контактов для данного аккаунта
+  account_full_mbytes: Дисковый лимит для данного аккаунта исчерпан
+  account_full_users: Превышено максимальное количество пользователей для данного аккаунта
+  account_name: Название аккаунта
+  account_tariff_plans: ТП аккаунтов
+  account: Аккаунт
+  accounts: Аккаунты
+  active_records: Активные записи
+  activity: Активность
+  add: Добавить
+  add_comment: Добавить новый комментарий
+  add_file: Добавить файл
+  add_user: Добавить пользователя
+  addresses: Адреса
+  additional_info: Дополнительная информация
+  admins: Администраторы
+  all: Все
+  all_records: Все записи
+  all_people: Все люди
+  all_companies: Все компании
+  any_he: Любой
+  any_it: Любое
+  any_she: Любая
+  attachmends: Прикрепленные файлы
+  attachmends_sending: Отправляются вложения. Пожалуйста подождите...
 
-  back: Back
+  back: Назад
   bank: в банке
-  bday: Birthday
+  bday: Дата рождения
   bic: БИК
 
-  cancel: Cancel
+  cancel: Отмена
   cancel_edit: Отменить редактирование
-  case_states: Case states
-  case: Case
-  cases: Cases
-  change: Change
-  close: Close
-  code: Code
-  class: Class
-  color_schemes: Color schemes
-  comments: Comments
-  common: Сommon
-  complete: Complete
-  completed: Completed
-  completed_task: Completed task
-  completion_time: Completion time
-  confirm: Sure?
+  case_states: Статусы дел
+  case: Дело
+  cases: Делопроизводство
+  change: Изменить
+  class: Класс
+  close: Закрыть
+  code: Код
+  color_schemes: Цветовые схемы
+  comments: Комментарии
+  common: Общие
+  complete: Завершить
+  completed: Завершенные
+  completed_task: Завершенная задача
+  completion_time: Время завершения
+  confirm: Вы уверены?
   confirm_delete: Удалить. Вы уверены?
   confirm_accept: Завершить. Вы уверены?
   confirm_cancel_edit: Отменить редактирование. Вы уверены?
-  confirm_mass_destroy_title: "To record <b>{{name}}</b> references other <b>objects{{hint}}</b>. What you are want doing now?"
-  confirm_mass_destroy_o1: "Do not deleting record <b>{{name}}</b>"
-  confirm_mass_destroy_o2: "Delete record <b>{{name}}</b> and all objects"
-  confirm_mass_destroy_o3: "Delete record <b>{{name}}</b> and reference objects to"
-  contacts: Contacts
-  continue: Continue
-  contractor: Contractor
-  copy: Copy
+  confirm_mass_destroy_title: "На запись <b>{{name}}</b> ссылаются другие <b>объекты{{hint}}</b>. Что сделать?"
+  confirm_mass_destroy_o1: "Не удалять запись <b>{{name}}</b>"
+  confirm_mass_destroy_o2: "Удалить запись <b>{{name}}</b> и все ссылающиеся объекты"
+  confirm_mass_destroy_o3: "Удалить запись <b>{{name}}</b> и связать ссылающиеся объекты с"
+  contacts: Контакты
+  continue: Продолжить
+  contractor: Контрагент
+  copy: Копия
   covenantee_discount: Скидка контрагента
-  create: Create
-  created: Created
-  creation: Creation
+  create: Создать
+  created: Создано
+  creation: Создание
   cs_num: КС
-  csv_file_example: Download csv-file example
+  csv_file_example: Скачать образец csv-файла
 
-  dati: Date/time
-  date_from: From date
-  date_to: To date
-  default_lang: Default language
-  default_title: Mighty Tote 0.2 alfa
-  delete: Delete
-  delete_user: Delete user
-  deleted_records: Deleted records
-  deletion: Deletion
-  description: Description
-  document: Document
+  dati: Дата/время
+  date_from: Начальная дата
+  date_to: Конечная дата
+  default_lang: Язык по умолчанию
+  default_title: Могучая котомка 0.2 alfa
+  delete: Удалить
+  delete_user: Удалить пользователя
+  deleted_records: Удаленные записи
+  deletion: Удаление
+  description: Описание
+  document: Документ
   dont_reply: Пожалуйста, не отвечайте на это письмо. Оно было сгенерировано роботом.
 
-  edit: Edit
-  editing: Editing
-  email: Email
-  emails: Emails
-  employees: Employees
-  error_empty: Cannot be blanc
+  edit: Редактировать
+  editing: Изменение
+  email: Электронная почта
+  emails: Адреса электронной почты
+  employees: Сотрудники компании
+  error_empty: Не может быть пустым
   error_format: Имеет не верный формат
   error_separator: Не удалось определить разделитель полей
   error_type: Имеет не верный тип
   error_string_values_count: "В строке {{ln}} указано значений: {{is}}. Должно быть: {{must}}"
   error_string_field_requare: "В строке {{ln}} пропущено обязательное поле '{{field}}'"
-  event: Event
-  expiry: Expiry date
-  export_vcf: Export to vCard
-  export_xml: Export to XML
+  event: Событие
+  expiry: Дата окончания
+  export_vcf: Экспорт в vCard
+  export_xml: Экспорт в XML
 
-  feedback_ok: Your message is stored and will be considered in the near future
-  feedback_write_here: Write here your comments or suggestions
-  field: Field
-  fields: Fields
-  filter: Filter
-  for: For
-  for_contacts: For contacts
-  for_sales: For sales
-  from_company: from company
+  feedback_ok: Ваше сообщение сохранено и будет рассмотрено в ближайшее время
+  feedback_write_here: Напишите здесь свои замечания или пожелания
+  field: Поле
+  fields: Поля
+  filter: Фильтр
+  for: Для
+  for_contacts: Для контактов
+  for_sales: Для сделок
+  from_company: из компании
 
-  group: Group
+  group: Группа
 
-  hint_mass_task: Create one task for each item selected. All tasks will have the same data.
-  hint_mass_destroy: Removes all selected items belonging to the class {{klass}}.
+  hint_mass_task: Для каждого выделенного элемента будет создана одна задача. Все созданные задачи будут иметь одинаковые данные.
+  hint_mass_destroy: Удаляет все выбранные элементы, принадлежащие классу {{klass}}.
 
-  id_card_driving_license: Driving license
-  id_card_identity_card: Identity card
-  id_card_passport: Passport
-  id_card_travel_passport: Travel passport
-  id_cards: Identity documents
-  imexport: Import / export
-  import: Import
-  ims: IM
+  id_card_driving_license: Водительское удостоверение
+  id_card_identity_card: Удостоверение личности
+  id_card_passport: Паспорт
+  id_card_travel_passport: Заграничный паспорт
+  id_cards: Документы, удостоверяющие личность
+  imexport: Импорт / экспорт
+  import: Импорт
+  ims: Мгновенные сообщения
   inn: ИНН
-  inventory: List of documents
-  invert: Invert
-  is_admin: This is an admin
-  issued: Issued
+  inventory: Опись документов
+  invert: Инвертировать
+  is_admin: Это администратор
+  issued: Выдан
 
   kpp: КПП
 
-  list: List
-  list_number: List number
-  loading: Loading...
-  locale: English
-  logs: Logs
-  logs_view: Logs view
+  list: Список
+  list_number: № листа
+  loading: Загрузка...
+  locale: Русский
+  logs: Логи
+  logs_view: Просмотр логов
+  
+  main_he: Главный
+  main_it: Главное
+  main_she: Главная
+  mass_accept: Завершить отмеченные
+  mass_delete: Удалить отмеченные
+  mass_state: Сменить статус отмеченных
+  mass_task: Групповая задача
+  max_contacts: Максимально контактов
+  max_mbytes: Максимально мегабайт на диске
+  max_users: Максимально пользователей
+  measure_kg: кг
+  measure_pc: шт
 
-  main_he: Main
-  main_it: Main
-  main_she: Main
-  mass_accept: Accept selected
-  mass_delete: Delete selected
-  mass_state: Change the state of selected
-  mass_task: Common task
-  max_contacts: Maximum of contacts
-  max_mbytes: Maximum of megabytes on disk
-  max_users: Maximum of users
-  measure_kg: kg
-  measure_pc: pc
-
-  name: Name
-  nesteds: Nested
-  new_account: New account
-  new_company: New company
-  new_person: New person
+  name: Имя
+  nesteds: Вложенные
+  new_account: Новый аккаунт
   new_case: Новое дело
-  new_project: New project
-  new_sale: New deal
-  new_task: New task
-  new_type: New type
-  no_: "No"
-  no_tasks_and_deals: No tasks and deals
-  no_tasks: No tasks
-  no_deals: No deals
-  not_nesteds: Not nested
-  number_: Number
-  numof_cases: Cases
-  numof_sheets: Sheets
+  new_company: Новая компания
+  new_person: Новый контакт
+  new_project: Новый проект
+  new_sale: Новая сделка
+  new_task: Новая задача
+  new_type: Создать новый тип
+  no_: Нет
+  no_tasks_and_deals: Нет задач и сделок
+  no_tasks: Нет задач
+  no_deals: Нет сделок
+  not_nesteds: Не вложенные
+  number_: Номер
+  numof_cases: Кол-во дел
+  numof_sheets: Листов
 
   ogrn: ОГРН
-  operation: Operation
-  or: or
-  orig_copy: Orig/copy
-  outcoming: Outcoming
+  operation: Операция
+  or: или
+  orig_copy: Оригинал/копия
+  outcoming: Исходящие
 
-  paging: Records
-  password: Password
-  password_if_need_change: Password (type if need to change current)
-  password_confirmation: Password confirmation
-  percentage: Percentage of completion
-  personal_info: Personal info
-  phones: Phones
-  please_wait: Please wait...
-  price: Price
-  print: Print
-  problem_clients: Problem clients
-  prompt_export: Export to
-  prompt_import: Import from file (vcf, xml, csv)
-  protocol: Protocol
-  punctuality: Timeliness
+  paging: Записей
+  password: Пароль
+  password_if_need_change: Пароль (введите, если нужно изменить текущий)
+  password_confirmation: Подтверждение пароля
+  percentage: Процент завершения
+  personal_info: Персональная информация
+  phones: Контактные номера телефонов
+  please_wait: Пожалуйста, подождите...
+  price: Стоимость
+  print: Печать
+  problem_clients: Проблемные клиенты
+  prompt_export: Выполнить экспорт в
+  prompt_import: Выполнить импорт из указанного файла (vcf, xml, csv)
+  protocol: Протокол
+  punctuality: Соблюдение сроков
 
-  rec_num: Record number
-  recent_records: Recent entries
-  recent_records_description: You can set 'recent days' for each type of items
-  recently_created: Recently created
-  recently_updated: Recently updated
-  recipient: Recipient
-  record: Record
-  record_creation: Record creation
-  remember_me: Remember me
+  rec_num: Номер записи
+  recent_records: Недавние записи
+  recent_records_description: Для каждого типа записей Вы можете указать кол-во дней с момента создания/обновления, в течении которых запись считается недавно созданной/обновленной.
+  recently_created: Недавно созданные
+  recently_updated: Недавно обновленные
+  recipient: Ответственный
+  record: Запись
+  record_creation: Создание записи
   rekvisits: Реквизиты
-  report: Report
-  report_tasks_punctuality_gr: done before
-  report_tasks_punctuality_rd: overdue
-  report_tasks_punctuality_ye: deadline
-  reports: Reports
+  remember_me: Запомнить меня
+  report: Отчет
+  report_tasks_punctuality_gr: выполнена раньше
+  report_tasks_punctuality_rd: просрочена
+  report_tasks_punctuality_ye: срок выполнения
+  reports: Отчеты
   root: На главную
   rs: РС
 
-  sale_states: Deal states
-  sales: Deals
-  save: Save
-  search: Search
-  select: Select
-  select_all: All
-  select_image: Select an image file
-  select_non: None
-  selected: "selected "
-  send: Send
-  series: Series
-  set_discount: Set the discount
-  settings: Settings
-  settings_account: Account settings
-  settings_user: User settings
-  settings_users: Users settings
-  show: Show
-  show_statistic: Show statistic
-  sign_in: Sign in
-  sign_up: Sign up
-  state: State
-  state_case_canceled: canceled
-  state_case_completed: completed
-  state_case_new: new
-  state_case_work: in work
-  state_changed: State changed
-  state_sale_billed: billed
-  state_sale_canceled: canceled
-  state_sale_completed: completed
-  state_sale_debt: debt
-  state_sale_new: new
-  state_sale_quotation: quotation
-  state_sale_shipment: shipment
-  state_sale_specification: specification
-  states: States
+  sale_states: Статусы сделки
+  sales: Сделки
+  save: Сохранить
+  search: Поиск
+  select: Выделить
+  select_all: Все
+  select_image: Выберите файл изображения
+  select_non: Ни одного
+  selected: "выбрано "
+  send: Отправить
+  series: Серия
+  set_discount: Задать скидку
+  settings: Настройки
+  settings_account: Настройка аккаунта
+  settings_user: Настройка пользователя
+  settings_users: Настройка пользователей
+  show: Показать
+  show_statistic: Показать статистику
+  sign_in: Войти в систему
+  sign_up: Зарегистрироваться в системе
+  state: Статус
+  state_case_canceled: отменено
+  state_case_completed: завершено
+  state_case_new: новое
+  state_case_work: в работе
+  state_changed: Статус изменен
+  state_sale_billed: выставлен счет
+  state_sale_canceled: отменена
+  state_sale_completed: завершена
+  state_sale_debt: долг
+  state_sale_new: новая
+  state_sale_quotation: коммерческое предложение
+  state_sale_shipment: отгрузка товара
+  state_sale_specification: уточнение спецификации
+  states: Статусы
   sub_companies: Подчиненные компании
-  subdomain: Subdomain
-  subtasks: Subtasks
-  successfully: The operation completed successfully
+  subdomain: Поддомен
+  subtasks: Подзадачи
+  successfully: Операция завершена успешно
 
-  tags: Tags
-  tariff_plan: Tariff plan
-  tariff_plans: Tariff plans
-  task: Task
-  task_completed: Task completed
+  tags: Метки
+  tariff_plan: Тарифный план
+  tariff_plans: Тарифные планы
+  task: Задача
+  task_completed: Задача завершена
   task_from_me: "Вы поставили эту задачу пользователю\n{{recipient}}"
   task_not_me1: "Пользователь\n{{user}}\nпоставил эту задачу сам себе"
   task_not_me2: "Пользователь\n{{user}}\nпоставил эту задачу пользователю\n{{recipient}}"
   task_some_me: "Эту задачу поставил Вам пользователь\n{{user}}"
   tasker: Постановщик задачи
-  tasks: Tasks
-  to_up: To up
+  tasks: Задачи
+  to_up: Вверх
   top_manager: непосредственный начальник
   top_company: вышестоящая компания
-  type: Type
-  type_car: car
-  type_car_cell: car cell
-  type_for_translate_car: car
-  type_for_translate_cell: cell
-  type_for_translate_fax: fax
-  type_for_translate_home: home
-  type_for_translate_pager: pager
-  type_for_translate_pref: prefer
-  type_for_translate_work: work
-  type_home: home
-  type_home_cell: home cell
-  type_home_fax: home fax
-  type_juridical: juridical
-  type_other: other
-  type_postal: postal
-  type_pref: prefer
-  type_real: real
-  type_regi: registrational
-  type_shipping: shipping
-  type_work: work
-  type_work_cell: work cell
-  type_work_fax: work fax
+  type: Тип
+  type_car: в автомобиле
+  type_car_cell: сотовый в автомобиле
+  type_for_translate_car: в автомобиле
+  type_for_translate_cell: сотовый
+  type_for_translate_fax: факс
+  type_for_translate_home: домашний
+  type_for_translate_pager: пейджер
+  type_for_translate_pref: основной
+  type_for_translate_work: рабочий  
+  type_home: домашний
+  type_home_cell: домашний сотовый
+  type_home_fax: домашний факс
+  type_juridical: юридический
+  type_other: другой
+  type_postal: почтовый
+  type_pref: основной
+  type_real: фактический
+  type_regi: регистрационный
+  type_shipping: отгрузочный
+  type_work: рабочий
+  type_work_cell: рабочий сотовый
+  type_work_fax: рабочий факс
 
-  uncomplete: Cancel completion
-  update: Update
-  updating: Updating
-  urls: Urls
-  user: User
-  users: Users
-  user_groups: Users groups
+  uncomplete: Отменить завершение
+  update: Обновить
+  updating: Обновление
+  urls: Веб адреса
+  user: Пользователь
+  users: Пользователи
+  user_groups: Группы пользователей
 
-  values: Values
-  view_in_tasks: View in tasks
-  visibility: Visibility
-  visibility_0: Visible for me and recipient
-  visibility_1: Visible for all
-  visibility_2: Visible for me, recipient and selected groups
-  visible: Visible for all
+  values: Значения
+  view_in_tasks: Посмотреть в задачах
+  visibility: Видимость
+  visibility_0: Видно мне и ответственному
+  visibility_1: Видно всем
+  visibility_2: Видно мне, ответственному и выбранным группам
+  visible: Видят все
 
-  when_issued: When issued
-  whom_issued: Issued
-  with_commodities: Commodities and warehouses
-  with_cases: Clerical work, cases
-  with_projects: Project management
+  when_issued: Когда выдан
+  whom_issued: Кем выдан
+  with_commodities: Товары и склады
+  with_cases: Делопроизводство
+  with_projects: Управление проектами
 
-  yes_: "Yes"
-  you_have_new_task: You have a new task
-  your_digest: Your digest
+  yes_: Да
+  you_have_new_task: Вам поставлена новая задача
+  your_digest: Ваш дайджест
 
-  CasesController: Cases
-  CommoditiesController: Commodities
-  ContactsController: Contacts
-  WareHousesController: Ware houses
-  AccountsController: Accounts
-  ProjectsController: Projects
-  TasksController: Tasks
-  SalesController: Deals
-  PurchasesController: Purchases
-  DashboardController: Dashboard
-  SettingsController: Settings
-  ReportsController: Reports
+  CasesController: Делопроизводство
+  CommoditiesController: Номенклатура
+  ContactsController: Контакты
+  WareHousesController: Склад
+  AccountsController: Аккаунты
+  ProjectsController: Задачи
+  TasksController: Задачи
+  SalesController: Сделки
+  PurchasesController: Закупки
+  DashboardController: Сводка
+  SettingsController: Настройки
+  ReportsController: Отчеты
 
   clearance:
     controllers:
       sessions:
-        bad_email_or_password: Bad email-password pair
-        account_time_is_over: Account has expired
+        bad_email_or_password: Неправильная пара логин-пароль
+        account_time_is_over: Срок действия аккаунта истек
 
   controller_names:
     commodities: Номенклатура
@@ -334,17 +334,17 @@ en:
 
   layouts:
     top_panel:
-      sign_out: Sign out
+      sign_out: выйти
       enter: '{{email}}'
   sessions:
     new:
-      sign_in: Sign in
+      sign_in: Вход в систему
       sign_up: Зарегистрироваться
       forgot_password?: Напоминание пароля
-      login: Login
-      email: email
-      password: password
-      remember_me: remember me
+      login: Войти в систему
+      email: Электронная почта
+      password: Пароль
+      remember_me: Запомните меня
   passwords:
     new:
       email: Электронная почта
@@ -474,20 +474,20 @@ en:
         pick_the_date: Указать дату
         hide_the_date: Не указывать дату
       form:
-        sale: Deal
-        name: Task
+        sale: Сделка
+        name: Задача
         project: Проект
-        whom: Responsible
+        whom: Ответственный
         start_time: Время начала
         expended_hours: Затрачено часов
         visible: Видят все
-        pick_the_date: Pick a date
-        move_to: Move to
-        today: Today
-        tomorrow: Tomorrow
-        this_week: This week
-        next_week: Next week
-        later: Later
+        pick_the_date: Указать дату
+        move_to: Переместить
+        today: Сегодня
+        tomorrow: Завтра
+        this_week: Эта неделя
+        next_week: Следующая неделя
+        later: Позже
       show:
         name: Задача
         from: Дал задание
@@ -581,8 +581,6 @@ en:
   controllers:
     tasks:
       all_sales: Все сделки
-
-
 
 
   application:

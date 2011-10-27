@@ -29,3 +29,6 @@ gem 'mysql'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem 'is_paranoid'
+gem 'clearance'

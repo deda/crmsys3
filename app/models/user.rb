@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :user_groups, :join_table => :group_memberships
 
   attr_accessible :name, :is_admin
-  validates_presence_of :name
+  validates :name, :presence => true
 
   before_create :check_overflow
 
@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   # использовать транзакции? - тоже нет. потому что не получится получать
   # сообщения об ошибках, т.к. транзацкии прерываются по исключениям.
   # записи данного аккаунта
-  named_scope :for_account, lambda{ |account|
+  scope :for_account, lambda{ |account|
     account ||= $current_account
     {:conditions => account ? {:account_id => account.id} : ''}
   }

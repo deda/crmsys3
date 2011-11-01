@@ -1,7 +1,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: crmsys_development
+  database: crmsys3_development
   username: root
   password:
   host: localhost
@@ -12,7 +12,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: crmsys_test
+  database: crmsys3_test
   username: root
   password:
   host: localhost
@@ -20,7 +20,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: crmsys_production
+  database: crmsys3_production
   username: root
   password: dcqvfegmgr-32078
   host: localhost

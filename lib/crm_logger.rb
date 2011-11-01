@@ -1,4 +1,4 @@
-require 'crm_log'
+#require 'crm_log'
 
 module CrmLogger
 

@@ -1,7 +1,7 @@
 # Расширение функционала для моделей
 
 require 'activerecord'
-require 'visibility'
+require 'lib/visibility'
 
 module ModelExtensions
 
@@ -13,9 +13,9 @@ module ModelExtensions
 
   #-----------------------------------------------------------------------------
   # Защищает указанные атрибуты от массового присвоения (вызовом attr_protected)
-  # и создает named_scope для данного атрибута.
+  # и создает scope для данного атрибута.
   # Например вызов user_protected защитит атрибут user и
-  # создаст named_scope :for_user
+  # создаст scope :for_user
   def account_and_user_protected
     account_protected
     user_protected
@@ -25,7 +25,7 @@ module ModelExtensions
     attr_protected :account_id
     validates_presence_of :account
     # записи данного аккаунта
-    named_scope :for_account, lambda{ |account|
+    scope :for_account, lambda{ |account|
       account ||= $current_account
       {:conditions => account ? {:account_id => account.id} : ''}
     }
@@ -35,14 +35,14 @@ module ModelExtensions
     attr_protected :user_id
     validates_presence_of :user
     # записи данного пользователя
-    named_scope :for_user, lambda{ |user|
+    scope :for_user, lambda{ |user|
       user ||= $current_user
       conditions = {:user_id => user.id}
       conditions[:account_id] = user.account_id if column_names.include?('account_id')
       {:conditions => conditions}
     }
     # записи, видимые данным пользователем
-    named_scope :visible_for_user, lambda{ |user|
+    scope :visible_for_user, lambda{ |user|
       user ||= $current_user
       if user.is_admin?
         conditions = {:account_id => user.account_id}
@@ -123,12 +123,12 @@ module ModelExtensions
   # определяет недавно созданные и недавно обновленные записи
   def def_recently_scopes
     # недавно созданные
-    named_scope :recently_created, lambda {
+    scope :recently_created, lambda {
       rc = $current_user.settings.send(:"recent_#{name.underscore}").to_i.days.ago
       {:conditions => ['created_at > ?', rc], :order => :created_at}
     }
     # недавно обновленные
-    named_scope :recently_updated, lambda {
+    scope :recently_updated, lambda {
       rc = $current_user.settings.send(:"recent_#{name.underscore}").to_i.days.ago
       {:conditions => ['updated_at > ?', rc], :order => :created_at}
     }

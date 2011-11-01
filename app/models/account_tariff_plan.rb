@@ -4,7 +4,10 @@ class AccountTariffPlan < ActiveRecord::Base
 
   has_many :accounts, :foreign_key => :tariff_plan_id
 
-  validates_presence_of :name, :max_users, :max_mbytes, :max_contacts
+  validates :name, :presence => true
+  validates :max_users, :presence => true
+  validates :max_mbytes, :presence => true
+  validates :max_contacts, :presence => true
   validates_numericality_of :max_users, :max_mbytes, :max_contacts, :price
 
   #-----------------------------------------------------------------------------

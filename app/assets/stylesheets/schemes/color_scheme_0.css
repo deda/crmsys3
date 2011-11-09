@@ -1,0 +1,67 @@
+.top-panel{
+    background-color:#f40;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #e30, #f40);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f40), to(#e30));
+}
+.tabs{
+    background-color:#f40;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #b30, #e30);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#e30), to(#b30));
+}
+.tabs div{
+    background-color:#c30;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #d30, #f96);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f96), to(#d30));
+}
+.tabs div,
+.tabs div.right{
+    border-color:#b20;
+}
+.tabs div.selected a.inv{
+    color:#820;
+}
+.paging b{
+    color:#f40;
+}
+a:link,
+a:visited{
+    color:#07b;
+}
+input[type="text"],
+input[type="password"],
+select,
+textarea,
+.fuzzy_result,
+.fuzzy_browse{
+    border-color:#6ad;
+}
+.sheet_title,
+.progress_bar,
+.item_buttons{
+    border-color:#8ab;
+}
+.fuzzy_browse{
+    background-color:lightblue;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #58b, lightblue);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(lightblue), to(#58b));
+}
+.sheet_title{
+    color:#fff;
+}
+.tree a.active,
+.fuzzy_result > div:hover,
+.fuzzy_result > div.active{
+    background-color:#8bf;
+}
+.sheet_title,
+.progress_bar .progress,
+.fuzzy_browse{
+    background-color:#8bf;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #48d, #8cf);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#8cf), to(#48d));
+}
+.quick_info .title{
+    background-color:#f40;
+    background-image:-moz-linear-gradient(50% 100% 45deg, #f40, #fca);
+    background-image:-webkit-gradient(linear, 100% 0%, 50% 100%, from(#fca), to(#f40));
+}

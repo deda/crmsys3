@@ -1,0 +1,69 @@
+.top-panel{
+    background-color:#0b6;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #094, #0b6);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#0b6), to(#094));
+}
+.tabs{
+    background-color:#0b6;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #064, #094);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#094), to(#064));
+}
+.tabs div{
+    background-color:#0c7;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #094, #0f8);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#0d9), to(#094));
+}
+.tabs div,
+.tabs div.right{
+    border-color:#086;
+}
+.tabs div.selected a.inv{
+    color:#086;
+}
+.paging b{
+    color:#a6a;
+}
+a:link,
+a:visited{
+    color:#064;
+}
+input[type="text"],
+input[type="password"],
+select,
+textarea,
+.fuzzy_result,
+.fuzzy_browse,
+ .sheet_title,
+.progress_bar{
+    border-color:#0a6;
+}
+.sheet_title,
+.progress_bar,
+.item_buttons{
+    border-color:#bad;
+}
+.fuzzy_browse{
+    background-color:#0c7;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #094, #0f8);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#0d9), to(#094));
+}
+.sheet_title{
+    color:#fff;
+}
+.tree a.active,
+.fuzzy_result > div:hover,
+.fuzzy_result > div.active{
+    background-color:#caf;
+}
+.sheet_title,
+.progress_bar .progress,
+.fuzzy_browse{
+    background-color:#caf;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #86a, #dbf);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#dbf), to(#86a));
+}
+.quick_info .title{
+    background-color:#1b6;
+    background-image:-moz-linear-gradient(50% 100% 45deg, #1a5, #2fa);
+    background-image:-webkit-gradient(linear, 100% 0%, 50% 100%, from(#2fa), to(#1a5));
+}

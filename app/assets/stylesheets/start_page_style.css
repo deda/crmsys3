@@ -1,0 +1,157 @@
+/*  
+	CSS Reset by Eric Meyer - Released under Public Domain
+    http://meyerweb.com/eric/tools/css/reset/
+*/
+/*html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, 
+caption, tbody, tfoot, thead, tr, th, td 
+                  {margin: 0;padding: 0;border: 0;outline: 0;
+                  font-size: 100%;vertical-align: baseline;
+                  background: transparent;}
+body              {line-height: 1;}
+ol, ul            {list-style: none;}
+blockquote, q     {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';	content: none;}
+:focus            {outline: 0;}
+ins               {text-decoration: none;}
+del               {text-decoration: line-through;}
+table             {border-collapse: collapse;border-spacing: 0;}*/
+
+/*
+* {
+	margin: 0;
+	padding: 0;	
+	}
+
+@font-face {
+    font-family: 'FranklinGothicHeavy';
+    src: url('13163-FranklinGothicHeavy.eot');
+    src: url('13163-FranklinGothicHeavy.eot?#iefix') format('embedded-opentype'),
+         url('13163-FranklinGothicHeavy.woff') format('woff'),
+         url('13163-FranklinGothicHeavy.ttf') format('truetype'),
+         url('13163-FranklinGothicHeavy.svg#FranklinGothicHeavyRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+	}
+
+padding
+
+
+body {
+	font-size: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	}
+	
+	
+.header .image{
+    width:512px;
+    height:300px;
+    float:right;
+    border:1px solid gray;
+    background-image:url('/images/ss_00.jpg');
+    box-shadow: 1px 1px 16px gray;
+    -moz-box-shadow: 1px 1px 16px gray;
+    -webkit-box-shadow: 1px 1px 16px gray;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    top:150px;
+    position:relative;
+}
+
+a#button{
+    display:block;
+    float:left;
+    padding:5px;
+    font-size:16px;
+    font-weight:bold;
+    border:1px solid #280;
+    text-decoration:none;
+    color:#dfd;
+    box-shadow: 1px 1px 8px gray;
+    -moz-box-shadow: 1px 1px 8px gray;
+    -webkit-box-shadow: 1px 1px 8px gray;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#084;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #084, #2d2);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2d2), to(#084));
+    text-align:center;
+}
+a#button #sub{
+    font-weight:normal;
+    font-size:11px;
+}
+
+
+div#page-wrap {
+	width:800px;
+		margin: 0 auto;
+}
+
+ul#nav {
+	height:	102px; width: 476px;
+	background: url(images/nav-logo.png) no-repeat;
+	border-bottom: 1px solid #555;
+	margin-bottom: 20px;
+	list-style: none;
+	}
+	ul#nav li a {
+		display: block;
+		width: 119px;
+		float: left;
+		margin-top:	84px;
+		color: #555;
+		text-align: center;
+		text-decoration: none;
+		font-family: 'FranklinGothicHeavy';
+	    }
+		ul#nav li a:hover {
+			background-color: #FFCC99;
+			color: black;
+			}
+		
+		ul#nav li a:active {
+			background-color: #F6921E;
+			color: white;
+			}
+
+div#main-content{
+	width: 500px;
+ 	padding-bottom: 60px;
+	}
+div#main-content h1{
+	
+}
+div#main-content h2{
+	
+}
+div#main-content h3{
+	
+}
+
+div#main-content p{
+	padding: 10px 10px 10px 10px;
+}
+
+div#font-face-test{
+	font-family: 'FranklinGothicHeavy';
+	}
+	
+	
+div#footer{
+	background-color: #F6921E;
+	color: white;
+	padding: 7px 0 7px 0;
+	border-top: 1px solid #555;
+	text-align: center;
+	
+	}
+        */

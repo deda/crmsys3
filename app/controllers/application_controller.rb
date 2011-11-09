@@ -221,7 +221,7 @@ private
     controller = params[:controller]
     return if controller == 'clearance/sessions'
     if current_user.account.is_director?
-      redirect_to root_path unless [
+      redirect_to accounts_path unless [
         'accounts',
         'settings/users',
         'settings/recent_records',

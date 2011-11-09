@@ -1,8 +1,9 @@
 class AccountTariffPlan < ActiveRecord::Base
   is_paranoid
-  user_protected
 
   has_many :accounts, :foreign_key => :tariff_plan_id
+  belongs_to :user
+  attr_protected :user_id
 
   validates :name, :presence => true
   validates :max_users, :presence => true

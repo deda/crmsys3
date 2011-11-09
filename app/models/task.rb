@@ -26,15 +26,15 @@ class Task < ActiveRecord::Base
   before_save :check_parent
 
   # задачи, связанные с каким-либо объектом
-  named_scope :nested, lambda{ |owt|
+  scope :nested, lambda{ |owt|
     conditions = owt ? ['owner_type=?', owt] : 'NOT owner_id IS NULL'
     {:conditions => conditions}
   }
   # задачи, не связанные ни с каким объектом
-  named_scope :freed,
+  scope :freed,
     {:conditions => {:owner_id => nil}}
   # задачи, не имеющие родителя
-  named_scope :wo_parent,
+  scope :wo_parent,
     {:conditions => {:parent_id => nil}}
 
   def ends_at_current_week_or_earlier?

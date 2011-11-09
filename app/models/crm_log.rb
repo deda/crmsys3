@@ -3,15 +3,15 @@ class CrmLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :account
 
-  named_scope :for_user, lambda {
+  scope :for_user, lambda {
     {:conditions => {:user_id => $current_user.id, :account_id => $current_account.id}}
   }
-  named_scope :for_account, lambda {
+  scope :for_account, lambda {
     {:conditions => {:account_id => $current_account.id}}
   }
 
   #-----------------------------------------------------------------------------
-  named_scope :for_object, lambda {|object|
+  scope :for_object, lambda {|object|
     {:conditions => {
       :object => object.class.name,
       :record_id => object.id}}
@@ -19,7 +19,7 @@ class CrmLog < ActiveRecord::Base
 
   #-----------------------------------------------------------------------------
   # то же что и object, но с учетом аккаунта
-  named_scope :for_abject, lambda {|object|
+  scope :for_abject, lambda {|object|
     {:conditions => {
       :object => object.class.name,
       :record_id => object.id,

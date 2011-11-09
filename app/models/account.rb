@@ -35,8 +35,8 @@ class Account < ActiveRecord::Base
 
   accepts_nested_attributes_for :admins
 
-  validates_presence_of :end_time, :name, :subdomain#, :tariff_plan
-  validates_uniqueness_of :subdomain, :scope => :deleted_at
+  validate :end_time, :presense => true
+  validate :name, :presense => true
 
   def convert
     [name.to_s, id]
@@ -68,20 +68,14 @@ class Account < ActiveRecord::Base
 
   #-----------------------------------------------------------------------------
   def can_be_edited user=$current_user
-    user.is_admin? and user.account.director? and not self.director?
+    user.is_admin? and user.account.is_director? and not self.is_director?
   end
   def can_be_deleted user=$current_user
-    user.is_admin? and user.account.director? and not self.director?
-  end
-
-  #-----------------------------------------------------------------------------
-  # возвращает true если это управляющий аккаунт
-  def director?
-    subdomain == 'director'
+    user.is_admin? and user.account.is_director? and not self.is_director?
   end
 
   def self.director
-    find(:first, :conditions => {:subdomain => 'director'})
+    find(:first, :conditions => {:is_director => true})
   end
 
 end

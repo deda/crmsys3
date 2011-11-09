@@ -26,8 +26,8 @@ class Sale < ActiveRecord::Base
   before_save :calc_discount
 
   #-----------------------------------------------------------------------------
-  named_scope :sales,     :conditions => {:is_sale => true}
-  named_scope :purchases, :conditions => {:is_sale => false}
+  scope :sales,     :conditions => {:is_sale => true}
+  scope :purchases, :conditions => {:is_sale => false}
 
   #-----------------------------------------------------------------------------
   def ware_movements

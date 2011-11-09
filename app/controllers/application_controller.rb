@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   helper_method :signed_in_as_account_admin?
 
   before_filter :set_current_user
-  before_filter :authenticate
+  before_filter :authorize
   before_filter :initialize_navi
   before_filter :director_fork
   before_filter :after_login
@@ -220,7 +220,7 @@ private
     return if not current_user
     controller = params[:controller]
     return if controller == 'clearance/sessions'
-    if current_user.account.director?
+    if current_user.account.is_director?
       redirect_to root_path unless [
         'accounts',
         'settings/users',

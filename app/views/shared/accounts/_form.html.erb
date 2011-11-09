@@ -3,7 +3,6 @@
 <% semantic_form_for :account, account, :url => url, :html => {:method => method, :target => 'target_frame'} do |form| %>
   <% form.inputs do %>
     <%= form.input :name, :label => t(:account_name) %>
-    <%= form.input :subdomain, :label => t(:subdomain) %>
     <%= form.input :end_time, :label => t(:expiry), :as => :date, :include_blank => false %>
     <%= form.input :tariff_plan, :label => t(:tariff_plan), :collection => AccountTariffPlan.all, :include_blank => false %>
   <% end %>

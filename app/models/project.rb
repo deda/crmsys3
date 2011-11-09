@@ -6,27 +6,27 @@ class Project < ActiveRecord::Base
   
   validates_presence_of :name, :account
 
-  named_scope :for_user, lambda{ |user|
+  scope :for_user, lambda{ |user|
     conditions = user.is_admin? ? '': {:account_id => user.account.id}
     {:conditions=> conditions}
   }
-  named_scope :by_name, lambda{ |search|
+  scope :by_name, lambda{ |search|
     conditions = search.blank? ? "" : ['projects.name LIKE (?) OR tasks.name LIKE (?)', "%#{search}%","%#{search}%"]
     {:include => :tasks, :conditions => conditions}
   }
-  named_scope :incomplete,
+  scope :incomplete,
     :include => :tasks,
     :conditions => ['tasks.state = (?)',"incomplete"]
   # обратить внимание на неудалённость задач в условии
   # офигенная тема..если вызвать метод tasks для любого элемента набора,
   #  найдутся только задачи, которые удовлетворяют conditions..неожиданно
-  named_scope :current_week_projects, lambda{
+  scope :current_week_projects, lambda{
     {:include => :tasks, :conditions => ['tasks.completion_time <= ? AND tasks.state = ? AND tasks.deleted_at IS ?', Task.end_of_current_week,"incomplete",nil]}
   }
-  named_scope :next_week_projects, lambda{
+  scope :next_week_projects, lambda{
     {:include => :tasks, :conditions => ['tasks.completion_time BETWEEN ? AND ? AND tasks.state = ? AND tasks.deleted_at IS ?', Task.end_of_current_week, Task.end_of_next_week, "incomplete", nil]}
   }
-  named_scope :other_projects, lambda{
+  scope :other_projects, lambda{
     {:include => :tasks, :conditions => ['tasks.completion_time > ? AND tasks.state = ? AND tasks.deleted_at IS ?',Task.end_of_next_week, "incomplete", nil]}
   }
 

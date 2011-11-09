@@ -39,7 +39,6 @@ director_admin = User.for_account(director_account).new
 director_admin.name                   = 'Администратор'
 director_admin.email                  = 'admin@director.com'
 director_admin.password               = '1111'
-director_admin.password_confirmation  = '1111'
 director_admin.email_confirmed        = true
 director_admin.is_admin               = true
 director_admin.save!
@@ -47,7 +46,6 @@ director_user = User.for_account(director_account).new
 director_user.name                   = 'Пользователь'
 director_user.email                  = 'user@director.com'
 director_user.password               = '1111'
-director_user.password_confirmation  = '1111'
 director_user.email_confirmed        = true
 director_user.is_admin               = false
 director_user.save!

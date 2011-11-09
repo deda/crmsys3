@@ -12,7 +12,7 @@ class Ware < Commodity
     :allow_destroy => true
 
   #-----------------------------------------------------------------------------
-  named_scope :for_select, lambda{ |array|
+  scope :for_select, lambda{ |array|
     {:conditions => ['id NOT IN (?)', array]}
   }
 

@@ -1,6 +1,6 @@
 <div class="tabs">
 
-<% if current_user.account.director? %>
+<% if current_user.account.is_director? %>
 
   <div><a class="inv" id="AccountsController" href="<%= accounts_path %>"><%= t(:accounts) %></a></div>
 
@@ -31,7 +31,7 @@
   <div class="right">
     <a class="inv" id="SettingsController" href="<%= settings_users_path %>"><%= t(:settings) %></a>
   </div>
-  <% unless current_user.account.director? %>
+  <% unless current_user.account.is_director? %>
     <div class="right"><a class="inv" id="ReportsController" href="<%= reports_root_path %>"><%= t(:reports) %></a></div>
   <% end %>
 

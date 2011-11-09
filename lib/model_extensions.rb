@@ -23,7 +23,7 @@ module ModelExtensions
   def account_protected
     belongs_to :account
     attr_protected :account_id
-    validates_presence_of :account
+    validates :account, :presence => true
     # записи данного аккаунта
     scope :for_account, lambda{ |account|
       account ||= $current_account
@@ -33,7 +33,7 @@ module ModelExtensions
   def user_protected
     belongs_to :user
     attr_protected :user_id
-    validates_presence_of :user
+    validates :user, :presence => true
     # записи данного пользователя
     scope :for_user, lambda{ |user|
       user ||= $current_user

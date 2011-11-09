@@ -1,0 +1,19 @@
+/*------------------------------------------------------------------------------
+ * Print forms
+ *----------------------------------------------------------------------------*/
+.print{
+    width:100%;
+    font-size:14px;
+    border-left:1px solid gray;
+    border-top:1px solid gray;
+}
+.print th{
+    background-color:#ddd;
+}
+.print td, th{
+    vertical-align:top;
+    border-right:1px solid gray;
+    border-bottom:1px solid gray;
+    padding:1px;
+    margin:0;
+}

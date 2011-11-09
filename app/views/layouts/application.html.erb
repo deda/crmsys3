@@ -24,11 +24,12 @@
         'colorbox',
         'color_schemes',
         "schemes/color_scheme_#{current_user.settings.scheme}",
-        'feedback') %>
+        'feedback',
+        :cache => 'styles.css') %>
       <%= render :partial => 'mockups/javascripts' %>
       <%= render :partial => 'mockups/stylesheets' %>
     <% else %>
-      <%= stylesheet_link_tag 'login_form.css' %>
+      <%= stylesheet_link_tag 'login_form' %>
     <% end %>
   </head>
   <body>

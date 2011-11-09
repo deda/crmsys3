@@ -1,0 +1,75 @@
+body{
+    font:11px Arial, sans-serif;
+    color: black;
+    background-color:#eee;
+}
+.login_form{
+    width:400px;
+    height:auto;
+    float:left;
+    margin:100px 50%;
+    border:1px solid #bbb;
+    box-shadow: 1px 1px 16px #bbb;
+    -moz-box-shadow: 1px 1px 16px #bbb;
+    -webkit-box-shadow: 1px 1px 16px #bbb;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    position:relative;
+    left:-200px;
+}
+.login_form .avatar{
+    width:100%;
+    float:left;
+    height:128px;
+    background:center center no-repeat url('/images/mtote-crm.png') #fff;
+}
+.login_form .inputs{
+    width:90%;
+    float:left;
+    background-color:#fff;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #eee, #fff);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee));
+    padding:5%;
+    color:#555;
+    font-size:16px;
+}
+.login_form .inputs input{
+    font-size:16px;
+}
+.login_form .inputs input[type='text'],
+.login_form .inputs input[type='password']{
+    background-color:#fff;
+    border:1px solid #74b2e2;
+}
+.login_form .inputs > div{
+    width:100%;
+    float:left;
+    margin-bottom:10px;
+}
+.login_form .inputs > div.login *,
+.login_form .inputs > div.password *{
+    width:100%;
+    float:left;
+}
+.login_form .inputs > div.submit input{
+    width:70%;
+    margin:20px 15% 0 15%;
+}
+.login_form .inputs > div.remember{
+    font-size:14px;
+}
+.login_form .notice,
+.login_form .failure{
+    width:90%;
+    float:left;
+    font-size:14px;
+    background-color:#fff;
+    padding:2px 5%;
+}
+.login_form .notice{
+    color:#4c4;
+}
+.login_form .failure{
+    color:#f44;
+}

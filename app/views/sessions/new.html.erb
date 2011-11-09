@@ -1,0 +1,12 @@
+<script type="text/javascript">window.onload = function(){document.getElementById('session_email').focus()};</script>
+
+<%= render :partial => '/sessions/form' %>
+
+<ul>
+  <li>
+    <%= link_to "Sign up", sign_up_path %>
+  </li>
+  <li>
+    <%= link_to "Forgot password?", new_password_path %>
+  </li>
+</ul>

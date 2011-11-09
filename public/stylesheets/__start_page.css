@@ -1,0 +1,186 @@
+body{
+    font:12px Arial, sans-serif;
+    color: #004;
+    background-color:#eee;
+    padding:0;
+    margin:0;
+}
+.wrapper{
+    width:900px;
+    margin:0 auto;
+}
+
+/*******************************************************************************
+ * Buttons
+ ******************************************************************************/
+a.button{
+    display:block;
+    float:left;
+    padding:5px;
+    font-size:16px;
+    font-weight:bold;
+    border:1px solid #280;
+    text-decoration:none;
+    color:#dfd;
+    box-shadow: 1px 1px 8px gray;
+    -moz-box-shadow: 1px 1px 8px gray;
+    -webkit-box-shadow: 1px 1px 8px gray;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#084;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #084, #2d2);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2d2), to(#084));
+    text-align:center;
+}
+a.button .sub{
+    font-weight:normal;
+    font-size:11px;
+}
+
+
+
+/*******************************************************************************
+ * Top panel
+ ******************************************************************************/
+.top_panel_back{
+    width:100%;
+    height:40px;
+    background-color:#242;
+    position:absolute;
+    left:0;
+    z-index:-1;
+}
+.top_panel{
+    width:100%;
+    float:left;
+    height:40px;
+    background-color:#242;
+}
+.top_panel a{
+    color:#fff;
+    display:block;
+    float:left;
+    margin:10px;
+    font-size:1.2em;
+    text-decoration:none;
+    padding:1px;
+    border-bottom:2px solid transparent;
+}
+.top_panel a:hover{
+    border-bottom:2px solid greenyellow;
+}
+.top_panel .logo{
+    color:#fff;
+    text-shadow:0px 0px 4px #444;
+    font-size:2em;
+    float:right;
+    margin:0 1em 0 0;
+    font-weight:bold;
+}
+
+
+
+/*******************************************************************************
+ * Header
+ ******************************************************************************/
+.header_back{
+    width:100%;
+    height:450px;
+    background-color:#df4;
+    position:absolute;
+    left:0;
+    z-index:-2;
+}
+.header{
+    width:98%;
+    height:450px;
+    padding:0 1%;
+    background-color:#df4;
+}
+.header .icon{
+    width:300px;
+    float:left;
+}
+.header .text{
+    width:300px;
+    float:left;
+}
+.header .image{
+    width:512px;
+    height:300px;
+    float:right;
+    border:1px solid gray;
+    background-image:url('/images/ss_00.jpg');
+    box-shadow: 1px 1px 16px gray;
+    -moz-box-shadow: 1px 1px 16px gray;
+    -webkit-box-shadow: 1px 1px 16px gray;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    top:50px;
+    position:relative;
+}
+.header h1{
+    font:2em Georgia, 'Times New Roman', Times, serif;
+    color:#000;
+    font-weight:bold;
+    padding:0;
+    margin-bottom:0.5em;
+    line-height:1em;
+}
+.header h2{
+    color:#444;
+    font-size:1.5em;
+    font-weight:bold;
+    padding:0;
+    margin-bottom:0.5em;
+}
+.header .button_wrapper{
+    width:70%;
+    float:left;
+    padding:20px 0 0 40px;
+}
+
+
+
+
+/*
+.wellcome_sheet{
+    width:800px;
+    height:auto;
+    float:left;
+    margin:5px 50%;
+    border:1px solid #bbb;
+    box-shadow: 1px 1px 16px #bbb;
+    -moz-box-shadow: 1px 1px 16px #bbb;
+    -webkit-box-shadow: 1px 1px 16px #bbb;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    background-color:#fff;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #eee, #fff);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee));
+    position:relative;
+    left:-400px;
+    padding:10px;
+}
+.wellcome_sheet .main{
+    padding:20px;
+}
+.wellcome_sheet .main .bad,
+.wellcome_sheet .main .good{
+    background-color:#f0f0ff;
+    padding:5px;
+    margin:0 0 20px 20px;
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+}
+.wellcome_sheet .main h1{
+    font-size:24px;
+}
+.wellcome_sheet .main h3{
+    font-size:14px;
+}
+*/

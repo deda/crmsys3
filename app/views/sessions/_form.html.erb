@@ -1,0 +1,28 @@
+<div class="login_form">
+<%= form_for :session, :url => session_path do |form| %>
+  <div class="avatar">
+  </div>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+  <div class="failure">
+    <%= flash[:failure] %>
+  </div>
+  <div class="inputs">
+    <div class="login">
+      <%= form.label t(:email) %>
+      <%= form.text_field :email, :type => "email" %>
+    </div>
+    <div class="password">
+      <%= form.label t(:password) %>
+      <%= form.password_field :password %>
+    </div>
+    <div class="remember">
+      <%= form.check_box :remember_me! %><%= form.label t(:remember_me) %>
+    </div>
+    <div class="submit">
+      <%= form.submit t(:sign_in), :disable_with => t(:please_wait) %>
+    </div>
+  </div>
+<% end %>
+</div>

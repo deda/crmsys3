@@ -5,7 +5,7 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql'
+gem 'mysql2'
 
 gem 'json'
 
@@ -31,7 +31,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'is_paranoid'
+gem 'is_paranoid', :git => 'git://github.com/theshortcut/is_paranoid.git' #, :ref => XXX #брать гем будем отсюда, так как ребята вроде занимаюстя им
 gem 'clearance'
 gem 'prototype-rails'
 gem 'therubyracer'

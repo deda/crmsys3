@@ -1,0 +1,10 @@
+.buttons { padding:0 0 10px 20px; }
+.buttons li { position:relative; margin-bottom:5px; color:#666; cursor:pointer; }
+.buttons li span { position:relative; top:2px; }
+.buttons li:hover { color:#999; }
+.buttons li i.icon { position:absolute; left:-20px; width:15px; height:15px; top:1px; background-image:url(icons.gif); }
+.buttons li i.i-add { background-position:-32px 0; }
+.buttons li i.i-remove { background-position:0px 0; }
+.buttons li.hover i.i-add { background-position:-32px -16px; }
+.buttons li.hover i.i-remove { background-position:0px -16px; }
+.buttons li.hover i.icon {  }

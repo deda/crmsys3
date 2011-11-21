@@ -1,0 +1,5 @@
+.info-block { min-height:150px; }
+.info-block div { display:none; }
+.info-block div.visible { display:block; }
+.info-block .head { font-weight:bold; padding-bottom:3px; }
+.info-block p { padding-bottom:12px; line-height:13px; }

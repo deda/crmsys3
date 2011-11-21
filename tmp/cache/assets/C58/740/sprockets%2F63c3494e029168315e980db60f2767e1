@@ -1,0 +1,1501 @@
+o: ActiveSupport::Cache::Entry	:@value{	"_version"%8050e17a19b6d0ef99def9ed994df49c"digest"%6b19bcfaad329b55c9b481f078c56b3c"lengthi�"source"�/*------------------------------------------------------------------------------
+ * общие стили
+ *----------------------------------------------------------------------------*/
+
+body{
+    background-color:#eee;
+    min-width:760px;
+}
+body input{
+    font-size:100%;
+}
+a:link,
+a:visited{
+    color:#0971B2;
+    text-decoration:underline;
+}
+a:hover {
+    text-decoration:none;
+}
+body a.button{
+    padding:0.3em 1em;
+    margin:0.2em;
+    text-align: center;
+    text-decoration:none;
+    color:#444;
+    border:1px solid #bbb;
+    background-color:#eee;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #ddd, white);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#ddd));
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    box-shadow: 0px 0px 6px #aaa;
+    -moz-box-shadow: 0px 0px 6px #aaa;
+    -webkit-box-shadow: 0px 0px 6px #aaa;
+    text-shadow: 1px 1px 1px lightgray;
+}
+body a.button:hover{
+    color:#046;
+    border-color:#89a;
+    background-color:#cde;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #cde, white);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#cde));
+}
+body a.button:active{
+    color:#046;
+    border-color:#89a;
+    background-color:#cde;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #def, #cde);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#cde), to(#def));
+    text-shadow: 1px 1px 1px gray;
+    box-shadow: 0px 0px 2px #aaa;
+    -moz-box-shadow: 0px 0px 2px #aaa;
+    -webkit-box-shadow: 0px 0px 2px #aaa;
+}
+.link_class{
+    font-size:12px;
+    display:inline-block;
+}
+.border_right_none{
+    border-right:none;
+}
+.rounded{
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+.shadowed{
+    box-shadow: 0px 0px 6px #aaa;
+    -webkit-box-shadow: 0px 0px 6px #aaa;
+    -moz-box-shadow: 0px 0px 6px #aaa;
+}
+.bold{
+    font-weight:bold;
+}
+.my_tasks_list{
+    width:98%;
+    float:left;
+    padding:5px;
+}
+li.error input,
+li.error select,
+input.error,
+input[type="text"].error,
+textarea.error{
+    border:1px solid red;
+    background-color:#ffeeee;
+}
+.error{
+    color:#c00;
+}
+input[type="text"],
+input[type="password"],
+select,
+textarea{
+    background-color:#fff;
+    border:1px solid #74b2e2;
+    font-size:1em;
+}
+input[type="text"],
+input[type="password"]{
+    height:1.2em;
+    padding:0.1em 0.2em;
+    margin-top:2px;
+}
+.icon {
+    text-align:center;
+}
+.hidden{
+    display:none;
+}
+optgroup{
+    color:#146;
+}
+option{
+    color:black;
+}
+.g100{
+    width:100%;
+    float:left;
+    color:gray;
+    font-size:11px;
+}
+.col2{
+    width:48%;
+    float:left;
+    margin-right:2%;
+}
+.col_fix_250{
+    width:248px;
+    float:left;
+    margin-right:2px;
+}
+span.type_name,
+span.protocol_name{
+    color:#999;
+}
+tr.even{
+    background-color:#ddd;
+}
+
+/*------------------------------------------------------------------------------
+ * верхняя панель с названием компании
+ *----------------------------------------------------------------------------*/
+.top-panel{
+    height:30px;
+    background-color:#f40;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #e30, #f40);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f40), to(#e30));
+}
+
+/*------------------------------------------------------------------------------
+ * панель вкладок
+ *----------------------------------------------------------------------------*/
+.tabs{
+    width:100%;
+    float:left;
+    background-color:#f40;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #b30, #e30);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#e30), to(#b30));
+}
+.tabs div{
+    float:left;
+    background-color:#c30;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #d30, #f96);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#f96), to(#d30));
+    border-radius:4px 4px 0 0;
+    -moz-border-radius:4px 4px 0 0;
+    -webkit-border-radius:4px 4px 0 0;
+    position:relative;
+    border:1px solid #b20;
+    border-bottom:none;
+    margin-left:20px;
+    top:1px;
+}
+.tabs div + div{
+    border-left:none;
+    margin:0;
+}
+.tabs div.right{
+    float:right;
+    border:1px solid #b20;
+    border-bottom:none;
+    margin-right:20px;
+}
+.tabs div.right + div{
+    border-right:none;
+    margin:0;
+}
+.tabs div.selected{
+    background-color:#eee;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #eee, white);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#eee));
+    box-shadow: 0px 2px 8px #222;
+    -webkit-box-shadow: 0px 2px 8px #222;
+    -moz-box-shadow: 0px 2px 8px #222;
+    border-color:#eee;
+    top:0;
+    z-index:1;
+}
+.tabs div a.inv{
+    font-size:12px;
+    font-weight:bold;
+    padding:5px 8px;
+    display:block;
+    color:#fff;
+    text-decoration:none;
+    text-shadow:0 0 2px #333;
+}
+.tabs div.selected a.inv{
+    color:#820;
+    text-shadow:none;
+}
+
+/*------------------------------------------------------------------------------
+ * панель навигации
+ *----------------------------------------------------------------------------*/
+.navi{
+    width:99%;
+    float:left;
+    text-align:right;
+    padding-right:2px;
+    position:relative;
+    z-index:2;
+    background-color:#eee;
+}
+
+/*------------------------------------------------------------------------------
+ * Стили контейнера вкладки
+ *----------------------------------------------------------------------------*/
+.main_container{
+    width:100%;
+    float:left;
+    margin:0;
+    padding:0;
+}
+
+/*------------------------------------------------------------------------------
+ * подвал
+ *----------------------------------------------------------------------------*/
+.footer{
+    z-index:1;
+    clear:both;
+    position:fixed;
+    top:100%;
+    margin-top:-20px;
+    height:20px;
+    width:100%;
+    background:#f8f8f8;
+    border-top:1px solid #ccc;
+}
+.footer .copy{
+    margin:3px 0 0 20px;
+}
+.footer_dummy{
+    clear:both;
+    height:20px;
+    width:100%;
+}
+
+/*------------------------------------------------------------------------------
+ * стили поискового меню
+ *----------------------------------------------------------------------------*/
+.search_menu_container{
+    width:99%;
+    float:left;
+    padding:0px;
+    margin:0 0 8px 0.5%;
+    background-color:#f8f8f8;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #888;
+    box-shadow: 0px 2px 4px #aaa;
+    -webkit-box-shadow: 0px 2px 4px #aaa;
+    -moz-box-shadow: 0px 2px 4px #aaa;
+}
+.search_menu_container form > div{
+    float:left;
+    margin:0 1px;
+    font-size:11px;
+}
+.search_menu_container select,
+.search_menu_container input{
+    font-size:11px;
+    width:90%;
+}
+.search_menu_container .select{
+    width:8%;
+}
+.search_menu_container .records{
+    width:8%;
+}
+.search_menu_container .filter{
+    width:13%;
+}
+.search_menu_container .search{
+}
+.search .fuzzy_wrapper{
+    width:200px;
+    float:left;
+}
+.search .fuzzy_wrapper .fuzzy_query{
+    width:100%;
+}
+.search .value{
+    width:auto;
+    float:left;
+    padding:1px 6px 0 3px;
+    margin:2px -4px 0 0;
+    cursor:pointer;
+    height:14px;
+    z-index:0;
+    position:relative;
+    left:-6px;
+    background-color:#eee;
+    border:1px solid #aaa;
+    color:#444;
+    box-shadow: -4px 0px 4px #bbb;
+    -webkit-box-shadow: -4px 0px 4px #bbb;
+    -moz-box-shadow: -4px 0px 4px #bbb;
+    border-radius:3px 0 0 3px;
+    -moz-border-radius:3px 0 0 3px;
+    -webkit-border-radius:3px 0 0 3px;
+}
+
+
+/*------------------------------------------------------------------------------
+ * стили левого меню
+ *----------------------------------------------------------------------------*/
+.left_menu_container_wrapper{
+    width:13%;
+    float:left;
+    margin:3px 0 0 3px;
+}
+.left_menu_container{
+    width:100%;
+    float:left;
+}
+.left_menu_container div{
+    width:100%;
+    float:left;
+}
+.left_menu_container a.button{
+    display:block;
+    width:80%;
+    float:left;
+    padding:0.6em;
+    margin:3%;
+}
+.left_menu_container > div{
+    width:100%;
+    float:left;
+    margin-bottom:8px;
+}
+
+.left_menu_container .mass_state .sheet{
+    width:auto;
+    float:left;
+    z-index:1;
+    position:relative;
+    margin:2px;
+}
+.left_menu_container .mass_state .sheet a{
+    display:block;
+    width:100%;
+    float:left;
+    text-decoration:none;
+    white-space:nowrap;
+}
+.left_menu_container .mass_state  .sheet a:hover{
+    text-shadow: 1px 1px 1px gray;
+}
+
+.left_menu_container .context_buttons{
+    background-color:white;
+    border:1px solid #aaa;
+    box-shadow: -1px 0px 6px #aaa;
+    -webkit-box-shadow: -1px 0px 6px #aaa;
+    -moz-box-shadow: -1px 0px 6px #aaa;
+    position:relative;
+    z-index:1;
+    border-right:none;
+    display:none;
+    padding:5px 0;
+}
+.left_menu_container .context_buttons .white_dummy{
+    background-color:white;
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:3px;
+}
+.left_menu_container .select_counter{
+    color:#888;
+    width:90%;
+    float:left;
+    margin:3px 6px;
+}
+
+
+/*------------------------------------------------------------------------------
+ * стили центрального контейнера и списка элементов
+ *----------------------------------------------------------------------------*/
+.central_container{
+    width:68%;
+    float:left;
+    margin:3px 1% 0 0;
+}
+.items_list_container{
+    width:100%;
+    min-height:400px;
+    float:left;
+    background-color:#fff;
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 6px #aaa;
+    -webkit-box-shadow: 0px 0px 6px #aaa;
+    -moz-box-shadow: 0px 0px 6px #aaa;
+}
+.items_list_container.embedded{
+    min-height:0;
+    background-color:transparent;
+    border:none;
+    box-shadow:none;
+    -webkit-box-shadow:none;
+    -moz-box-shadow:none;
+}
+.items_list_container > table{
+    width:100%;
+    float:left;
+}
+.items_list_container > table td{
+    vertical-align:middle;
+    padding:1px 0;
+}
+.items_list_container > table td.item_opers{
+    vertical-align:top;
+}
+.items_list_container > table > tbody > tr:hover{
+    background-color:#ffc;
+}
+
+/*------------------------------------------------------------------------------
+ * стили окна СПР
+ *----------------------------------------------------------------------------*/
+.item_container.sheet{
+    width:96%;
+    float:left;
+    display:none;
+    color:#444;
+}
+.item_container .icon{
+    width:30%;
+    float:left;
+    max-width:140px;
+}
+.item_container .icon .changable_avatar{
+    width:128px;
+    height:128px;
+    margin:0 auto;
+}
+.item_container .data{
+    width:65%;
+    float:left;
+    margin-left:5px;
+}
+.item_container .data .items{
+    width:100%;
+    float:left;
+    margin-bottom:10px;
+}
+.item_container .data .items label{
+    width:100%;
+    font-weight:bold;
+    color:#444;
+}
+
+/*------------------------------------------------------------------------------
+ * стили изменяемой аватары
+ *----------------------------------------------------------------------------*/
+.changable_avatar{
+    width:auto;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+}
+.changable_avatar img{
+    position:relative;
+    top:0;
+    left:0;
+    border:none;
+    padding:0;
+    margin:0;
+    z-index:0;
+}
+.changable_avatar p.change{
+    position:absolute;
+    top:30%;
+    left:50%;
+    margin-left:-3em;
+    background-color:#ff8;
+    visibility:hidden;
+    opacity:0.8;
+    z-index:1;
+    width:6em !important;
+    text-align:center;
+}
+.changable_avatar input:hover + p.change{
+    visibility:visible;
+}
+.changable_avatar input:hover + p.change + img{
+    opacity:0.6;
+}
+
+/*------------------------------------------------------------------------------
+ * стили динамических подсказок
+ *----------------------------------------------------------------------------*/
+.dynamic_help_container{
+    width:17%;
+    float:right;
+    margin:3px 0 0 0;
+}
+
+/*------------------------------------------------------------------------------
+ * "цветные выделения маркером"
+ *----------------------------------------------------------------------------*/
+.marker{
+    width:auto;
+    float:left;
+    padding:1px 4px;
+    margin:0px 5px 0 0;
+    font-size:11px;
+    border-bottom:1px solid #bbb;
+    color:#222;
+}
+.marker.some_me{
+    background-color:darkorange;
+    border-color:#b66;
+}
+.marker.from_me{
+    background-color:greenyellow;
+    border-color:#8b8;
+}
+.marker.not_me{
+    background-color:lightgray;
+    border-color:#bbb;
+}
+
+/*------------------------------------------------------------------------------
+ * стили значков действий над элементами списков:
+ * удаление, реактирование, завершение и т.д.
+ *----------------------------------------------------------------------------*/
+.item_line                                     { border-bottom:1px dotted #eee; }
+.item_opers                                    { height:24px; }
+.item_opers a,
+.item_opers div                                { display:block; float:right; width:24px; height:24px; background-repeat:no-repeat; }
+.item_opers .hidden                            { display:none; }
+.hideble .item_add_link,
+.addeble .item_add_link,
+.item_line .item_add_link                      { background-image:url('/images/add_0.png'); }
+
+.attachmend_icon.type_unknown.item_del_link,
+.addeble .item_del_link,
+.item_line .item_del_link                      { background-image:url('/images/del_0.png'); }
+.item_line .item_chg_link                      { background-image:url('/images/chg_0.png'); }
+.item_line .item_apl_link                      { background-image:url('/images/apl_0.png'); }
+.item_line .item_uad_link                      { background-image:url('/images/uad_0.png'); }
+.item_line .item_ude_link                      { background-image:url('/images/ude_0.png'); }
+.item_line .item_uch_link                      { background-image:url('/images/uch_0.png'); }
+.item_line .item_uap_link                      { background-image:url('/images/uap_0.png'); }
+.item_line .item_add_link.hover,
+.item_line .item_add_link:hover                { background-image:url('/images/add_1.png'); }
+.item_line .item_del_link.hover,
+.item_line .item_del_link:hover                { background-image:url('/images/del_1.png'); }
+.item_line .item_chg_link.hover,
+.item_line .item_chg_link:hover                { background-image:url('/images/chg_1.png'); }
+.item_line .item_apl_link.hover,
+.item_line .item_apl_link:hover                { background-image:url('/images/apl_1.png'); }
+.item_line .item_uad_link.hover,
+.item_line .item_uad_link:hover                { background-image:url('/images/uad_1.png'); }
+.item_line .item_ude_link.hover,
+.item_line .item_ude_link:hover                { background-image:url('/images/ude_1.png'); }
+.item_line .item_uch_link.hover,
+.item_line .item_uch_link:hover                { background-image:url('/images/uch_1.png'); }
+.item_line .item_uap_link.hover,
+.item_line .item_uap_link:hover                { background-image:url('/images/uap_1.png'); }
+.item_line .item_hid_link                      { background-image:url('/images/hid_0.png'); }
+.item_line .item_hid_link.hided                { background-image:url('/images/uhi_0.png'); }
+.item_line .item_hid_link.hover,
+.item_line .item_hid_link:hover                { background-image:url('/images/hid_1.png'); }
+.item_line .item_hid_link.hided.hover,
+.item_line .item_hid_link.hided:hover          { background-image:url('/images/uhi_1.png'); }
+.hideble .title.small .item_hid_link                { background-image:url('/images/hid_small_0.png'); }
+.hideble .title.small .item_hid_link.hided          { background-image:url('/images/uhi_small_0.png'); }
+.hideble .title.small .item_hid_link.hover,
+.hideble .title.small .item_hid_link:hover          { background-image:url('/images/hid_small_1.png'); }
+.hideble .title.small .item_hid_link.hided.hover,
+.hideble .title.small .item_hid_link.hided:hover    { background-image:url('/images/uhi_small_1.png'); }
+
+
+/* Разделительные линии */
+.dividing_line_black_2px{
+    width:100%;
+    float:left;
+    margin:16px 0 4px 0;
+    border-bottom:2px solid black;
+    font-weight:bold;
+}
+.dividing_line tr{
+    height:35px;
+}
+.dividing_line td{
+    padding:9px 5px 8px 5px;
+}
+.dividing_line div{
+    height:8px;
+    border-bottom:1px solid #ccc;
+}
+.dividing_text{
+    width:100%;
+    float:left;
+    text-align:left;
+    font-weight:bold;
+    padding:15px 5px 5px 5px;
+    color:#444;
+}
+.dividing_text.red{
+    color:#b00;
+}
+.dividing_text.green{
+    color:#282;
+}
+
+/*------------------------------------------------------------------------------
+ * стили контактов
+ *----------------------------------------------------------------------------*/
+.contacts_table > tbody > .item_line{
+    color:#666;
+}
+.contacts_table > tbody > .item_line > .item_opers{
+    width:72px;
+}
+.contacts_table > tbody > .item_line > .icon{
+    width:40px;
+    height:32px;
+    background-position:top center;
+    background-repeat:no-repeat;
+}
+.contacts_table > tbody > .item_line > .info{
+    width:30%;
+}
+.contacts_table > tbody > .item_line > .addt{
+}
+td.icon.person{
+    background-image:url('/images/32x32_person.png');
+}
+td.icon.company{
+    background-image:url('/images/32x32_company.png');
+}
+td.icon.bank{
+    background-image:url('/images/32x32_bank.png');
+}
+
+/*------------------------------------------------------------------------------
+ * стили задач
+ *----------------------------------------------------------------------------*/
+.tasks_table .item_opers{
+    width:96px;
+}
+.move_to {
+    width:100%;
+    float:left;
+    padding:0.7em 0 0.7em 0;
+}
+.move_to div.actions{
+    width:70%;
+    float:left;
+}
+.tasks_table > tbody > tr > td{
+    color:#666;
+}
+
+/*------------------------------------------------------------------------------
+ * стили сделок
+ *----------------------------------------------------------------------------*/
+.sales_table > tbody > tr.item_line td{
+    color:#666;
+}
+.sales_table > tbody > tr.item_line td.item_opers{
+    width:72px;
+}
+.sales_table > tbody > tr.item_line td.name{
+    width:40%;
+}
+.sales_table > tbody > tr.item_line td.summ{
+    width:14%;
+}
+.sales_table > tbody > tr.item_line td.state{
+    width:9%;
+}
+
+/*------------------------------------------------------------------------------
+ * стили делопроизводства
+ *----------------------------------------------------------------------------*/
+.cases_table > tbody > tr.item_line td{
+    color:#666;
+}
+.cases_table > tbody > tr.item_line td.item_opers{
+    width:72px;
+}
+.cases_table > tbody > tr.item_line td.name{
+    width:40%;
+}
+
+/*------------------------------------------------------------------------------
+ * стили таблицы спецификации
+ *----------------------------------------------------------------------------*/
+.specification{
+    width:100%;
+    float:left;
+}
+.specification table.items{
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.specification table.items th,
+.specification table.items td{
+    border:1px solid black;
+    background-color:#fff;
+    padding:1px;
+    margin:0;
+}
+.specification table.items li.error p{
+    display:none;
+}
+.specification table.items input{
+    width:89%;
+    min-width:89%;
+}
+.specification table.items select{
+    width:100%;
+    min-width:100%;
+}
+.specification table.items input.fuzzy_query{
+    width:96%;
+    min-width:96%;
+}
+.specification table.totals{
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.specification table.totals td{
+    border:none;
+    padding:1px 0 0 5px;
+    margin:0;
+}
+.specification table.totals tr > td{
+    width:90%;
+}
+.specification table.items .item_opers{
+    width:48px;
+    border:none;
+    background-color:transparent;
+}
+.specification table.totals tr:hover{
+    color:#48b;
+}
+
+/*------------------------------------------------------------------------------
+ * стили progress bar
+ *----------------------------------------------------------------------------*/
+.progress_bar{
+    width:95%;
+    height:14px;
+    border:solid 1px #74b2e2;
+    position:relative;
+    background-color:white;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #ddd, white);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#ddd));
+}
+.progress_bar .progress{
+    position:absolute;
+    height:100%;
+    float:left;
+    background-color:lightblue;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #58b, lightblue);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(lightblue), to(#58b));
+}
+.progress_bar .text{
+    font-size:11px;
+    margin:1px 30%;
+}
+
+/*------------------------------------------------------------------------------
+ * стили hideble
+ *----------------------------------------------------------------------------*/
+.hideble{
+    width:98%;
+    float:left;
+    margin:1px 0 4px 0;
+}
+.hideble > div{
+    width:100%;
+    float:left;
+}
+.hideble > div.title.big{
+    font-size:16px;
+    font-weight:bold;
+    color:#444;
+    border-bottom:1px solid lightgray;
+    margin-top:16px;
+    margin-bottom:8px;
+}
+.hideble > div.title.medial{
+    font-size:12px;
+    font-weight:bold;
+    color:#444;
+    margin:1px 0;
+}
+.hideble > div.title.small{
+    font-size:11px;
+    color:#444;
+}
+.hideble > div.title table{
+    width:100%;
+}
+.hideble > div.title table td{
+    vertical-align:middle;
+}
+.hideble > div.title span{
+    color:#888;
+    font-size:80%;
+    font-weight:normal;
+}
+.hideble > .content{
+    padding:1%;
+    background-color:#fff;
+    border:1px solid #ddd;
+}
+.hideble > div.title .item_line{
+    cursor:pointer;
+}
+
+/*------------------------------------------------------------------------------
+ * стили addeble
+ *----------------------------------------------------------------------------*/
+.addeble{
+    width:100%;
+    border:none;
+    padding:0;
+    margin:0;
+    margin-bottom:0.2em;
+}
+.addeble td{
+    border:none;
+    padding:0;
+    margin:0;
+}
+.addeble td.label{
+    width:25%;
+    font-weight:bold;
+}
+.addeble td.item_opers{
+    width:5%;
+}
+.addeble td.content{
+    width:100%;
+    vertical-align:middle;
+}
+.addeble td.content input,
+.addeble td.content textarea{
+    width:43%;
+}
+.addeble td.content select{
+    width:24%;
+}
+.addeble tr.item_line{
+    border:none;
+}
+.addeble td.content .contact_item{
+    width:100%;
+    float:left;
+}
+.addeble td.content .contact_item input{
+    float:left;
+}
+.addeble td.content .contact_item .fuzzy_wrapper{
+    width:25%;
+    margin-left:2px;
+}
+.addeble td.content .contact_item .fuzzy_wrapper .fuzzy_query{
+    width:78%;
+}
+.addeble td.content .contact_item .fuzzy_wrapper .fuzzy_error{
+    padding-left:0;
+}
+
+/*------------------------------------------------------------------------------
+ * стили комментариев
+ *----------------------------------------------------------------------------*/
+.comments_table{
+    width:100%;
+}
+.comments_table tr.last > td{
+    padding-top:0px;
+}
+.comments_table .item_opers{
+    width:48px;
+}
+.comments_table .item_line{
+    border:none;
+}
+.comments_table .icon{
+    vertical-align:top;
+    width:48px;
+}
+.comments_table .content > div{
+    width:100%;
+    float:left;
+    text-align:left;
+}
+.comments_table .content > div.title{
+    width:45%;
+    font-size:1.1em;
+    color:black;
+    text-shadow: 1px 1px 1px gray;
+    white-space:nowrap;
+}
+.comments_table .content > div.dati{
+    width:45%;
+    font-size:11px;
+    font-style:italic;
+    font-weight:normal;
+    text-align:right;
+    border-bottom:1px solid #ddd;
+    color:gray;
+    float:right;
+}
+.comments_table .content > div.text,
+.comments_table .content > textarea{
+    width:97%;
+    float:left;
+    font-size:12px;
+}
+.comments_table .content > p.error{
+    width:68%;
+    float:left;
+}
+.comments_table .content > div.text{
+    color:#444;
+    font-style:italic;
+    margin-bottom:10px;
+}
+.comments_table .content > div.attachmends{
+    width:97%;
+    float:left;
+    margin-bottom:10px;
+}
+
+/*------------------------------------------------------------------------------
+ * Опись документов
+ *----------------------------------------------------------------------------*/
+.inventory_table > tbody > tr > td{
+    vertical-align:middle;
+}
+.inventory_table.ui-sortable > tbody > tr.item_line{
+    cursor:move;
+}
+.inventory_table tr.ui-sortable-helper{
+    background-color:#ffc;
+    border:1px solid #dda;
+}
+.inventory_table .item_opers     { width:48px; }
+.inventory_table .number         { width:5%; }
+.inventory_table .numof_sheets   { width:10%; }
+.inventory_table .attaches       { width:40%; }
+.inventory_table .numof_sheets input{
+    width:20px !important;
+    margin-left:5px;
+}
+
+
+/*------------------------------------------------------------------------------
+ * Вложения
+ *----------------------------------------------------------------------------*/
+.attachmends_list{
+    width:100%;
+    float:left;
+    margin:0;
+    padding:0;
+    background-color:white;
+}
+.attachmend_line{
+    width:100%;
+    height:24px;
+    float:left;
+    white-space:nowrap;
+    overflow:hidden;
+    position:relative;
+}
+.attachmend_icon{
+    width:24px;
+    height:100%;
+    position:absolute;
+}
+.attachmend_link{
+    margin-left:24px;
+    float:left;
+    padding-top:4px;
+}
+.attachmend_prog{
+    width:24px;
+    height:100%;
+    position:absolute;
+    right:-24px;
+    background-color:white;
+    box-shadow:-8px 0px 8px white;
+    -webkit-box-shadow:-8px 0px 8px white;
+    -moz-box-shadow:-8px 0px 8px white;
+}
+.attachmend_prog.active{
+    right:0px;
+    background-image:url('/images/ajax_24x24.gif');
+    background-position:left center;
+    background-repeat:no-repeat;
+}
+.attachmend_icon.type_unknown{
+    background:transparent no-repeat center center url('/images/paperclip.png');
+}
+.attachmends_sending{
+    width:20%;
+    height:50px;
+    font-size:14px;
+    font-weight:bold;
+    padding:5px;
+    color:#246;
+    text-shadow: 1px 1px 1px gray;
+    top:30%;
+    left:40%;
+    position:absolute;
+    text-align:center;
+    background:#eef no-repeat bottom center url('/images/ajax_bar.gif');
+    border:1px solid #74b2e2;
+    z-index:100;
+}
+
+/*------------------------------------------------------------------------------
+ * Тэги, задачи, комменты
+ *----------------------------------------------------------------------------*/
+div.tag{
+     width:100%;
+     float:left;
+}
+div.tag a.tag{
+    display:inline-block;
+    background-color:#e8e8e8;
+    font-size:11px;
+    border-bottom:1px solid #bbb;
+    border-right:1px solid #bbb;
+    padding:1px 4px;
+    text-decoration:none;
+    color:#444;
+    margin:1px;
+}
+a.tag:hover{
+    color: #111;
+    border-color:#888;
+}
+div.tasks_string,
+div.comments_string{
+    width:auto;
+    float:left;
+    margin-right:5px;
+}
+
+/*------------------------------------------------------------------------------
+ * Select in place styles
+ *----------------------------------------------------------------------------*/
+select.sip{
+    margin:1px 0;
+    width:10em;
+}
+
+/*------------------------------------------------------------------------------
+ * Окна
+ *----------------------------------------------------------------------------*/
+.sheet {
+    width:98%;
+    float:left;
+    padding:1%;
+    margin:0;
+    background-color:#fff;
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 6px #aaa;
+    -webkit-box-shadow: 0px 0px 6px #aaa;
+    -moz-box-shadow: 0px 0px 6px #aaa;
+    background-image:-moz-linear-gradient(left, #fff, #f4f4f4);
+    background-image:-webkit-gradient(linear, 0% 0%, 100% 0%, from(#fff), to(#f4f4f4));
+}
+.sheet_title{
+    color:#fff;
+    text-shadow:0px -1px 1px #444;
+    font-size:1.4em;
+    font-weight:bold;
+    margin-bottom:10px;
+    border:1px solid #8ac;
+    background-color:#59d;
+    padding:3px;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #59d, #8cf);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#8cf), to(#59d));
+    white-space:nowrap;
+    overflow:hidden;
+}
+.sheet label{
+    width:30%;
+    float:left;
+}
+.sheet .field_value{
+    width:70%;
+    float:left;
+    white-space:pre-line;
+    overflow:hidden;
+}
+.sheet label,
+.sheet .label{
+    font-weight:bold;
+    color:#333;
+}
+.sheet input[type="text"],
+.sheet input[type="password"],
+.sheet li.select select{
+    width:98%;
+}
+.sheet fieldset{
+    margin-bottom:20px;
+}
+.sheet .item_buttons{
+    width:100%;
+    float:left;
+    margin:10px 0 5px 0;
+    padding:10px 0 0 0;
+    border-top-width:1px;
+    border-top-style:solid;
+}
+.sheet > table > thead{
+    font-weight:bold;
+}
+.sheet > table > thead th{
+    padding-bottom:0.5em;
+}
+.sheet > table td,
+.sheet > table th{
+    padding:1px;
+}
+
+/*------------------------------------------------------------------------------
+ * Настройки, отчеты
+ *----------------------------------------------------------------------------*/
+.sr_container{
+    padding:1%;
+}
+.sr_container table{
+    width:98%;
+    float:left;
+    margin:0.5em 0;
+}
+.sr_container .sheet {
+    width:60%;
+    margin:0 1% 1% 0;
+    float:left;
+}
+.sr_container .sheet li,
+.sr_container .sheet p{
+    margin-bottom:0.5em;
+    float:left;
+    width:98%;
+}
+.sr_container .sheet label{
+    width:100%;
+    float:left;
+}
+.sr_container .sheet input[type="text"],
+.sr_container .sheet input[type="password"],
+.sr_container .sheet li.select select{
+    width:98%;
+}
+.sr_container .sheet fieldset ol li p.inline-errors{
+    margin:0;
+}
+.sr_container .tree {
+    width:25%;
+}
+.sr_container .tree a{
+    display:block;
+    width:90%;
+    margin-left:5%;
+    font-size:1.1em;
+    text-decoration:none;
+    color:#333;
+}
+.sr_container .tree a:hover{
+    color:#888;
+}
+.sr_container .tree h4{
+    color:#333;
+    font-weight:bold;
+    font-size:1.2em;
+    margin:10px 0 0 0;
+}
+.sr_container .tree a.active{
+    position:relative;
+    left:-5%;
+    padding:2px 0 2px 5%;
+    width:95%;
+    color:white;
+    text-shadow:0 0 1px white;
+}
+.settings_recent_records{
+    width:100%;
+}
+.settings_recent_records th{
+    width:130px;
+}
+.settings_recent_records td{
+    width:25px;
+}
+.settings_recent_records td+td{
+    width:auto;
+    padding-left:10px;
+}
+.sr_container .sheet .date_range_select span{
+    width:100%;
+    float:left;
+}
+.sr_container #params_container { width:500px; }
+.sr_container #report_container { display:none; }
+.sr_container #report_container .wrapper { min-height:300px; }
+.sr_container #canvas_container { width:70%; height:400px; position:relative; margin-left:28%; }
+
+/*------------------------------------------------------------------------------
+ * аккаунты
+ *----------------------------------------------------------------------------*/
+.accounts_table {
+    color:#666;
+}
+.accounts_table .item_opers, .inventries .item_opers {
+    width:48px;
+}
+
+/*------------------------------------------------------------------------------
+ * пагинация
+ *----------------------------------------------------------------------------*/
+.paging {
+    width:99%;
+    float:right;
+    text-align:right;
+    padding-right:1%;
+    background-image:-moz-linear-gradient(left, #fff, #f4f4f4);
+    background-image:-webkit-gradient(linear, 50% 0%, 100% 0%, from(#fff), to(#f4f4f4));
+}
+.paging a, .paging b{
+    color:#468;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+    padding-right:1px;
+}
+.paging b{
+    font-size:1.8em;
+    color:#f40;
+    text-shadow:1px 1px 4px #666;
+}
+.paging a:hover{
+    color:#8ac;
+}
+
+/*------------------------------------------------------------------------------
+ * выбор языка
+ *----------------------------------------------------------------------------*/
+.locale_select{
+    display:none;
+    position:absolute;
+    right:5px;
+    background-color:#eee;
+    background-image:-moz-linear-gradient(100% 100% 90deg, #ddd, #fff);
+    background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ddd));
+    border:1px solid #444;
+    padding:5px 10px;
+    z-index:10;
+}
+.locale_select a{
+    display:block;
+    float:left;
+    color:#666;
+    text-decoration:none;
+}
+.locale_select a:hover{
+    color:#468;
+    text-shadow:1px 1px 2px #666;
+}
+
+/*------------------------------------------------------------------------------
+ * confirm mass destroy
+ *----------------------------------------------------------------------------*/
+.confirm_mass_destroy{
+    width: 100%;
+    float:left;
+}
+.confirm_mass_destroy label{
+    width:100%;
+    font-weight:normal;
+}
+.confirm_mass_destroy b{
+    font-size:1.1em;
+}
+.confirm_mass_destroy label.disabled{
+    color:#aaa;
+}
+.confirm_mass_destroy label.disabled select{
+    border-color:#aaa;
+}
+
+/*------------------------------------------------------------------------------
+ * Visibility selector
+ *----------------------------------------------------------------------------*/
+.visibility{
+    width:70%;
+    float:left;
+}
+.visibility label{
+    width:100% !important;
+    padding:0 !important;
+    font-weight:normal !important;
+}
+.visibility > .groups{
+    display:none;
+}
+.visibility > .groups > label{
+    margin-left:2em !important;
+}
+
+/*------------------------------------------------------------------------------
+ * Visibility selector
+ *----------------------------------------------------------------------------*/
+.quick_info{
+    width:96%;
+    float:left;
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 6px #aaa;
+    -webkit-box-shadow: 0px 0px 6px #aaa;
+    -moz-box-shadow: 0px 0px 6px #aaa;
+    padding:0;
+    margin:0;
+    background-color:white;
+    display:none;
+}
+.quick_info .title{
+    width:100%;
+    float:left;
+}
+.quick_info .title{
+    border-bottom:1px solid #ddd;
+}
+.quick_info .title .icon{
+    width:26%;
+    float:left;
+    margin:2%;
+}
+.quick_info .title .icon img{
+    margin:0;
+    border:none;
+}
+.quick_info .title .name{
+    width:66%;
+    float:right;
+    margin:2%;
+    color:#fff;
+    text-shadow:1px 1px 2px #000;
+    font-size:1.2em;
+    font-weight:bold;
+    overflow:hidden;
+}
+.quick_info > a{
+    text-decoration:none;
+}
+.quick_info .main{
+    width:100%;
+    float:left;
+    padding-top:3px;
+}
+.quick_info .main{
+    width:96%;
+    float:left;
+}
+.quick_info .main .line{
+    width:100%;
+    float:left;
+}
+.quick_info .main .icon{
+    width:15%;
+    float:left;
+}
+.quick_info .main .icon img{
+    border:none;
+    margin:0;
+    padding:0;
+}
+.quick_info .main .data{
+    width:85%;
+    float:right;
+    overflow:hidden;
+}
+.quick_info .item_buttons{
+    width:96%;
+    float:left;
+    margin:10px 0 0 0;
+    padding:10px 5px;
+    border-top-width:1px;
+    border-top-style:solid;
+}
+
+/*------------------------------------------------------------------------------
+ * Ajax process indicator
+ *----------------------------------------------------------------------------*/
+#ajax_process{
+    float:left;
+    padding:3px;
+    font-size:14px;
+    color:#ffd;
+    position:absolute;
+    z-index:10;
+    margin-left:50%;
+    left:-50px;
+}
+
+/*------------------------------------------------------------------------------
+ * Список элементов для которых создается групповая задача
+ *----------------------------------------------------------------------------*/
+.mass_new_items{
+    width:100%;
+    float:left;
+    color:gray;
+    font-size:1.1em;
+    font-style:italic;
+}
+.mass_new_items b{
+    color:#a66;
+}
+
+/*------------------------------------------------------------------------------
+ * Hints
+ *----------------------------------------------------------------------------*/
+body .hint_bkg, body .hint_txt, body .hint_pnt { position:absolute; z-index:100; }
+body .hint_bkg, body .hint_txt { width:150px; float:left; padding:5px 10px; }
+body .hint_txt, body .hint_txt a { color:white; font-weight:bold; }
+body .hint_bkg{
+    box-shadow: 0px 0px 8px #444;
+    -webkit-box-shadow: 0px 0px 8px #444;
+    -moz-box-shadow: 0px 0px 8px #444;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    background-color:#f80;
+    opacity:0.9;
+}
+body .hint_pnt{
+    width:10px;
+    height:10px;
+    float:left;
+    padding:0;
+    margin:0;
+    box-shadow: 0px 0px 2px #222;
+    -webkit-box-shadow: 0px 0px 2px #222;
+    -moz-box-shadow: 0px 0px 2px #222;
+    border-radius:50px;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    background-color:#fb2;
+}
+
+/*------------------------------------------------------------------------------
+ * Fuzzy search styles
+ *----------------------------------------------------------------------------*/
+.fuzzy_wrapper              { width:100%; float:left; }
+.fuzzy_label                { width:30%; float:left; }
+.fuzzy_wrapper input.fuzzy_query { width:30%; float:left; }
+.fuzzy_query.empty          { color:gray; font-style:italic; }
+.fuzzy_result               { position:absolute; margin-top:2px; padding:0.2em; display:none; color:#222; background-color:#fff; border:1px solid #74b2e2; cursor:pointer; max-height:200px; overflow:auto; z-index:1; box-shadow: 2px 4px 8px #888; -webkit-box-shadow: 2px 4px 8px #888; -moz-box-shadow: 2px 4px 8px #888; }
+.fuzzy_result b             { color:#c13; }
+.fuzzy_result i             { display:none; }
+.fuzzy_result > div         { width:100%; float:left; }
+.fuzzy_result > div:hover,
+.fuzzy_result > div.active  { background-color:#cdf; }
+.fuzzy_browse               { color:#eee; text-shadow:0 -1px 1px #444; position:relative; margin-top:2px; left:-14px; top:0.1em; width:12px; height:1.4em; float:left; text-align:center; border:none; border-left:1px solid #74b2e2; cursor:pointer; z-index:0; background-color:lightblue; background-image:-moz-linear-gradient(100% 100% 90deg, #58b, lightblue); background-image:-webkit-gradient(linear, 0% 0%, 0% 100%, from(lightblue), to(#58b)); }
+.fuzzy_error, .fuzzy_prompt { width:100%; float:left; font-size:10px; }
+.fuzzy_error                { color:#c00; }
+.fuzzy_prompt               { color:#486; }
+.fuzzy_wrapper .labeled     { padding-left:30%; }
+:@created_atf1321467383.657167 :@expires_in0:@compressedF

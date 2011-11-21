@@ -1,0 +1,16 @@
+.positions { position:relative; }
+.positions td { white-space:nowrap; border-bottom:1px solid #ccc; padding:10px 0; line-height:14px; }
+.positions .checkbox { width:24px; }
+.positions .checkbox input { margin:0; }
+.positions .name { white-space:normal; }
+.positions .name span { cursor:pointer; }
+.positions .name span.org { font-weight:bold; border-bottom:1px dashed black; margin-right:20px; }
+/*.positions .name a.service-name { color:#0971B2; border-bottom:1px dashed #0971B2; padding-left:1px; }*/
+.positions .price { width:90px; text-align:right; }
+.positions .step { width:160px; padding-left:10px; }
+.positions .step select { width:155px; position:relative; top:-1px; }
+.positions .progress { width:52px; padding-left:10px; }
+.positions .progress .bar { width:50px; height:14px; border:1px solid #88d4c3; position:relative; overflow:hidden; }
+.positions .progress .bar i.complete { background:#88d4c3; display:block; width:30px; height:14px; }
+
+

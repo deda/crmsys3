@@ -1,0 +1,11 @@
+
+
+
+.columns { position:relative; }
+
+.left-column { position:absolute; width:135px; padding:10px 10px 0px 20px; left:0; top:0; border:1px solid #ccc; }
+.left-column i.border { display:block; border-top:1px solid #ccc; padding-bottom:10px; font-size:0; margin-right:10px; }
+
+.right-column { position:absolute; width:170px; padding:10px 10px 0px 20px; right:0; top:0; border:1px solid #ccc; }
+
+.center-column { position:relative; margin:0 210px 0 175px; border:1px solid #ccc; padding:10px 20px; }

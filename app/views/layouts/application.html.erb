@@ -14,7 +14,10 @@
         'jquery.colorbox',
         'application',
         'fuzzy',
-        'feedback') %>
+        'feedback',
+        'for_delete/plugins/buttons/buttons',
+        'for_delete/plugins/info_block/info_block',
+        'for_delete/plugins/popup/popup') %>
       <%= stylesheet_link_tag(
         'style',
         'reports',
@@ -25,11 +28,21 @@
         'color_schemes',
         "schemes/color_scheme_#{current_user.settings.scheme}",
         'feedback',
-        :cache => 'styles.css') %>
-      <%= render :partial => 'mockups/javascripts' %>
-      <%= render :partial => 'mockups/stylesheets' %>
+        'for_delete/stylesheets/global/global',
+        'for_delete/stylesheets/global/global.link',
+        'for_delete/stylesheets/global/global.reset',
+        'for_delete/stylesheets/layout/l-page',
+        'for_delete/stylesheets/blocks/footer/footer',
+        'for_delete/stylesheets/blocks/top_panel/top_panel',
+        'for_delete/stylesheets/blocks/tabs/tabs',
+        'for_delete/stylesheets/blocks/navi/navi',
+        'for_delete/stylesheets/blocks/filter_bar/filter_bar',
+        'for_delete/stylesheets/blocks/positions/positions',
+        'for_delete/plugins/buttons/buttons',
+        'for_delete/plugins/info_block/info_block',
+        'for_delete/plugins/popup/popup') %>
     <% else %>
-      <%= stylesheet_link_tag 'login_form' %>
+      <%= stylesheet_link_tag 'login_form', :cache => 'styles.css' %>
     <% end %>
   </head>
   <body>

@@ -1,0 +1,20 @@
+/* Global definitions (begin) */
+
+body { font: 11px Arial, sans-serif; color: black; position: relative; background-attachment: fixed; }
+
+/* Default styles for clear blocks */
+
+.clear { clear: both; }
+.clear-after { height:1%; }
+.clear-after:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
+
+/* Pre-define headers */
+
+h1, h2, h3, h4, h5 { font-weight: bold; text-transform:none; }
+h1 { font-size: 22px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 11px; }
+	
+/* Global definitions (end) */

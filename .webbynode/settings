@@ -1,0 +1,2 @@
+engine=rails3
+rails3_adapter=mysql2

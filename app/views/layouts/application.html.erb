@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title><%=h "#{current_user.account(true).name} - " if current_user %><%= t(:default_title) %> <%= yield(:title) %></title>
+    <title><%= "#{current_user.account(true).name} - " if current_user %><%= t(:default_title) %> <%= yield(:title) %></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <% if signed_in? %>
       <%= javascript_include_tag(
@@ -42,7 +42,7 @@
         'for_delete/plugins/info_block/info_block',
         'for_delete/plugins/popup/popup') %>
     <% else %>
-      <%= stylesheet_link_tag 'login_form', :cache => 'styles.css' %>
+      <%= stylesheet_link_tag 'login_form' %>
     <% end %>
   </head>
   <body>

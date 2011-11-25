@@ -61,7 +61,7 @@
     <div class="common_buttons">
       <% new_link.each do |i| %>
         <div class="new_link">
-          <%= link_to t(:"new_#{i.singularize}"), :url => "/#{i}/new", :method => :get, :html => {:class => :button}, :remote => true %>
+          <%= link_to t(:"new_#{i.singularize}"), send(:"new_#{i.singularize}_path"), :method => :get, :class => :button, :remote => true %>
         </div>
       <% end %>
       <% if imexport %>

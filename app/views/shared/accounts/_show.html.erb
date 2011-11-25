@@ -1,7 +1,7 @@
 <%
   buttons = [:cancel] + (account.is_director? ? [] : [:edit, :delete])
 %>
-<div class="sheet_title"><%=h account.name %></div>
+<div class="sheet_title"><%= account.name %></div>
 <label><%= t(:created) %></label><%= I18n.l(account.created_at, :format => "%a, %d %b %Y") %><br />
 <label><%= t(:expiry) %></label><%= I18n.l(account.end_time, :format => "%a, %d %b %Y") %><br />
 <label><%= t(:default_lang) %></label><%= locale_name(account.settings.locale) %><br />

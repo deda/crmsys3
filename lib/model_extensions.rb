@@ -1,6 +1,6 @@
 # Расширение функционала для моделей
 
-require 'activerecord'
+require 'active_record'
 require 'lib/visibility'
 
 module ModelExtensions

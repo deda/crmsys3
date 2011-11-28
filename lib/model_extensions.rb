@@ -1,10 +1,6 @@
 # Расширение функционала для моделей
 
-<<<<<<< HEAD
 require 'active_record' # вот тут разве не надо 'active_record' вместо 'activerecord'? --Alaxender Melnikov
-=======
-require 'active_record'
->>>>>>> 4199d70f2f26ed8db7cde14dd8ad9d82d524c03c
 require 'lib/visibility'
 
 module ModelExtensions

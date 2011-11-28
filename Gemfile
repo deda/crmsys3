@@ -5,13 +5,8 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-<<<<<<< HEAD
-gem 'mysql2'
-=======
 # переходим на адаптер  mysql2
 gem 'mysql2'
-#gem 'mysql'
->>>>>>> 4199d70f2f26ed8db7cde14dd8ad9d82d524c03c
 
 gem 'json'
 
@@ -37,13 +32,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-<<<<<<< HEAD
-gem 'is_paranoid', :git => 'git://github.com/theshortcut/is_paranoid.git' #, :ref => XXX #брать гем будем отсюда, так как ребята вроде занимаюстя им
-=======
-# брать гем будем отсюда, так как ребята вроде занимаюстя им
+# брать гем is_paranoid будем отсюда, так как ребята вроде занимаюстя им
 gem 'is_paranoid', :git => 'git://github.com/theshortcut/is_paranoid.git' 
 
->>>>>>> 4199d70f2f26ed8db7cde14dd8ad9d82d524c03c
 gem 'clearance'
 gem 'prototype-rails'
 gem 'therubyracer'

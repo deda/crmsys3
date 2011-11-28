@@ -1,0 +1,10 @@
+
+.right-block { position:relative; float:right; height:30px; }
+.right-block ul { padding:9px 20px 0 0; }
+.right-block li { float:right; padding-left:10px; color:white; }
+.right-block li.logout { padding-left:20px; }
+.right-block li a { color:white; }
+
+
+.left-block { position:relative; margin-right:300px; height:30px; }
+.left-block .company-name { font-size:16px; color:white; padding:5px 0 0 20px; text-shadow: 1px 1px 3px black; }

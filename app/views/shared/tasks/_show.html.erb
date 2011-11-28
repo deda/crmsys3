@@ -1,9 +1,9 @@
-<div class="sheet_title"><%=h task.name %></div>
+<div class="sheet_title"><%= task.name %></div>
 <%= Tag.string_for(task) %>
-<% unless task.description.blank? %><label><%= t(:description)%></label><div class="field_value"><%=h task.description %></div><% end %>
-<label><%= t('.from')%></label><div class="field_value"><%=h task.user.name %></div>
-<label><%= t('.whom')%></label><div class="field_value"><%=h task.recipient.name %></div>
-<label><%= t(:completion_time)%></label><div class="field_value"><%=h task.timestamp %></div>
+<% unless task.description.blank? %><label><%= t(:description)%></label><div class="field_value"><%= task.description %></div><% end %>
+<label><%= t('.from')%></label><div class="field_value"><%= task.user.name %></div>
+<label><%= t('.whom')%></label><div class="field_value"><%= task.recipient.name %></div>
+<label><%= t(:completion_time)%></label><div class="field_value"><%= task.timestamp %></div>
 <label><%= t(:visible) %></label><div class="field_value"><%= loc_tdc(task.visible? ? :yes_ : :no_) %></div>
 <% if task.parent %>
   <%= render :partial => 'shared/tasks/parent', :locals => {:item => task} %>

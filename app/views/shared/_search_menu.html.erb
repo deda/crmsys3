@@ -55,7 +55,7 @@
       <%= t(:paging) %><br />
       <select name="r" onchange="ssearch.go(this)">
         <% [[10,10],[30,30],[50,50],[100,100],[0,t(:all)]].each do |o| %>
-         <%= "<option value='#{o[0]}'#{' selected' if o[0] == @_paging[:recs]}>#{o[1]}</option>" %>
+         <%=raw "<option value='#{o[0]}'#{' selected' if o[0] == @_paging[:recs]}>#{o[1]}</option>" %>
         <% end %>
       </select>
     </div>
@@ -77,8 +77,8 @@
     <div class="search">
       <%= t(:search) %><br />
       <% @_search.each_with_index do |search_value, i| %>
-      <input type="hidden" name="<%= search_name %>" value="<%=h search_value %>" />
-      <div class="value"><%=h search_value %></div>
+      <input type="hidden" name="<%= search_name %>" value="<%= search_value %>" />
+      <div class="value"><%= search_value %></div>
       <% end %>
       <%= FuzzyHelper.input_tag :models => models, :fields => fields, :on_sel => 'ssearch.go', :name => search_name %>
     </div>

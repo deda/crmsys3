@@ -8,11 +8,11 @@
         <a href="?locale=en">English</a><br />
         <a href="?locale=it">Italiano</a>
       </div>
-      <li class="logout"><%= link_to t('.sign_out'), sign_out_path %></li>
-      <li><%=h current_user.name_w_email %></li>
+      <li class="logout"><%= link_to t('.sign_out'), sign_out_path, :method => :delete  %></li>
+      <li><%= current_user.name_w_email %></li>
     </ul>
   </div>
   <div class="left-block">
-    <p class="company-name"><%=h current_user.account(true).name %></p>
+    <p class="company-name"><%= current_user.account(true).name %></p>
   </div>
 </div>

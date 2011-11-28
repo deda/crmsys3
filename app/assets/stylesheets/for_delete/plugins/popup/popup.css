@@ -1,0 +1,14 @@
+i#darkLayer { position:fixed; height:100%; width:100%; left:0; top:0; z-index:2; background:black; opacity:0.7; filter:Alpha(opacity=70); display:none; }
+#popup { position:absolute; width:500px; top:50px; padding:18px 20px 8px 20px; left:50%; margin-left:-270px; background:white; border:1px solid #ccc; z-index:3; display:none; }
+.p-visible { display:block !important; }
+#popup .close { position:absolute; right:10px; top:6px; color:#0971B2; cursor:pointer; }
+#popup .company-card { position:relative; }
+#popup .company-card .company-description { padding-bottom:14px; font-style:italic; color:#666; }
+#popup .company-card .company-name { font-size:16px; font-weight:bold; padding-bottom:2px; }
+#popup .company-card .contact-post { font-size:14px; font-weight:bold; padding-bottom:4px; }
+#popup .company-card .contact { padding:0 0 12px 20px; }
+#popup .company-card .contact li { padding-bottom:3px; }
+#popup .company-card .contact li span { font-weight:bold; }
+#popup .company-card .contact .name { font-size:12px; }
+
+

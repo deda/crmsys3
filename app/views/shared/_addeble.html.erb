@@ -14,7 +14,7 @@
   <% coll.each_with_index do |item,i| %>
     <% empty_present = true if item.empty? %>
   <tr class="item_line<%=' new_line' if item.new_record?%>">
-    <td class="label"><%=h title if (i == 0 and title) %></td>
+    <td class="label"><%= title if (i == 0 and title) %></td>
     <td class="item_opers"><a class="item_del_link" href="#" title="<%= t(:delete) %>"></a></td>
     <td class="content"><%= render :partial => view, :locals => {:model => model, :item => item, :name => name} %></td>
   </tr>

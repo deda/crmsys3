@@ -22,7 +22,7 @@ body{
     width:100%;
     float:left;
     height:128px;
-    background:center center no-repeat url('/images/mtote-crm.png') #fff;
+    background:center center no-repeat url('mtote-crm.png') #fff;
 }
 .login_form .inputs{
     width:90%;
@@ -38,6 +38,7 @@ body{
     font-size:16px;
 }
 .login_form .inputs input[type='text'],
+.login_form .inputs input[type="email"],
 .login_form .inputs input[type='password']{
     background-color:#fff;
     border:1px solid #74b2e2;

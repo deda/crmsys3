@@ -16,7 +16,7 @@
     <% end %>
   </td>
   <td class="info">
-    <%= link_to_remote h(account.name), :url => account_path(account), :method => :get, :html => {:class => :link_class} %><br />
+    <%= link_to h(account.name), :url => account_path(account), :method => :get, :html => {:class => :link_class}, :remote => true %><br />
     <b><%= t(:created) %>: </b><%= I18n.l(account.created_at, :format => "%a, %d %b %Y") %>
     <b><%= t(:expiry) %>: </b><%= I18n.l(account.end_time, :format => "%a, %d %b %Y") %>
     <b><%= t(:users) %>: </b><%= account.users.size %>

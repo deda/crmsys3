@@ -89,6 +89,7 @@ textarea.error{
     color:#c00;
 }
 input[type="text"],
+input[type="email"],
 input[type="password"],
 select,
 textarea{
@@ -556,45 +557,45 @@ tr.even{
 .item_opers .hidden                            { display:none; }
 .hideble .item_add_link,
 .addeble .item_add_link,
-.item_line .item_add_link                      { background-image:url('/images/add_0.png'); }
+.item_line .item_add_link                      { background-image:url('add_0.png'); }
 
 .attachmend_icon.type_unknown.item_del_link,
 .addeble .item_del_link,
-.item_line .item_del_link                      { background-image:url('/images/del_0.png'); }
-.item_line .item_chg_link                      { background-image:url('/images/chg_0.png'); }
-.item_line .item_apl_link                      { background-image:url('/images/apl_0.png'); }
-.item_line .item_uad_link                      { background-image:url('/images/uad_0.png'); }
-.item_line .item_ude_link                      { background-image:url('/images/ude_0.png'); }
-.item_line .item_uch_link                      { background-image:url('/images/uch_0.png'); }
-.item_line .item_uap_link                      { background-image:url('/images/uap_0.png'); }
+.item_line .item_del_link                      { background-image:url('del_0.png'); }
+.item_line .item_chg_link                      { background-image:url('chg_0.png'); }
+.item_line .item_apl_link                      { background-image:url('apl_0.png'); }
+.item_line .item_uad_link                      { background-image:url('uad_0.png'); }
+.item_line .item_ude_link                      { background-image:url('ude_0.png'); }
+.item_line .item_uch_link                      { background-image:url('uch_0.png'); }
+.item_line .item_uap_link                      { background-image:url('uap_0.png'); }
 .item_line .item_add_link.hover,
-.item_line .item_add_link:hover                { background-image:url('/images/add_1.png'); }
+.item_line .item_add_link:hover                { background-image:url('add_1.png'); }
 .item_line .item_del_link.hover,
-.item_line .item_del_link:hover                { background-image:url('/images/del_1.png'); }
+.item_line .item_del_link:hover                { background-image:url('del_1.png'); }
 .item_line .item_chg_link.hover,
-.item_line .item_chg_link:hover                { background-image:url('/images/chg_1.png'); }
+.item_line .item_chg_link:hover                { background-image:url('chg_1.png'); }
 .item_line .item_apl_link.hover,
-.item_line .item_apl_link:hover                { background-image:url('/images/apl_1.png'); }
+.item_line .item_apl_link:hover                { background-image:url('apl_1.png'); }
 .item_line .item_uad_link.hover,
-.item_line .item_uad_link:hover                { background-image:url('/images/uad_1.png'); }
+.item_line .item_uad_link:hover                { background-image:url('uad_1.png'); }
 .item_line .item_ude_link.hover,
-.item_line .item_ude_link:hover                { background-image:url('/images/ude_1.png'); }
+.item_line .item_ude_link:hover                { background-image:url('ude_1.png'); }
 .item_line .item_uch_link.hover,
-.item_line .item_uch_link:hover                { background-image:url('/images/uch_1.png'); }
+.item_line .item_uch_link:hover                { background-image:url('uch_1.png'); }
 .item_line .item_uap_link.hover,
-.item_line .item_uap_link:hover                { background-image:url('/images/uap_1.png'); }
-.item_line .item_hid_link                      { background-image:url('/images/hid_0.png'); }
-.item_line .item_hid_link.hided                { background-image:url('/images/uhi_0.png'); }
+.item_line .item_uap_link:hover                { background-image:url('uap_1.png'); }
+.item_line .item_hid_link                      { background-image:url('hid_0.png'); }
+.item_line .item_hid_link.hided                { background-image:url('uhi_0.png'); }
 .item_line .item_hid_link.hover,
-.item_line .item_hid_link:hover                { background-image:url('/images/hid_1.png'); }
+.item_line .item_hid_link:hover                { background-image:url('hid_1.png'); }
 .item_line .item_hid_link.hided.hover,
-.item_line .item_hid_link.hided:hover          { background-image:url('/images/uhi_1.png'); }
-.hideble .title.small .item_hid_link                { background-image:url('/images/hid_small_0.png'); }
-.hideble .title.small .item_hid_link.hided          { background-image:url('/images/uhi_small_0.png'); }
+.item_line .item_hid_link.hided:hover          { background-image:url('uhi_1.png'); }
+.hideble .title.small .item_hid_link                { background-image:url('hid_small_0.png'); }
+.hideble .title.small .item_hid_link.hided          { background-image:url('uhi_small_0.png'); }
 .hideble .title.small .item_hid_link.hover,
-.hideble .title.small .item_hid_link:hover          { background-image:url('/images/hid_small_1.png'); }
+.hideble .title.small .item_hid_link:hover          { background-image:url('hid_small_1.png'); }
 .hideble .title.small .item_hid_link.hided.hover,
-.hideble .title.small .item_hid_link.hided:hover    { background-image:url('/images/uhi_small_1.png'); }
+.hideble .title.small .item_hid_link.hided:hover    { background-image:url('uhi_small_1.png'); }
 
 
 /* Разделительные линии */
@@ -651,13 +652,13 @@ tr.even{
 .contacts_table > tbody > .item_line > .addt{
 }
 td.icon.person{
-    background-image:url('/images/32x32_person.png');
+    background-image:url('32x32_person.png');
 }
 td.icon.company{
-    background-image:url('/images/32x32_company.png');
+    background-image:url('32x32_company.png');
 }
 td.icon.bank{
-    background-image:url('/images/32x32_bank.png');
+    background-image:url('32x32_bank.png');
 }
 
 /*------------------------------------------------------------------------------
@@ -1021,12 +1022,12 @@ td.icon.bank{
 }
 .attachmend_prog.active{
     right:0px;
-    background-image:url('/images/ajax_24x24.gif');
+    background-image:url('ajax_24x24.gif');
     background-position:left center;
     background-repeat:no-repeat;
 }
 .attachmend_icon.type_unknown{
-    background:transparent no-repeat center center url('/images/paperclip.png');
+    background:transparent no-repeat center center url('paperclip.png');
 }
 .attachmends_sending{
     width:20%;
@@ -1040,7 +1041,7 @@ td.icon.bank{
     left:40%;
     position:absolute;
     text-align:center;
-    background:#eef no-repeat bottom center url('/images/ajax_bar.gif');
+    background:#eef no-repeat bottom center url('ajax_bar.gif');
     border:1px solid #74b2e2;
     z-index:100;
 }

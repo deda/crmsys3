@@ -26,7 +26,7 @@
             <%= event.title %>
             <% if event.data and event.data.any? %>
               <% event.data.each do |d| %>
-                <br /><i><%=h d %></i>
+                <br /><i><%= d %></i>
               <% end %>
             <% end %>
           </td>

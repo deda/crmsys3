@@ -127,5 +127,7 @@ Crmsys::Application.routes.draw do
   match 'fuzzy/search' => 'fuzzy#search', :as => :fuzzy_search
   match 'users/:id/update_avatar' => 'users#update_avatar', :as => :update_avatar_user
   match 'feedback/create' => 'feedback#create'
+
+  match 'sign_out' => 'clearance/sessions#destroy', :as => :sign_out
   
 end

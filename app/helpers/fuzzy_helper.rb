@@ -176,7 +176,7 @@ module FuzzyHelper
     s += "<p class='fuzzy_prompt#{labeled}'>#{prompt}</p>" if prompt
     s += "<p class='fuzzy_error#{labeled}'>#{error}</p>" if error
 
-    return "<div class='fuzzy_wrapper'>#{s}</div>"
+    return "<div class='fuzzy_wrapper'>#{s}</div>".html_safe
 
   end
 

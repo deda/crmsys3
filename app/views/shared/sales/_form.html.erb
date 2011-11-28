@@ -1,7 +1,7 @@
 <%
   url, method = get_url_and_method(@sale)
 %>
-<div class="sheet_title"><%=h @sale.new_record? ? t(:new_sale) : @sale.name %></div>
+<div class="sheet_title"><%= @sale.new_record? ? t(:new_sale) : @sale.name %></div>
 <% semantic_form_for :sale, @sale, :url => url, :html => {:method => method, :target => 'target_frame', :onmouseover => 'sale.init(this)'} do |form| %>
   <% form.inputs do %>
     <%= form.input :name, :label => t('.name') %>

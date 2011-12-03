@@ -1,6 +1,6 @@
 <% url, method = get_url_and_method(account) %>
 <div class="sheet_title"><%= account.new_record? ? t(:new_account) : account.name %></div>
-<% semantic_form_for :account, account, :url => url, :html => {:method => method, :target => 'target_frame'} do |form| %>
+<% semantic_form_for account, :url => url, :html => {:method => method, :target => 'target_frame'} do |form| %>
   <% form.inputs do %>
     <%= form.input :name, :label => t(:account_name) %>
     <%= form.input :end_time, :label => t(:expiry), :as => :date, :include_blank => false %>
